@@ -1,0 +1,84 @@
+name: Deploy Reader to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "reader/**"
+      - "Eng/**"
+      - "episodes/**"
+      - "gemini/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate manifest
+        run: python reader/generate_manifest.py
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare site artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          copy_dir_case_insensitive() {
+            local target="$1"
+            local actual
+            actual="$(find . -maxdepth 1 -mindepth 1 -type d -iname "$target" -printf "%f\n" | head -n 1 || true)"
+            if [ -n "${actual:-}" ]; then
+              cp -R "$actual" site/
+              echo "Copied: $actual"
+            else
+              echo "Skipping missing directory: $target"
+            fi
+          }
+
+          mkdir -p site
+
+          copy_dir_case_insensitive "reader"
+          copy_dir_case_insensitive "eng"
+          copy_dir_case_insensitive "episodes"
+          copy_dir_case_insensitive "gemini"
+
+          touch site/.nojekyll
+          test -f site/reader/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

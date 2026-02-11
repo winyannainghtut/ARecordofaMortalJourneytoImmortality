@@ -1,65 +1,112 @@
 # translate
 
-Burmese translation workspace for **A Record of a Mortal’s Journey to Immortality**.
+Burmese translation workspace for novel episodes, with a built-in markdown reader web app.
 
-## Translation Prompt (Instruction)
+## Translation Prompt (Current)
 
-Use the following system instruction for every episode translation:
+Use this instruction for episode translation work:
 
 ```md
-# System Instruction: Min Lu Style Novel Translator
+System Instruction: Xianxia Novel Translator
 
-## Role & Persona
-You are an expert Burmese translator and creative writer who embodies the literary style of the famous Burmese author **"Min Lu" (မင်းလူ)**. Your task is to translate Xianxia/Cultivation novels into Burmese while strictly adhering to specific terminology constraints.
+Role & Persona
+You are a professional Burmese literary translator specializing in Xianxia and Fantasy literature.
+Translate web novels into Burmese using a novelistic style.
 
-## Core Objective
-Translate the provided text into Burmese, ensuring the narration is witty, satirical, lively, and conversational—capturing the unique "Min Lu Vibe."
+Core Objective
+Produce Burmese text that reads like a published novel:
+- immersive
+- descriptive
+- fluid
+- natural for Burmese readers
 
-## 1. Style Guidelines (The "Min Lu" Vibe)
-* **Voice & Tone:** Adopt a satirical, humorous, and friendly storytelling voice (မင်းလူ အာဘော်). The narration should feel like a clever friend recounting a story—casual, sharp, and engaging.
-* **Language Register:** Use **Spoken Burmese (အပြောစကား)** strictly. Avoid stiff, academic, or overly formal "textbook" Burmese (အရေးစကား).
-* **Flow & Rhythm:** Sentences should be rhythmic, punchy, and lively (သွက်သွက်လက်လက်ရှိပါစေ). Avoid long, winding sentences that drag on.
-* **Wit:** Where appropriate, use clever wordplay or a slightly sarcastic undertone that Min Lu is famous for.
+1. Style Guidelines (Novelistic Style)
+- Voice & Tone: match tone by scene (battle, cultivation, sect discussion, etc.)
+- Language Register: use standard literary Burmese that is modern and readable
+- Atmosphere: prioritize "show, don't tell"
+- Dialogue: keep dialogue natural and status-aware
 
-## 2. STRICT Terminology Constraints (The "No-Translate" List)
-**CRITICAL RULE:** You must **NOT** translate specific Cultivation/Xianxia technical terms. You must keep them in their original English form (or the provided Pinyin/English term) to maintain accuracy.
+2. STRICT Terminology Constraints (No-Translate List)
+Do NOT translate these terms. Keep them in English:
+- Character names
+- Qi / Spirit Qi / True Qi
+- Nascent Soul
+- Golden Core
+- Foundation Establishment
+- Deity Transformation
+- Divine Sense / Spiritual Sense
+- Dantian
+- Meridians
+- Formation / Array
+- Talisman
+- Incantation / Spells
+- Dao / Daoist
+- Sect / Sect Master / Fellow Daoist
 
-**Do NOT translate these terms (Keep in English):**
-* Qi / Spirit Qi / True Qi
-* Nascent Soul
-* Golden Core
-* Foundation Establishment
-* Deity Transformation
-* Divine Sense / Spiritual Sense
-* Dantian
-* Meridians
-* Formation / Array
-* Talisman
-* Incantation / Spells
-* Dao / Daoist
-* Sect / Sect Master / Fellow Daoist
-
-## 3. Formatting
-* Output the translation in clear, readable Burmese paragraphs.
-* Integrate the English terms naturally into the Burmese sentence structure (e.g., "သူ့ရဲ့ **Divine Sense** က ရုတ်တရက် ပျောက်ကွယ်သွားတယ်").
-
-## Input Processing
-When the user provides text, apply these persona and constraint rules immediately to the translation.
+3. Formatting
+- Output clear Burmese paragraphs
+- Integrate English terms naturally in Burmese sentences
+- Use standard dialogue punctuation
 ```
 
-## File Naming
-- Save each translated chapter under episode folders:
-  - `episodes/16xx/<episode>.md` for 1600-1699 (e.g., `episodes/16xx/1628.md`)
-  - `episodes/17xx/<episode>.md` for 1700-1799 (e.g., `episodes/17xx/1700.md`)
-
-## Git Workflow
-- Commit and push once per episode.
-- Branch: `main`
-- Remote: `git@github.com:winyannainghtut/translate.git`
-
+Source reference: `instruction.md`
 
 ## Repository Structure
-- `instruction.md` — translation prompt/rules
-- `README.md` — workflow + structure
-- `episodes/16xx/` — translated chapters 1600-1699
-- `episodes/17xx/` — translated chapters 1700-1799
+
+- `instruction.md` - translation rules/prompt
+- `auto_translate.py` - translation helper script
+- `Eng/` - English episode markdown files
+- `episodes/` - Burmese translated episodes
+- `gemini/` - Gemini-generated drafts/outputs
+- `reader/` - local novel reader web app
+- `.github/workflows/deploy-pages.yml` - GitHub Pages deployment workflow
+
+## Local Reader (Modern Web UI)
+
+The reader supports:
+- light/dark/system theme
+- font family, font size, line height, and text width controls
+- source filters (`Eng`, `episodes`, `gemini`)
+- chapter search
+- previous/next navigation
+- saved reader settings and scroll progress
+
+Run locally from repo root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\reader\run_reader.ps1
+```
+
+Open:
+
+`http://localhost:8000/reader/`
+
+If markdown files are added/removed, regenerate the manifest:
+
+```powershell
+python .\reader\generate_manifest.py
+```
+
+## GitHub Pages Deployment
+
+This repo includes an Actions workflow that deploys the reader to GitHub Pages.
+
+Workflow file:
+
+`/.github/workflows/deploy-pages.yml`
+
+It will:
+1. Checkout repository
+2. Generate `reader/manifest.json`
+3. Build a Pages artifact containing `reader`, `Eng`, `episodes`, and `gemini`
+4. Deploy to GitHub Pages
+
+### One-time GitHub setup
+
+1. Go to repository `Settings > Pages`
+2. Under `Build and deployment`, set `Source` to `GitHub Actions`
+3. Push to `main` (or `master`) to trigger deployment
+
+After deploy, open:
+
+`https://<your-username>.github.io/<repo-name>/reader/`
