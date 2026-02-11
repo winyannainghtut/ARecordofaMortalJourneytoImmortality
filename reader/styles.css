@@ -252,6 +252,11 @@ select:focus {
   border-color: var(--accent);
 }
 
+.icon-btn[aria-expanded="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
 .chapter-meta {
   padding: 16px 22px 8px;
 }
@@ -364,6 +369,17 @@ select:focus {
 
   .toolbar {
     gap: 10px;
+  }
+
+  .settings-grid {
+    display: none;
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+
+  body.settings-open .settings-grid {
+    display: flex;
   }
 
   .settings-grid label {

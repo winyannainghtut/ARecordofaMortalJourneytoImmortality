@@ -35,6 +35,7 @@
     sidebar: document.getElementById("sidebar"),
     closeSidebarBtn: document.getElementById("closeSidebarBtn"),
     openSidebarBtn: document.getElementById("openSidebarBtn"),
+    toggleSettingsBtn: document.getElementById("toggleSettingsBtn"),
     chapterList: document.getElementById("chapterList"),
     sourceFilter: document.getElementById("sourceFilter"),
     libraryMeta: document.getElementById("libraryMeta"),
@@ -59,6 +60,7 @@
 
   async function init() {
     bindEvents();
+    setSettingsPanelOpen(false);
     hydrateSettingsControls();
     applyVisualSettings();
     await loadManifest();
@@ -104,11 +106,19 @@
 
     els.openSidebarBtn.addEventListener("click", () => {
       document.body.classList.add("sidebar-open");
+      setSettingsPanelOpen(false);
     });
 
     els.closeSidebarBtn.addEventListener("click", () => {
       document.body.classList.remove("sidebar-open");
     });
+
+    if (els.toggleSettingsBtn) {
+      els.toggleSettingsBtn.addEventListener("click", () => {
+        const isOpen = document.body.classList.contains("settings-open");
+        setSettingsPanelOpen(!isOpen);
+      });
+    }
 
     els.readerPanel.addEventListener("scroll", () => {
       if (!state.currentId) return;
@@ -334,6 +344,13 @@
   function applyVisualSettings() {
     applyTheme();
     applyTypography();
+  }
+
+  function setSettingsPanelOpen(isOpen) {
+    document.body.classList.toggle("settings-open", isOpen);
+    if (!els.toggleSettingsBtn) return;
+    els.toggleSettingsBtn.setAttribute("aria-expanded", String(isOpen));
+    els.toggleSettingsBtn.textContent = isOpen ? "Hide Settings" : "Settings";
   }
 
   function applyTheme() {

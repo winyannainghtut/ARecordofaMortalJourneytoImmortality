@@ -35,11 +35,12 @@
       <header class="toolbar">
         <div class="toolbar-group">
           <button class="icon-btn mobile-only" id="openSidebarBtn" type="button">Library</button>
+          <button class="icon-btn mobile-only" id="toggleSettingsBtn" type="button" aria-expanded="false" aria-controls="settingsPanel">Settings</button>
           <button class="icon-btn" id="prevBtn" type="button">Previous</button>
           <button class="icon-btn" id="nextBtn" type="button">Next</button>
         </div>
 
-        <div class="toolbar-group settings-grid">
+        <div class="toolbar-group settings-grid" id="settingsPanel">
           <label for="themeSelect">
             Theme
             <select id="themeSelect">
