@@ -5,12 +5,6 @@ on:
     branches:
       - main
       - master
-    paths:
-      - "reader/**"
-      - "Eng/**"
-      - "episodes/**"
-      - "gemini/**"
-      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -41,31 +35,57 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Prepare site artifact
-        shell: bash
         run: |
-          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
 
-          copy_dir_case_insensitive() {
-            local target="$1"
-            local actual
-            actual="$(find . -maxdepth 1 -mindepth 1 -type d -iname "$target" -printf "%f\n" | head -n 1 || true)"
-            if [ -n "${actual:-}" ]; then
-              cp -R "$actual" site/
-              echo "Copied: $actual"
-            else
-              echo "Skipping missing directory: $target"
-            fi
-          }
+          root = Path(".")
+          site = root / "site"
+          site.mkdir(exist_ok=True)
 
-          mkdir -p site
+          def copy_dir_case_insensitive(name: str) -> None:
+              match = next(
+                  (p for p in root.iterdir() if p.is_dir() and p.name.lower() == name.lower()),
+                  None,
+              )
+              if not match:
+                  print(f"Skipping missing directory: {name}")
+                  return
 
-          copy_dir_case_insensitive "reader"
-          copy_dir_case_insensitive "eng"
-          copy_dir_case_insensitive "episodes"
-          copy_dir_case_insensitive "gemini"
+              destination = site / match.name
+              if destination.exists():
+                  shutil.rmtree(destination)
+              shutil.copytree(match, destination)
+              print(f"Copied: {match} -> {destination}")
 
-          touch site/.nojekyll
-          test -f site/reader/index.html
+          copy_dir_case_insensitive("reader")
+          copy_dir_case_insensitive("eng")
+          copy_dir_case_insensitive("episodes")
+          copy_dir_case_insensitive("gemini")
+
+          # Make the Pages root URL open the reader directly.
+          (site / "index.html").write_text(
+              "<!doctype html><meta charset='utf-8'>"
+              "<meta http-equiv='refresh' content='0; url=./reader/'>"
+              "<title>Novel Reader</title>"
+              "<a href='./reader/'>Open Novel Reader</a>",
+              encoding="utf-8",
+          )
+          (site / ".nojekyll").touch()
+
+          reader_index = site / "reader" / "index.html"
+          if not reader_index.exists():
+              raise SystemExit(f"Missing required file: {reader_index}")
+          PY
+
+      - name: Show artifact summary
+        run: |
+          echo "Top-level site contents:"
+          ls -la site
+          echo ""
+          echo "Site size:"
+          du -sh site
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
