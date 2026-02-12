@@ -2,6 +2,12 @@
 
 This repository focuses on translating **A Record of a Mortal’s Journey to Immortality** into Burmese.
 
+## GitHub Pages
+
+Read online at:
+
+**https://winyannainghtut.github.io/ARecordofaMortalJourneytoImmortality/reader/**
+
 ## About the Novel
 
 **A Record of a Mortal’s Journey to Immortality** is a long-running Xianxia cultivation novel following **Han Li**, a mortal with ordinary talent who survives through caution, intelligence, and relentless cultivation in a dangerous world of Sects, Dao paths, and high-level experts.
