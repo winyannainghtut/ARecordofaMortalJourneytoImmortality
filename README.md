@@ -57,8 +57,6 @@ Source reference: `instruction.md`
 - `auto_translate.py` - translation helper script
 - `Eng/` - English episode markdown files
 - `episodes/` - Burmese translated episodes
-- `gemini/` - Gemini-generated drafts/outputs
-- `codex/` - Codex-generated drafts/outputs
 - `reader/` - local novel reader web app
 - `.github/workflows/deploy-pages.yml` - GitHub Pages deployment workflow
 
@@ -67,7 +65,7 @@ Source reference: `instruction.md`
 The reader supports:
 - light/dark/system theme
 - font family, font size, line height, and text width controls
-- source filters (`Eng`, `episodes`, `gemini`, `codex`)
+- source filters (`Eng`, `episodes`)
 - chapter search
 - previous/next navigation
 - saved reader settings and scroll progress
@@ -99,7 +97,7 @@ Workflow file:
 It will:
 1. Checkout repository
 2. Generate `reader/manifest.json`
-3. Build a Pages artifact containing `reader`, `Eng`, `episodes`, `gemini`, and `codex`
+3. Build a Pages artifact containing `reader`, `Eng`, and `episodes`
 4. Deploy to GitHub Pages
 
 ### One-time GitHub setup

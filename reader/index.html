@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern, local markdown novel reader with bookmarks, reading progress, and customizable themes.">
   <title>Novel Reader</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,18 +13,24 @@
 <body>
   <div class="app-shell" id="appShell">
     <aside class="sidebar" id="sidebar">
+      <div class="sidebar-accent-bar"></div>
       <div class="sidebar-top">
         <div>
           <p class="eyebrow">Local Library</p>
           <h1>Novel Reader</h1>
           <p class="meta" id="libraryMeta">Loading chapters...</p>
         </div>
-        <button class="icon-btn mobile-only" id="closeSidebarBtn" type="button" aria-label="Close library">Close</button>
+        <button class="icon-btn mobile-only" id="closeSidebarBtn" type="button" aria-label="Close library">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
       </div>
 
       <label class="search-wrap" for="searchInput">
         <span>Search chapters</span>
-        <input id="searchInput" type="search" placeholder="Episode title or path">
+        <div class="search-input-wrap">
+          <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="searchInput" type="search" placeholder="Episode title or path">
+        </div>
       </label>
 
       <div class="source-filter" id="sourceFilter"></div>
@@ -32,12 +39,25 @@
     </aside>
 
     <main class="reader-panel" id="readerPanel">
+      <div class="reading-progress-bar" id="readingProgressBar"></div>
+
       <header class="toolbar">
         <div class="toolbar-group">
-          <button class="icon-btn mobile-only" id="openSidebarBtn" type="button">Library</button>
-          <button class="icon-btn mobile-only" id="toggleSettingsBtn" type="button" aria-expanded="false" aria-controls="settingsPanel">Settings</button>
-          <button class="icon-btn" id="prevBtn" type="button">Previous</button>
-          <button class="icon-btn" id="nextBtn" type="button">Next</button>
+          <button class="icon-btn mobile-only" id="openSidebarBtn" type="button" aria-label="Open library">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <button class="icon-btn mobile-only" id="toggleSettingsBtn" type="button" aria-expanded="false" aria-controls="settingsPanel" aria-label="Toggle settings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+          <button class="icon-btn" id="prevBtn" type="button" aria-label="Previous chapter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="icon-btn" id="nextBtn" type="button" aria-label="Next chapter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <button class="icon-btn bookmark-btn" id="bookmarkBtn" type="button" aria-label="Toggle bookmark" aria-pressed="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
         </div>
 
         <div class="toolbar-group settings-grid" id="settingsPanel">
@@ -47,6 +67,7 @@
               <option value="system">System</option>
               <option value="light">Light</option>
               <option value="dark">Dark</option>
+              <option value="sepia">Sepia</option>
             </select>
           </label>
 
@@ -82,8 +103,18 @@
       </section>
 
       <article class="content" id="content">
-        <p class="empty-state">Pick any markdown file to start reading.</p>
+        <div class="welcome-state">
+          <div class="welcome-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <p class="welcome-title">Pick any chapter to start reading</p>
+          <p class="welcome-hint">Use <kbd>←</kbd> <kbd>→</kbd> to navigate · <kbd>Esc</kbd> to toggle library</p>
+        </div>
       </article>
+
+      <button class="back-to-top" id="backToTopBtn" type="button" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+      </button>
     </main>
   </div>
 

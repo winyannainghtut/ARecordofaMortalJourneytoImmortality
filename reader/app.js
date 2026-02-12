@@ -1,9 +1,13 @@
 (function () {
   "use strict";
 
+  /* ====== Storage Keys ====== */
   const SETTINGS_KEY = "novel_reader_settings_v1";
   const LAST_CHAPTER_KEY = "novel_reader_last_chapter_v1";
   const PROGRESS_KEY = "novel_reader_scroll_progress_v1";
+  const BOOKMARKS_KEY = "novel_reader_bookmarks_v1";
+  const READ_STATUS_KEY = "novel_reader_read_status_v1";
+
   const SYSTEM_THEME_QUERY = window.matchMedia("(prefers-color-scheme: dark)");
 
   const defaultSettings = {
@@ -21,6 +25,7 @@
     classic: "'Alegreya', Georgia, serif"
   };
 
+  /* ====== State ====== */
   const state = {
     sources: [],
     entries: [],
@@ -28,9 +33,13 @@
     currentId: null,
     settings: readJSON(SETTINGS_KEY, defaultSettings),
     progress: readJSON(PROGRESS_KEY, {}),
-    saveTimer: null
+    bookmarks: readJSONArray(BOOKMARKS_KEY),
+    readStatus: readJSON(READ_STATUS_KEY, {}),
+    saveTimer: null,
+    statusTimer: null
   };
 
+  /* ====== DOM References ====== */
   const els = {
     appShell: document.getElementById("appShell"),
     sidebar: document.getElementById("sidebar"),
@@ -44,6 +53,9 @@
     searchInput: document.getElementById("searchInput"),
     prevBtn: document.getElementById("prevBtn"),
     nextBtn: document.getElementById("nextBtn"),
+    bookmarkBtn: document.getElementById("bookmarkBtn"),
+    backToTopBtn: document.getElementById("backToTopBtn"),
+    readingProgressBar: document.getElementById("readingProgressBar"),
     themeSelect: document.getElementById("themeSelect"),
     fontSelect: document.getElementById("fontSelect"),
     fontSizeRange: document.getElementById("fontSizeRange"),
@@ -60,15 +72,18 @@
 
   init();
 
+  /* ====== Initialization ====== */
   async function init() {
     document.body.classList.add("js-ready");
     bindEvents();
     setSettingsPanelOpen(false);
     hydrateSettingsControls();
     applyVisualSettings();
+    updateBookmarkButton();
     await loadManifest();
   }
 
+  /* ====== Event Binding ====== */
   function bindEvents() {
     els.searchInput.addEventListener("input", () => {
       renderChapterList();
@@ -123,14 +138,33 @@
       });
     }
 
+    /* Bookmark toggle */
+    els.bookmarkBtn.addEventListener("click", () => {
+      if (!state.currentId) return;
+      toggleBookmark(state.currentId);
+    });
+
+    /* Back to top */
+    els.backToTopBtn.addEventListener("click", () => {
+      els.readerPanel.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* Scroll – progress bar, back-to-top, read status */
     els.readerPanel.addEventListener("scroll", () => {
       if (!state.currentId) return;
-      state.progress[state.currentId] = Math.max(0, els.readerPanel.scrollTop);
+
+      const scrollTop = Math.max(0, els.readerPanel.scrollTop);
+      state.progress[state.currentId] = scrollTop;
       scheduleProgressSave();
+
+      updateReadingProgressBar();
+      updateBackToTopVisibility(scrollTop);
+      updateReadStatus();
     });
 
     window.addEventListener("beforeunload", () => {
       flushProgressSave();
+      flushReadStatusSave();
     });
 
     SYSTEM_THEME_QUERY.addEventListener("change", () => {
@@ -138,8 +172,29 @@
         applyTheme();
       }
     });
+
+    /* Keyboard shortcuts */
+    document.addEventListener("keydown", (e) => {
+      if (isInputFocused()) return;
+
+      switch (e.key) {
+        case "ArrowLeft":
+          e.preventDefault();
+          moveToSibling(-1);
+          break;
+        case "ArrowRight":
+          e.preventDefault();
+          moveToSibling(1);
+          break;
+        case "Escape":
+          e.preventDefault();
+          document.body.classList.toggle("sidebar-open");
+          break;
+      }
+    });
   }
 
+  /* ====== Manifest Loading ====== */
   async function loadManifest() {
     try {
       const response = await fetch("./manifest.json", { cache: "no-store" });
@@ -176,6 +231,7 @@
     }
   }
 
+  /* ====== Source Filter ====== */
   function renderSourceFilter() {
     const sources = state.sources.length
       ? state.sources
@@ -190,6 +246,11 @@
       const button = buildFilterChip(source, source, active);
       els.sourceFilter.appendChild(button);
     }
+
+    /* Bookmarks filter chip */
+    const bookmarkActive = state.settings.source === "__bookmarks__";
+    const bmChip = buildFilterChip("★ Bookmarks", "__bookmarks__", bookmarkActive);
+    els.sourceFilter.appendChild(bmChip);
   }
 
   function buildFilterChip(label, value, active) {
@@ -206,12 +267,15 @@
     return button;
   }
 
+  /* ====== Chapter List ====== */
   function renderChapterList() {
     const query = els.searchInput.value.trim().toLowerCase();
     const sourceFilter = state.settings.source;
 
     const filtered = state.entries.filter((entry) => {
-      if (sourceFilter !== "all" && entry.sourceLabel !== sourceFilter) {
+      if (sourceFilter === "__bookmarks__") {
+        if (!state.bookmarks.includes(entry.id)) return false;
+      } else if (sourceFilter !== "all" && entry.sourceLabel !== sourceFilter) {
         return false;
       }
 
@@ -227,7 +291,9 @@
     if (!filtered.length) {
       const empty = document.createElement("li");
       empty.className = "chapter-group";
-      empty.textContent = "No chapters match this filter.";
+      empty.textContent = sourceFilter === "__bookmarks__"
+        ? "No bookmarked chapters yet."
+        : "No chapters match this filter.";
       els.chapterList.appendChild(empty);
       updateNavButtons();
       return;
@@ -248,6 +314,9 @@
       item.className = `chapter-item${entry.id === state.currentId ? " active" : ""}`;
       item.dataset.chapterId = entry.id;
 
+      const info = document.createElement("div");
+      info.className = "chapter-item-info";
+
       const title = document.createElement("div");
       title.className = "chapter-title";
       title.textContent = entry.title;
@@ -256,8 +325,31 @@
       path.className = "chapter-path";
       path.textContent = entry.path;
 
-      item.appendChild(title);
-      item.appendChild(path);
+      info.appendChild(title);
+      info.appendChild(path);
+
+      const indicators = document.createElement("div");
+      indicators.className = "chapter-indicators";
+
+      /* Bookmark indicator */
+      if (state.bookmarks.includes(entry.id)) {
+        const bmIcon = document.createElement("span");
+        bmIcon.className = "bookmark-indicator";
+        bmIcon.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>`;
+        indicators.appendChild(bmIcon);
+      }
+
+      /* Read status dot */
+      const statusDot = document.createElement("span");
+      const readRatio = state.readStatus[entry.id] || 0;
+      let statusClass = "unread";
+      if (readRatio >= 0.9) statusClass = "completed";
+      else if (readRatio > 0.05) statusClass = "in-progress";
+      statusDot.className = `status-dot ${statusClass}`;
+      indicators.appendChild(statusDot);
+
+      item.appendChild(info);
+      item.appendChild(indicators);
       item.addEventListener("click", () => openChapter(entry.id, true));
       els.chapterList.appendChild(item);
     }
@@ -265,15 +357,18 @@
     updateNavButtons();
   }
 
+  /* ====== Open Chapter ====== */
   async function openChapter(chapterId, closeSidebarOnMobile) {
     const entry = state.entries.find((item) => item.id === chapterId);
     if (!entry) return;
 
     flushProgressSave();
+    flushReadStatusSave();
     state.currentId = chapterId;
     localStorage.setItem(LAST_CHAPTER_KEY, chapterId);
 
     renderChapterList();
+    updateBookmarkButton();
     setChapterMeta(entry, "Loading...");
 
     try {
@@ -296,6 +391,8 @@
       requestAnimationFrame(() => {
         const savedTop = Number(state.progress[chapterId] || 0);
         els.readerPanel.scrollTop = Number.isFinite(savedTop) ? savedTop : 0;
+        updateReadingProgressBar();
+        updateBackToTopVisibility(els.readerPanel.scrollTop);
       });
 
       if (closeSidebarOnMobile) {
@@ -312,6 +409,7 @@
     els.chapterInfo.textContent = entry ? `${entry.sourceLabel} · ${entry.path} · ${detail}` : detail;
   }
 
+  /* ====== Navigation ====== */
   function moveToSibling(direction) {
     if (!state.currentId || !state.visibleEntries.length) return;
     const currentIndex = state.visibleEntries.findIndex((entry) => entry.id === state.currentId);
@@ -336,6 +434,78 @@
     els.nextBtn.disabled = currentIndex < 0 || currentIndex >= state.visibleEntries.length - 1;
   }
 
+  /* ====== Bookmarks ====== */
+  function toggleBookmark(chapterId) {
+    const index = state.bookmarks.indexOf(chapterId);
+    if (index >= 0) {
+      state.bookmarks.splice(index, 1);
+    } else {
+      state.bookmarks.push(chapterId);
+    }
+    saveBookmarks();
+    updateBookmarkButton();
+    renderChapterList();
+  }
+
+  function updateBookmarkButton() {
+    const isBookmarked = state.currentId && state.bookmarks.includes(state.currentId);
+    els.bookmarkBtn.setAttribute("aria-pressed", String(Boolean(isBookmarked)));
+    els.bookmarkBtn.disabled = !state.currentId;
+  }
+
+  function saveBookmarks() {
+    localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(state.bookmarks));
+  }
+
+  /* ====== Reading Progress Bar ====== */
+  function updateReadingProgressBar() {
+    const el = els.readerPanel;
+    const scrollHeight = el.scrollHeight - el.clientHeight;
+    if (scrollHeight <= 0) {
+      els.readingProgressBar.style.width = "0%";
+      return;
+    }
+    const percent = Math.min(100, (el.scrollTop / scrollHeight) * 100);
+    els.readingProgressBar.style.width = `${percent}%`;
+  }
+
+  /* ====== Back to Top ====== */
+  function updateBackToTopVisibility(scrollTop) {
+    els.backToTopBtn.classList.toggle("visible", scrollTop > 400);
+  }
+
+  /* ====== Read Status Tracking ====== */
+  function updateReadStatus() {
+    if (!state.currentId) return;
+    const el = els.readerPanel;
+    const scrollHeight = el.scrollHeight - el.clientHeight;
+    if (scrollHeight <= 0) return;
+
+    const ratio = Math.min(1, el.scrollTop / scrollHeight);
+    const current = state.readStatus[state.currentId] || 0;
+    if (ratio > current) {
+      state.readStatus[state.currentId] = Math.round(ratio * 100) / 100;
+      scheduleReadStatusSave();
+    }
+  }
+
+  function scheduleReadStatusSave() {
+    if (state.statusTimer) return;
+    state.statusTimer = window.setTimeout(() => {
+      state.statusTimer = null;
+      localStorage.setItem(READ_STATUS_KEY, JSON.stringify(state.readStatus));
+    }, 800);
+  }
+
+  function flushReadStatusSave() {
+    if (state.statusTimer) {
+      clearTimeout(state.statusTimer);
+      state.statusTimer = null;
+    }
+    localStorage.setItem(READ_STATUS_KEY, JSON.stringify(state.readStatus));
+  }
+
+  /* ====== Settings ====== */
   function hydrateSettingsControls() {
     const settings = { ...defaultSettings, ...state.settings };
     state.settings = settings;
@@ -359,14 +529,16 @@
     if (!els.toggleSettingsBtn) return;
     const expanded = Boolean(isOpen);
     els.toggleSettingsBtn.setAttribute("aria-expanded", String(expanded));
-    els.toggleSettingsBtn.textContent = expanded ? "Hide Settings" : "Settings";
   }
 
   function applyTheme() {
     const theme = state.settings.theme;
-    const resolved = theme === "system"
-      ? SYSTEM_THEME_QUERY.matches ? "dark" : "light"
-      : theme;
+    let resolved;
+    if (theme === "system") {
+      resolved = SYSTEM_THEME_QUERY.matches ? "dark" : "light";
+    } else {
+      resolved = theme;
+    }
     document.documentElement.setAttribute("data-theme", resolved);
   }
 
@@ -390,6 +562,7 @@
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
   }
 
+  /* ====== Scroll Progress Persistence ====== */
   function scheduleProgressSave() {
     if (state.saveTimer) return;
     state.saveTimer = window.setTimeout(() => {
@@ -406,6 +579,7 @@
     localStorage.setItem(PROGRESS_KEY, JSON.stringify(state.progress));
   }
 
+  /* ====== Utilities ====== */
   function toReaderPath(rootRelativePath) {
     const safePath = rootRelativePath
       .split("/")
@@ -432,6 +606,17 @@
     }
   }
 
+  function readJSONArray(key) {
+    try {
+      const raw = localStorage.getItem(key);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (_error) {
+      return [];
+    }
+  }
+
   function cloneDefault(value) {
     if (Array.isArray(value)) return [...value];
     if (value && typeof value === "object") return { ...value };
@@ -450,5 +635,12 @@
       .replaceAll(">", "&gt;")
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#39;");
+  }
+
+  function isInputFocused() {
+    const active = document.activeElement;
+    if (!active) return false;
+    const tag = active.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || tag === "select" || active.isContentEditable;
   }
 })();

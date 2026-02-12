@@ -4,7 +4,6 @@ Simple local website for reading markdown chapters from:
 
 - `Eng`
 - `episodes` (or `Episodes`)
-- `gemini` (or `Gemini`)
 
 ## Run
 
