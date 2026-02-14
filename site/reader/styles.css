@@ -50,23 +50,25 @@ body {
 }
 
 .app-shell {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 320px 1fr;
-  gap: 16px;
-  padding: 16px;
+  gap: 0;
+  padding: 0;
 }
 
 .sidebar,
 .reader-panel {
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  box-shadow: var(--shadow);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   backdrop-filter: blur(8px);
 }
 
 .sidebar {
   background: var(--surface);
+  border-right: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   overflow: hidden;
