@@ -422,14 +422,22 @@ select:focus {
 }
 
 @media (max-width: 980px) {
+  html,
+  body {
+    width: 100%;
+    min-height: 100dvh;
+  }
+
   body.sidebar-open {
     overflow: hidden;
   }
 
   .app-shell {
     grid-template-columns: 1fr;
-    padding: 10px;
-    gap: 10px;
+    width: 100%;
+    min-height: 100dvh;
+    padding: 0;
+    gap: 0;
   }
 
   .mobile-only {
@@ -438,10 +446,10 @@ select:focus {
 
   .sidebar {
     position: fixed;
-    left: 10px;
-    right: 10px;
-    top: 10px;
-    bottom: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     z-index: 40;
     transform: translateX(-108%);
     transition: transform 180ms ease;
@@ -452,7 +460,13 @@ select:focus {
   }
 
   .reader-panel {
-    min-height: calc(100vh - 20px);
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .toolbar {
@@ -507,30 +521,40 @@ select:focus {
 }
 
 @media (max-width: 430px) {
+  html,
   body {
-    background:
-      radial-gradient(620px 340px at 0% -8%, var(--bg-grad-1), transparent 62%),
-      radial-gradient(600px 320px at 100% -4%, var(--bg-grad-2), transparent 64%),
-      var(--bg);
+    width: 100%;
+    min-height: 100dvh;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: var(--surface);
   }
 
   .app-shell {
-    height: auto;
+    width: 100%;
+    min-height: 100dvh;
     min-height: 100vh;
     padding: 0;
     gap: 0;
   }
 
-  .reader-panel,
-  .sidebar {
+  .reader-panel {
+    width: 100%;
+    min-height: 100dvh;
+    min-height: 100vh;
+    margin: 0;
+    border: 0;
     border-radius: 0;
-    border-left: 0;
-    border-right: 0;
+    box-shadow: none;
   }
 
-  .reader-panel {
-    min-height: 100vh;
-    border-top: 0;
+  .sidebar {
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .toolbar {
