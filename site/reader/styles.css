@@ -13,6 +13,7 @@
   --reader-font-size: 19px;
   --reader-line-height: 1.78;
   --reader-width: 760px;
+  --reader-max-width: 75ch;
   --reader-font: "Source Serif 4", Georgia, serif;
   --reader-font-myanmar-serif: "Noto Serif Myanmar", "Padauk", "Myanmar Text", "Pyidaungsu", serif;
   --reader-font-myanmar-sans: "Noto Sans Myanmar", "Padauk", "Myanmar Text", "Pyidaungsu", sans-serif;
@@ -44,10 +45,7 @@ body {
 
 body {
   color: var(--text);
-  background:
-    radial-gradient(1200px 700px at -10% -20%, var(--bg-grad-1), transparent 55%),
-    radial-gradient(1000px 650px at 100% 0%, var(--bg-grad-2), transparent 60%),
-    var(--bg);
+  background: var(--bg);
   font-family: "Outfit", "Segoe UI", sans-serif;
 }
 
@@ -199,21 +197,69 @@ select:focus {
 }
 
 .reader-panel {
-  background: var(--surface);
-  overflow: auto;
   position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.reader-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 700px at -10% -20%, var(--bg-grad-1), transparent 55%),
+    radial-gradient(1000px 650px at 100% 0%, var(--bg-grad-2), transparent 60%),
+    var(--bg);
+}
+
+.reader-content-layer {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  padding: clamp(72px, 8vh, 96px) clamp(18px, 3vw, 34px) 14px;
+}
+
+.content-stage {
+  min-height: 0;
+  overflow-y: auto;
   scrollbar-gutter: stable both-edges;
 }
 
 .toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 12;
-  background: color-mix(in srgb, var(--surface-strong) 91%, transparent);
-  border-bottom: 1px solid var(--line);
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: min(calc(100% - 32px), 1080px);
+  z-index: 3;
+  transform: translate(-50%, -8px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
   padding: 10px 14px;
   display: grid;
   gap: 10px;
+  transition: opacity 180ms ease, visibility 180ms ease, transform 220ms ease;
+}
+
+.reader-panel:hover .toolbar,
+.reader-panel:focus-within .toolbar,
+.toolbar:hover,
+.toolbar:focus-within {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
 }
 
 .toolbar-row {
@@ -288,8 +334,15 @@ select:focus {
   width: 100%;
 }
 
+.chapter-meta,
+.content {
+  width: min(100%, min(var(--reader-width), var(--reader-max-width)));
+  max-width: var(--reader-max-width);
+}
+
 .chapter-meta {
-  padding: 18px 22px 10px;
+  margin: 0 auto;
+  padding: 18px 0 10px;
 }
 
 .chapter-meta h2 {
@@ -305,9 +358,12 @@ select:focus {
 }
 
 .content {
-  width: min(var(--reader-width), calc(100% - 40px));
   margin: 0 auto 44px;
   padding: 6px 0 34px;
+}
+
+.content,
+.page-inner {
   font-family: var(--reader-font);
   font-size: clamp(1rem, calc(var(--reader-font-size) * 0.98), calc(var(--reader-font-size) * 1.05));
   line-height: var(--reader-line-height);
@@ -405,12 +461,74 @@ select:focus {
   border-radius: 10px;
 }
 
+.reader-panel[data-reading-mode="paging"] .content-stage {
+  overflow: hidden;
+  padding-bottom: 14px;
+}
+
+.reader-panel[data-reading-mode="paging"] .content {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable both-edges;
+}
+
+.reader-panel[data-reading-mode="paging"] .content > .page {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.reader-panel[data-reading-mode="paging"] .content > .page > .page-inner {
+  width: min(calc(100% - 44px), min(var(--reader-width), var(--reader-max-width)));
+  max-width: var(--reader-max-width);
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 6px 0 30px;
+}
+
+.reader-panel[data-reading-mode="paging"] .content > .page > .page-inner > :first-child {
+  margin-top: 0;
+}
+
+.reader-panel[data-reading-mode="paging"] .content > .page > .page-inner > :last-child {
+  margin-bottom: 0;
+}
+
 .empty-state {
   color: var(--muted);
 }
 
 .mobile-only {
   display: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .toolbar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
 }
 
 @media (max-width: 1180px) {
@@ -471,7 +589,13 @@ select:focus {
     box-shadow: none;
   }
 
+  .reader-content-layer {
+    padding: 118px 12px 10px;
+  }
+
   .toolbar {
+    top: 8px;
+    width: calc(100% - 16px);
     padding: 10px 12px;
     gap: 8px;
   }
@@ -508,17 +632,21 @@ select:focus {
     font-size: 0.74rem;
   }
 
-  .chapter-meta {
-    padding: 15px 16px 8px;
-  }
-
   .chapter-meta p {
     font-size: 0.9rem;
   }
 
+  .chapter-meta,
   .content {
-    width: calc(100% - 24px);
+    width: min(100%, var(--reader-max-width));
+  }
+
+  .content {
     margin-bottom: 34px;
+  }
+
+  .reader-panel[data-reading-mode="paging"] .content > .page > .page-inner {
+    width: min(calc(100% - 26px), var(--reader-max-width));
   }
 }
 
@@ -533,7 +661,6 @@ select:focus {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background: var(--surface);
   }
 
   .app-shell {
@@ -557,6 +684,10 @@ select:focus {
   .sidebar {
     border-radius: 0;
     box-shadow: none;
+  }
+
+  .reader-content-layer {
+    padding: 126px 8px 8px;
   }
 
   .toolbar {
@@ -603,10 +734,6 @@ select:focus {
     align-content: center;
   }
 
-  .chapter-meta {
-    padding: 14px 12px 8px;
-  }
-
   .chapter-meta h2 {
     font-size: clamp(1.2rem, 6.2vw, 1.42rem);
   }
@@ -616,9 +743,8 @@ select:focus {
     line-height: 1.45;
   }
 
-  .content {
-    width: calc(100% - 16px);
-    padding-bottom: 26px;
+  .content,
+  .page-inner {
     font-size: clamp(1.05rem, 4.5vw, 1.16rem);
     line-height: clamp(1.68, 1.62 + 0.25vw, 1.82);
   }
@@ -651,11 +777,8 @@ select:focus {
     padding: 0.45em 0.85em;
   }
 
-  .sidebar {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  .reader-panel[data-reading-mode="paging"] .content > .page > .page-inner {
+    width: calc(100% - 16px);
   }
 }
 

@@ -9,6 +9,7 @@
   const defaultSettings = {
     theme: "system",
     font: "serif",
+    mode: "scroll",
     fontSize: 19,
     lineHeight: 1.75,
     width: 780,
@@ -28,9 +29,12 @@
     entries: [],
     visibleEntries: [],
     currentId: null,
+    currentHtml: "",
     settings: readJSON(SETTINGS_KEY, defaultSettings),
     progress: readJSON(PROGRESS_KEY, {}),
-    saveTimer: null
+    saveTimer: null,
+    pagingLayoutTimer: null,
+    wheelLockUntil: 0
   };
 
   const els = {
@@ -46,6 +50,7 @@
     nextBtn: document.getElementById("nextBtn"),
     themeSelect: document.getElementById("themeSelect"),
     fontSelect: document.getElementById("fontSelect"),
+    modeSelect: document.getElementById("modeSelect"),
     fontSizeRange: document.getElementById("fontSizeRange"),
     fontSizeValue: document.getElementById("fontSizeValue"),
     lineHeightRange: document.getElementById("lineHeightRange"),
@@ -57,6 +62,8 @@
     chapterTitle: document.getElementById("chapterTitle"),
     chapterInfo: document.getElementById("chapterInfo"),
     content: document.getElementById("content"),
+    contentStage: document.getElementById("contentStage"),
+    readerViewport: document.getElementById("readerViewport"),
     readerPanel: document.getElementById("readerPanel")
   };
 
@@ -87,6 +94,20 @@
       state.settings.font = els.fontSelect.value;
       saveSettings();
       applyTypography();
+    });
+
+    els.modeSelect.addEventListener("change", () => {
+      const previousMode = getReadingMode();
+      const previousRatio = getCurrentProgressRatio(previousMode);
+      persistCurrentProgress();
+
+      state.settings.mode = normalizeMode(els.modeSelect.value);
+      saveSettings();
+      applyReadingMode();
+
+      if (state.currentHtml) {
+        renderChapterContent({ useSavedPosition: true, fallbackRatio: previousRatio });
+      }
     });
 
     els.fontSizeRange.addEventListener("input", () => {
@@ -127,13 +148,16 @@
       }
     });
 
-    els.readerPanel.addEventListener("scroll", () => {
-      if (!state.currentId) return;
-      state.progress[state.currentId] = Math.max(0, els.readerPanel.scrollTop);
-      scheduleProgressSave();
+    els.contentStage.addEventListener("scroll", handleReadProgressScroll, { passive: true });
+    els.content.addEventListener("scroll", handleReadProgressScroll, { passive: true });
+    els.content.addEventListener("wheel", handlePagingWheel, { passive: false });
+
+    window.addEventListener("resize", () => {
+      schedulePagingLayout();
     });
 
     window.addEventListener("beforeunload", () => {
+      persistCurrentProgress();
       flushProgressSave();
     });
 
@@ -142,6 +166,62 @@
         applyTheme();
       }
     });
+
+    if (document.fonts && typeof document.fonts.addEventListener === "function") {
+      document.fonts.addEventListener("loadingdone", () => {
+        schedulePagingLayout();
+      });
+    }
+  }
+
+  function handleReadProgressScroll() {
+    if (!state.currentId) return;
+
+    const mode = getReadingMode();
+    const position = mode === "paging"
+      ? Math.max(0, els.content.scrollLeft)
+      : Math.max(0, els.contentStage.scrollTop);
+
+    setChapterProgress(state.currentId, mode, position);
+    scheduleProgressSave();
+  }
+
+  function handlePagingWheel(event) {
+    if (getReadingMode() !== "paging") return;
+    if (event.ctrlKey || event.metaKey) return;
+
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const now = performance.now();
+    if (now < state.wheelLockUntil) {
+      return;
+    }
+    state.wheelLockUntil = now + 190;
+
+    const direction = event.deltaY > 0 ? 1 : -1;
+    const pageStep = Math.max(1, els.content.clientWidth);
+    els.content.scrollBy({
+      left: direction * pageStep,
+      behavior: "smooth"
+    });
+  }
+
+  function schedulePagingLayout() {
+    if (getReadingMode() !== "paging" || !state.currentHtml) return;
+
+    if (state.pagingLayoutTimer) {
+      clearTimeout(state.pagingLayoutTimer);
+    }
+
+    state.pagingLayoutTimer = window.setTimeout(() => {
+      state.pagingLayoutTimer = null;
+      const ratio = getCurrentProgressRatio("paging");
+      renderChapterContent({ useSavedPosition: false, fallbackRatio: ratio });
+    }, 120);
   }
 
   async function loadManifest() {
@@ -175,7 +255,8 @@
     } catch (error) {
       els.libraryMeta.textContent = "Failed to load chapter index";
       els.chapterInfo.textContent = String(error.message || error);
-      els.content.innerHTML = `<p class="empty-state">Run <code>python reader/generate_manifest.py</code> then reload.</p>`;
+      state.currentHtml = '<p class="empty-state">Run <code>python reader/generate_manifest.py</code> then reload.</p>';
+      renderChapterContent({ suppressChapterJump: true });
     }
   }
 
@@ -270,7 +351,9 @@
     const entry = state.entries.find((item) => item.id === chapterId);
     if (!entry) return;
 
+    persistCurrentProgress();
     flushProgressSave();
+
     state.currentId = chapterId;
     localStorage.setItem(LAST_CHAPTER_KEY, chapterId);
 
@@ -289,25 +372,155 @@
         headerIds: true
       });
 
-      els.content.innerHTML = DOMPurify.sanitize(rendered);
-      populateChapterJumpOptions();
+      state.currentHtml = DOMPurify.sanitize(rendered);
+      renderChapterContent({ useSavedPosition: true });
+
       const words = countWords(markdown);
       const minutes = Math.max(1, Math.round(words / 220));
       setChapterMeta(entry, `${words.toLocaleString()} words · ~${minutes} min read`);
-
-      requestAnimationFrame(() => {
-        const savedTop = Number(state.progress[chapterId] || 0);
-        els.readerPanel.scrollTop = Number.isFinite(savedTop) ? savedTop : 0;
-      });
 
       if (closeSidebarOnMobile) {
         document.body.classList.remove("sidebar-open");
       }
     } catch (error) {
-      setChapterMeta(entry, String(error.message || error));
+      const message = String(error.message || error);
+      setChapterMeta(entry, message);
+      state.currentHtml = `<p class="empty-state">${escapeHtml(message)}</p>`;
+      renderChapterContent({ useSavedPosition: false, suppressChapterJump: true });
       clearChapterJumpOptions();
-      els.content.innerHTML = `<p class="empty-state">${escapeHtml(String(error.message || error))}</p>`;
     }
+  }
+
+  function renderChapterContent(options = {}) {
+    const {
+      useSavedPosition = false,
+      suppressChapterJump = false,
+      fallbackRatio = null
+    } = options;
+
+    const html = state.currentHtml || '<p class="empty-state">Pick any markdown file to start reading.</p>';
+    const mode = getReadingMode();
+
+    if (mode === "paging") {
+      renderPagingContent(html);
+    } else {
+      renderScrollContent(html);
+    }
+
+    if (suppressChapterJump) {
+      clearChapterJumpOptions();
+    } else {
+      populateChapterJumpOptions();
+    }
+
+    requestAnimationFrame(() => {
+      if (useSavedPosition && state.currentId) {
+        const restored = restoreChapterProgress(state.currentId, mode);
+        if (!restored && Number.isFinite(fallbackRatio)) {
+          applyProgressRatio(mode, fallbackRatio);
+        }
+        return;
+      }
+
+      if (Number.isFinite(fallbackRatio)) {
+        applyProgressRatio(mode, fallbackRatio);
+        if (state.currentId) {
+          const position = mode === "paging" ? els.content.scrollLeft : els.contentStage.scrollTop;
+          setChapterProgress(state.currentId, mode, position);
+          scheduleProgressSave();
+        }
+        return;
+      }
+
+      if (mode === "paging") {
+        els.content.scrollLeft = 0;
+      } else {
+        els.contentStage.scrollTop = 0;
+      }
+    });
+  }
+
+  function renderScrollContent(html) {
+    els.content.innerHTML = html;
+  }
+
+  function renderPagingContent(html) {
+    const template = document.createElement("template");
+    template.innerHTML = html;
+
+    const nodes = Array.from(template.content.childNodes).filter((node) => {
+      return !(node.nodeType === Node.TEXT_NODE && !node.textContent.trim());
+    });
+
+    if (!nodes.length) {
+      const empty = document.createElement("p");
+      empty.className = "empty-state";
+      empty.textContent = "Nothing to display.";
+      nodes.push(empty);
+    }
+
+    els.content.innerHTML = "";
+
+    let currentPage = createPagingPage();
+    els.content.appendChild(currentPage.page);
+
+    for (const node of nodes) {
+      currentPage.inner.appendChild(node);
+
+      if (!pageOverflows(currentPage.inner)) {
+        continue;
+      }
+
+      currentPage.inner.removeChild(node);
+
+      if (!currentPage.inner.childNodes.length) {
+        currentPage.inner.appendChild(node);
+        currentPage = createPagingPage();
+        els.content.appendChild(currentPage.page);
+        continue;
+      }
+
+      currentPage = createPagingPage();
+      els.content.appendChild(currentPage.page);
+      currentPage.inner.appendChild(node);
+
+      while (currentPage.inner.childNodes.length > 1 && pageOverflows(currentPage.inner)) {
+        const overflowNode = currentPage.inner.lastChild;
+        currentPage.inner.removeChild(overflowNode);
+
+        const nextPage = createPagingPage();
+        els.content.appendChild(nextPage.page);
+        nextPage.inner.appendChild(overflowNode);
+        currentPage = nextPage;
+      }
+    }
+
+    const lastPage = els.content.lastElementChild;
+    if (
+      lastPage
+      && lastPage.classList.contains("page")
+      && lastPage.firstElementChild
+      && !lastPage.firstElementChild.childNodes.length
+      && els.content.children.length > 1
+    ) {
+      lastPage.remove();
+    }
+  }
+
+  function createPagingPage() {
+    const page = document.createElement("section");
+    page.className = "page";
+
+    const inner = document.createElement("div");
+    inner.className = "page-inner";
+
+    page.appendChild(inner);
+    return { page, inner };
+  }
+
+  function pageOverflows(inner) {
+    if (!inner || inner.clientHeight <= 0) return false;
+    return inner.scrollHeight > inner.clientHeight + 1;
   }
 
   function populateChapterJumpOptions() {
@@ -343,10 +556,20 @@
     const target = els.content.querySelector(`#${escapeCssIdent(headingId)}`);
     if (!target) return;
 
-    const panelRect = els.readerPanel.getBoundingClientRect();
+    if (getReadingMode() === "paging") {
+      const page = target.closest(".page") || target;
+      page.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start"
+      });
+      return;
+    }
+
+    const stageRect = els.contentStage.getBoundingClientRect();
     const targetRect = target.getBoundingClientRect();
-    const topOffset = targetRect.top - panelRect.top + els.readerPanel.scrollTop - 64;
-    els.readerPanel.scrollTo({
+    const topOffset = targetRect.top - stageRect.top + els.contentStage.scrollTop - 28;
+    els.contentStage.scrollTo({
       top: Math.max(0, topOffset),
       behavior: "smooth"
     });
@@ -383,10 +606,12 @@
 
   function hydrateSettingsControls() {
     const settings = { ...defaultSettings, ...state.settings };
+    settings.mode = normalizeMode(settings.mode);
     state.settings = settings;
 
     els.themeSelect.value = settings.theme;
     els.fontSelect.value = settings.font;
+    els.modeSelect.value = settings.mode;
     els.fontSizeRange.value = String(settings.fontSize);
     els.lineHeightRange.value = String(settings.lineHeight);
     els.widthRange.value = String(settings.width);
@@ -395,6 +620,7 @@
   function applyVisualSettings() {
     applyTheme();
     applyTypography();
+    applyReadingMode();
   }
 
   function applyTheme() {
@@ -419,6 +645,23 @@
     els.fontSizeValue.textContent = `${fontSize}px`;
     els.lineHeightValue.textContent = lineHeight.toFixed(2);
     els.widthValue.textContent = `${width}px`;
+
+    schedulePagingLayout();
+  }
+
+  function applyReadingMode() {
+    const mode = normalizeMode(state.settings.mode);
+    state.settings.mode = mode;
+    els.modeSelect.value = mode;
+    els.readerPanel.dataset.readingMode = mode;
+  }
+
+  function getReadingMode() {
+    return normalizeMode(state.settings.mode);
+  }
+
+  function normalizeMode(mode) {
+    return mode === "paging" ? "paging" : "scroll";
   }
 
   function saveSettings() {
@@ -439,6 +682,89 @@
       state.saveTimer = null;
     }
     localStorage.setItem(PROGRESS_KEY, JSON.stringify(state.progress));
+  }
+
+  function persistCurrentProgress() {
+    if (!state.currentId) return;
+
+    const mode = getReadingMode();
+    const position = mode === "paging"
+      ? Math.max(0, els.content.scrollLeft)
+      : Math.max(0, els.contentStage.scrollTop);
+
+    setChapterProgress(state.currentId, mode, position);
+    scheduleProgressSave();
+  }
+
+  function setChapterProgress(chapterId, mode, position) {
+    const snapshot = getChapterProgress(chapterId);
+    const safe = Math.max(0, Number(position) || 0);
+
+    if (mode === "paging") {
+      snapshot.paging = safe;
+    } else {
+      snapshot.scroll = safe;
+    }
+
+    state.progress[chapterId] = snapshot;
+  }
+
+  function getChapterProgress(chapterId) {
+    const raw = state.progress[chapterId];
+
+    if (raw && typeof raw === "object") {
+      return {
+        scroll: Math.max(0, Number(raw.scroll) || 0),
+        paging: Math.max(0, Number(raw.paging) || 0)
+      };
+    }
+
+    const legacyScroll = Number(raw || 0);
+    return {
+      scroll: Number.isFinite(legacyScroll) ? Math.max(0, legacyScroll) : 0,
+      paging: 0
+    };
+  }
+
+  function restoreChapterProgress(chapterId, mode) {
+    const snapshot = getChapterProgress(chapterId);
+
+    if (mode === "paging") {
+      const maxLeft = Math.max(0, els.content.scrollWidth - els.content.clientWidth);
+      const left = clamp(snapshot.paging, 0, maxLeft);
+      els.content.scrollLeft = left;
+      return left > 0;
+    }
+
+    const maxTop = Math.max(0, els.contentStage.scrollHeight - els.contentStage.clientHeight);
+    const top = clamp(snapshot.scroll, 0, maxTop);
+    els.contentStage.scrollTop = top;
+    return top > 0;
+  }
+
+  function getCurrentProgressRatio(mode) {
+    if (mode === "paging") {
+      const maxLeft = Math.max(0, els.content.scrollWidth - els.content.clientWidth);
+      if (maxLeft <= 0) return 0;
+      return clamp(els.content.scrollLeft / maxLeft, 0, 1);
+    }
+
+    const maxTop = Math.max(0, els.contentStage.scrollHeight - els.contentStage.clientHeight);
+    if (maxTop <= 0) return 0;
+    return clamp(els.contentStage.scrollTop / maxTop, 0, 1);
+  }
+
+  function applyProgressRatio(mode, ratio) {
+    const safeRatio = clamp(Number(ratio), 0, 1);
+
+    if (mode === "paging") {
+      const maxLeft = Math.max(0, els.content.scrollWidth - els.content.clientWidth);
+      els.content.scrollLeft = maxLeft * safeRatio;
+      return;
+    }
+
+    const maxTop = Math.max(0, els.contentStage.scrollHeight - els.contentStage.clientHeight);
+    els.contentStage.scrollTop = maxTop * safeRatio;
   }
 
   function toReaderPath(rootRelativePath) {

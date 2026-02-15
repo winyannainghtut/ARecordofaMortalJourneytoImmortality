@@ -32,7 +32,22 @@
     </aside>
 
     <main class="reader-panel" id="readerPanel">
-      <header class="toolbar">
+      <div class="reader-bg-layer" aria-hidden="true"></div>
+
+      <div class="reader-content-layer" id="readerViewport">
+        <section class="chapter-meta">
+          <h2 id="chapterTitle">Select a chapter from the library</h2>
+          <p id="chapterInfo">Use search and source filters to quickly find episodes.</p>
+        </section>
+
+        <section class="content-stage" id="contentStage">
+          <article class="content" id="content">
+            <p class="empty-state">Pick any markdown file to start reading.</p>
+          </article>
+        </section>
+      </div>
+
+      <header class="toolbar hud-layer">
         <div class="toolbar-row toolbar-primary">
           <div class="toolbar-group">
             <button class="icon-btn mobile-only" id="openSidebarBtn" type="button">Library</button>
@@ -64,6 +79,14 @@
               </select>
             </label>
 
+            <label for="modeSelect">
+              Reading Mode
+              <select id="modeSelect">
+                <option value="scroll">Scroll</option>
+                <option value="paging">Paging</option>
+              </select>
+            </label>
+
             <label for="fontSizeRange">
               Font Size <span id="fontSizeValue"></span>
               <input id="fontSizeRange" type="range" min="14" max="32" step="1">
@@ -86,15 +109,6 @@
           <select id="chapterJumpSelect" aria-label="Jump to section"></select>
         </div>
       </header>
-
-      <section class="chapter-meta">
-        <h2 id="chapterTitle">Select a chapter from the library</h2>
-        <p id="chapterInfo">Use search and source filters to quickly find episodes.</p>
-      </section>
-
-      <article class="content" id="content">
-        <p class="empty-state">Pick any markdown file to start reading.</p>
-      </article>
     </main>
   </div>
 
