@@ -118,8 +118,12 @@ From Episode 2205 onwards, source chapters align 1:1 with episode numbers.
 - [x] **Episode 2293** (Source: 2293) - **Done**
 - [x] **Episode 2294** (Source: 2294) - **Done**
 - [x] **Episode 2295** (Source: 2295) - **Done**
+- [x] **Episode 2296** (Source: 2296) - **Done**
+- [x] **Episode 2297** (Source: 2297) - **Done**
+- [x] **Episode 2298** (Source: 2298) - **Done**
+- [x] **Episode 2299** (Source: 2299) - **Done**
+- [x] **Episode 2300** (Source: 2300) - **Done**
 - [ ] ...
-- [ ] **Episode 2300** (Source: 2300)
 
 ## Notes
 - **Style:** Novelistic, engaging, correct tone/register/atmosphere.
