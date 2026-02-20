@@ -67,6 +67,20 @@ html[data-theme="sepia"] {
   --shadow: 0 10px 40px rgba(80, 56, 20, 0.1);
 }
 
+html[data-theme="burmese-art"] {
+  --bg: #f4ebd8;
+  --bg-grad-1: #e9ddc3;
+  --bg-grad-2: #f8f1e4;
+  --surface: rgba(244, 235, 216, 0.75);
+  --surface-strong: rgba(244, 235, 216, 0.98);
+  --text: #3c2a21;
+  --muted: #8c4a32;
+  --line: rgba(140, 74, 50, 0.15);
+  --accent: #d4af37;
+  --accent-soft: rgba(212, 175, 55, 0.15);
+  --shadow: 0 10px 40px rgba(60, 42, 33, 0.1);
+}
+
 * {
   box-sizing: border-box;
 }

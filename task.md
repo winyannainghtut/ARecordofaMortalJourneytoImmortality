@@ -1,5 +1,8 @@
 # Translation Task: Episodes 2201-2300
 
+## Quick Enhancements
+- [x] Implement Burmese Art aesthetic theme in Reader app.
+
 ## Objective
 Translate episodes 2201 to 2300 of "A Record of a Mortal's Journey to Immortality" from English to Burmese, ensuring novelistic style and adherence to terminology constraints.
 
@@ -129,6 +132,46 @@ From Episode 2205 onwards, source chapters align 1:1 with episode numbers.
 - [x] **Episode 2304** (Source: 2304) - **Done**
 - [x] **Episode 2305** (Source: 2305) - **Done**
 - [ ] ...
+
+## Retranslation Task: Episodes 1815-1850
+**Objective:** Retranslate episodes 1815 to 1850 to apply the updated strict terminology rules from `instruction.md`.
+
+- [x] **Episode 1815** (Source: `Eng/1801-1900/1815_eng.md`)
+- [ ] **Episode 1816** (Source: `Eng/1801-1900/1816_eng.md`)
+- [x] **Episode 1817** (Source: `Eng/1801-1900/1817_eng.md`)
+- [x] **Episode 1818** (Source: `Eng/1801-1900/1818_eng.md`)
+- [x] **Episode 1819** (Source: `Eng/1801-1900/1819_eng.md`)
+- [x] **Episode 1820** (Source: `Eng/1801-1900/1820_eng.md`)
+- [x] **Episode 1821** (Source: `Eng/1801-1900/1821_eng.md`)
+- [x] **Episode 1822** (Source: `Eng/1801-1900/1822_eng.md`)
+- [ ] **Episode 1823** (Source: `Eng/1801-1900/1823_eng.md`)
+- [ ] **Episode 1824** (Source: `Eng/1801-1900/1824_eng.md`)
+- [ ] **Episode 1825** (Source: `Eng/1801-1900/1825_eng.md`)
+- [ ] **Episode 1826** (Source: `Eng/1801-1900/1826_eng.md`)
+- [ ] **Episode 1827** (Source: `Eng/1801-1900/1827_eng.md`)
+- [ ] **Episode 1828** (Source: `Eng/1801-1900/1828_eng.md`)
+- [ ] **Episode 1829** (Source: `Eng/1801-1900/1829_eng.md`)
+- [ ] **Episode 1830** (Source: `Eng/1801-1900/1830_eng.md`)
+- [ ] **Episode 1831** (Source: `Eng/1801-1900/1831_eng.md`)
+- [ ] **Episode 1832** (Source: `Eng/1801-1900/1832_eng.md`)
+- [ ] **Episode 1833** (Source: `Eng/1801-1900/1833_eng.md`)
+- [ ] **Episode 1834** (Source: `Eng/1801-1900/1834_eng.md`)
+- [ ] **Episode 1835** (Source: `Eng/1801-1900/1835_eng.md`)
+- [ ] **Episode 1836** (Source: `Eng/1801-1900/1836_eng.md`)
+- [ ] **Episode 1837** (Source: `Eng/1801-1900/1837_eng.md`)
+- [ ] **Episode 1838** (Source: `Eng/1801-1900/1838_eng.md`)
+- [ ] **Episode 1839** (Source: `Eng/1801-1900/1839_eng.md`)
+- [ ] **Episode 1840** (Source: `Eng/1801-1900/1840_eng.md`)
+- [ ] **Episode 1841** (Source: `Eng/1801-1900/1841_eng.md`)
+- [ ] **Episode 1842** (Source: `Eng/1801-1900/1842_eng.md`)
+- [ ] **Episode 1843** (Source: `Eng/1801-1900/1843_eng.md`)
+- [ ] **Episode 1844** (Source: `Eng/1801-1900/1844_eng.md`)
+- [ ] **Episode 1845** (Source: `Eng/1801-1900/1845_eng.md`)
+- [ ] **Episode 1846** (Source: `Eng/1801-1900/1846_eng.md`)
+- [ ] **Episode 1847** (Source: `Eng/1801-1900/1847_eng.md`)
+- [ ] **Episode 1848** (Source: `Eng/1801-1900/1848_eng.md`)
+- [ ] **Episode 1849** (Source: `Eng/1801-1900/1849_eng.md`)
+- [ ] **Episode 1850** (Source: `Eng/1801-1900/1850_eng.md`)
 
 ## Notes
 - **Style:** Novelistic, engaging, correct tone/register/atmosphere.
