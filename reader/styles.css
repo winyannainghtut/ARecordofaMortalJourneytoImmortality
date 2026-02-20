@@ -3,17 +3,17 @@
    ======================================== */
 
 :root {
-  --bg: #f4f7fb;
-  --bg-grad-1: #f0f4ff;
-  --bg-grad-2: #f7fafc;
-  --surface: rgba(255, 255, 255, 0.86);
+  --bg: #f8fafc;
+  --bg-grad-1: #e2e8f0;
+  --bg-grad-2: #f1f5f9;
+  --surface: rgba(255, 255, 255, 0.7);
   --surface-strong: rgba(255, 255, 255, 0.95);
-  --text: #102133;
-  --muted: #5f7083;
-  --line: rgba(16, 33, 51, 0.12);
-  --accent: #007f74;
-  --accent-soft: rgba(0, 127, 116, 0.12);
-  --shadow: 0 12px 40px rgba(32, 52, 74, 0.14);
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: rgba(0, 0, 0, 0.08);
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.12);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   --reader-font-size: 19px;
   --reader-line-height: 1.75;
   --reader-width: 780px;
@@ -24,31 +24,31 @@
 }
 
 html[data-theme="dark"] {
-  --bg: #0c1217;
-  --bg-grad-1: #111f2c;
-  --bg-grad-2: #0b1117;
-  --surface: rgba(18, 28, 37, 0.9);
-  --surface-strong: rgba(20, 31, 41, 0.96);
-  --text: #d7e4ee;
-  --muted: #9ab0c0;
-  --line: rgba(205, 228, 245, 0.16);
-  --accent: #3dd5c3;
-  --accent-soft: rgba(61, 213, 195, 0.16);
-  --shadow: 0 14px 44px rgba(1, 5, 8, 0.46);
+  --bg: #09090b;
+  --bg-grad-1: #18181b;
+  --bg-grad-2: #0f172a;
+  --surface: rgba(24, 24, 27, 0.65);
+  --surface-strong: rgba(24, 24, 27, 0.95);
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #60a5fa;
+  --accent-soft: rgba(96, 165, 250, 0.15);
+  --shadow: 0 14px 44px rgba(0, 0, 0, 0.4);
 }
 
 html[data-theme="sepia"] {
-  --bg: #f5efe0;
-  --bg-grad-1: #f0e8d5;
-  --bg-grad-2: #faf5ec;
-  --surface: rgba(245, 237, 220, 0.92);
-  --surface-strong: rgba(248, 241, 228, 0.96);
-  --text: #3d2e1c;
-  --muted: #7a694f;
-  --line: rgba(61, 46, 28, 0.15);
-  --accent: #9a6b35;
-  --accent-soft: rgba(154, 107, 53, 0.14);
-  --shadow: 0 12px 40px rgba(80, 56, 20, 0.12);
+  --bg: #fdf6e3;
+  --bg-grad-1: #f3e8d2;
+  --bg-grad-2: #fbf1d5;
+  --surface: rgba(252, 246, 227, 0.75);
+  --surface-strong: rgba(253, 246, 227, 0.98);
+  --text: #413524;
+  --muted: #79684f;
+  --line: rgba(81, 65, 41, 0.1);
+  --accent: #d97706;
+  --accent-soft: rgba(217, 119, 6, 0.12);
+  --shadow: 0 10px 40px rgba(80, 56, 20, 0.1);
 }
 
 * {
@@ -117,7 +117,9 @@ body.sidebar-hidden .sidebar {
   border: 1px solid var(--line);
   border-radius: 20px;
   box-shadow: var(--shadow);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: var(--surface);
 }
 
 /* ========== Sidebar ========== */
@@ -325,6 +327,13 @@ select:focus {
   opacity: 0.8;
 }
 
+/* Offline indicator icon in sidebar */
+.offline-indicator {
+  color: #22b573;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
 /* ========== Reader Panel ========== */
 .reader-panel {
   background: var(--surface);
@@ -348,16 +357,20 @@ select:focus {
 /* ========== Toolbar ========== */
 .toolbar {
   position: sticky;
-  top: 3px;
+  top: 12px;
   z-index: 12;
-  background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
-  border-bottom: 1px solid var(--line);
-  padding: 12px 16px;
+  margin: 12px 16px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-strong) 85%, transparent);
+  border: 1px solid var(--line);
+  padding: 10px 14px;
   display: flex;
   justify-content: space-between;
   gap: 14px;
   flex-wrap: wrap;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .toolbar-group {
@@ -579,6 +592,87 @@ select:focus {
 
 .back-to-top:hover {
   border-color: var(--accent);
+}
+
+/* ========== Toasts ========== */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--surface-strong);
+  color: var(--text);
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  pointer-events: auto;
+  animation: slide-up 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast.hiding {
+  animation: fade-out 0.3s forwards;
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toast-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.toast-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
 }
 
 /* ========== Settings panel — hidden by default, toggle with JS ========== */

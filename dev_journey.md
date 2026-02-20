@@ -1,5 +1,19 @@
 # Developer Journey: A Record of a Mortal's Journey to Immortality Translation
 
+## Session Summary (2026-02-14)
+- **Completed**:
+    - **Re-alignment Phase**: Specifically re-translated episodes 2201-2204, correcting the offset caused by source chapter splitting.
+        - **2201** <- Source 2199
+        - **2202** <- Source 2200
+        - **2203** <- Source 2201
+        - **2204** <- Source 2202, 2203, 2204 (merged)
+    - **Standard Translation Phase**: Translated episodes 2205-2290 (aligned 1:1 with source chapters).
+- **Highlights**:
+    - Episode 2289: Han Li vs. Five-colored Peacock (Five Light Being).
+    - Episode 2290: Han Li uses Giant Mountain Ape form against Five-colored Peacock.
+- **Verification**: Alignment for 2205+ confirmed as correct.
+- **Note**: Previous incorrect drafts of 2201-2220 were reconciled.
+
 ## Session Summary (2026-02-13)
 - **Completed**: Episode translations up to 2200.
 - **Verification**: Investigated discrepancies in episode numbering for episodes 2201+.
@@ -19,16 +33,14 @@
     - Episode 2205 onwards remain aligned.
 
 ## Current Status
-- **Episodes Translated**: 1801-2200 (Directories: `episodes/18xx`, `episodes/19xx`, `episodes/20xx`, `episodes/21xx`)
+- **Episodes Translated**: 1801-2290 (Directories: `episodes/18xx` -> `episodes/22xx`)
 - **Key Artifacts**:
     - `task.md`: Tracking progress for 2201-2300 batch.
-    - `walkthrough.md`: Summaries updated up to episode 2200.
+    - `walkthrough.md`: Summaries updated.
 
 ## Immediate Next Steps
-1.  **Re-translate**: Generate corrected `2201.md`, `2202.md`, `2203.md`, `2204.md` based on the alignment plan.
-2.  **Continue**: Translate episodes 2205-2210.
-3.  **Verify**: Ensure alignment is maintained for subsequent episodes.
+1.  **Continue**: Translate episodes 2291-2300.
+2.  **Verify**: Ensure alignment is maintained for subsequent episodes.
 
 ## Notes
 - The source files for 2201-2300 are in `d:\ARecordofaMortalJourneytoImmortality\Eng\2201-2300`.
-- The user has deleted the previous incorrect drafts of 2201-2220 to allow for a clean re-translation.

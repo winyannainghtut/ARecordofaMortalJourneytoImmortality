@@ -33,6 +33,7 @@
     sources: [],
     entries: [],
     visibleEntries: [],
+    cachedUrls: new Set(),
     currentId: null,
     settings: readJSON(SETTINGS_KEY, defaultSettings),
     progress: readJSON(PROGRESS_KEY, {}),
@@ -55,8 +56,10 @@
     searchInput: document.getElementById("searchInput"),
     prevBtn: document.getElementById("prevBtn"),
     nextBtn: document.getElementById("nextBtn"),
+    downloadBtn: document.getElementById("downloadBtn"),
     bookmarkBtn: document.getElementById("bookmarkBtn"),
     backToTopBtn: document.getElementById("backToTopBtn"),
+    toastContainer: document.getElementById("toastContainer"),
     readingProgressBar: document.getElementById("readingProgressBar"),
     themeSelect: document.getElementById("themeSelect"),
     fontSelect: document.getElementById("fontSelect"),
@@ -83,6 +86,124 @@
     applyVisualSettings();
     updateBookmarkButton();
     await loadManifest();
+    registerStatusWorker();
+  }
+
+  function registerStatusWorker() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').then((registration) => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      }).catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+    }
+  }
+
+  /* ====== Download Manager ====== */
+  async function startDownloadEpisodes() {
+    if (!state.currentId) return;
+
+    // Find index of current chapter
+    const currentIndex = state.entries.findIndex((entry) => entry.id === state.currentId);
+    if (currentIndex < 0) return;
+
+    // Slice up to 100 episodes from current
+    const episodesToDownload = state.entries.slice(currentIndex, currentIndex + 100);
+
+    if (!episodesToDownload.length) return;
+
+    showToast(`Downloading ${episodesToDownload.length} episodes for offline use...`, true);
+
+    let downloadedCount = 0;
+
+    try {
+      const cache = await caches.open('novel-offline-cache-v1');
+      const fetchPromises = episodesToDownload.map(async (entry) => {
+        const url = toReaderPath(entry.path);
+        try {
+          const response = await fetch(url, { cache: "no-store", mode: "cors" });
+          if (response.ok) {
+            await cache.put(url, response.clone());
+            downloadedCount++;
+            updateToastProgress((downloadedCount / episodesToDownload.length) * 100);
+          }
+        } catch (err) {
+          console.warn(`Failed to fetch ${url}`, err);
+        }
+      });
+
+      await Promise.all(fetchPromises);
+
+      setTimeout(async () => {
+        showToast(`Downloaded ${downloadedCount} episodes successfully!`, false, 3000);
+        await refreshCachedUrls();
+      }, 500);
+    } catch (err) {
+      console.error(err);
+      showToast('Error during download process.', false, 3000);
+    }
+  }
+
+  async function refreshCachedUrls() {
+    try {
+      const cache = await caches.open('novel-offline-cache-v1');
+      const keys = await cache.keys();
+      state.cachedUrls.clear();
+      keys.forEach((request) => {
+        state.cachedUrls.add(new URL(request.url).pathname);
+      });
+      renderChapterList();
+    } catch (e) {
+      console.warn("Could not query cache", e);
+    }
+  }
+
+  let currentToast = null;
+  function showToast(message, isProgress = false, autoHideMs = 0) {
+    if (currentToast) {
+      currentToast.element.classList.add('hiding');
+      setTimeout((el) => el.remove(), 300, currentToast.element);
+    }
+
+    const toastEl = document.createElement("div");
+    toastEl.className = "toast";
+
+    const headerEl = document.createElement("div");
+    headerEl.className = "toast-header";
+    headerEl.textContent = message;
+    toastEl.appendChild(headerEl);
+
+    let progressEl = null;
+    if (isProgress) {
+      const trackEl = document.createElement("div");
+      trackEl.className = "toast-progress";
+      progressEl = document.createElement("div");
+      progressEl.className = "toast-progress-bar";
+      trackEl.appendChild(progressEl);
+      toastEl.appendChild(trackEl);
+    }
+
+    els.toastContainer.appendChild(toastEl);
+
+    currentToast = {
+      element: toastEl,
+      header: headerEl,
+      progressBar: progressEl
+    };
+
+    if (autoHideMs > 0) {
+      setTimeout(() => {
+        toastEl.classList.add("hiding");
+        setTimeout(() => toastEl.remove(), 300);
+        if (currentToast && currentToast.element === toastEl) currentToast = null;
+      }, autoHideMs);
+    }
+  }
+
+  function updateToastProgress(percent) {
+    if (currentToast && currentToast.progressBar) {
+      currentToast.progressBar.style.width = `${percent}%`;
+    }
   }
 
   /* ====== Event Binding ====== */
@@ -93,6 +214,12 @@
 
     els.prevBtn.addEventListener("click", () => moveToSibling(-1));
     els.nextBtn.addEventListener("click", () => moveToSibling(1));
+
+    if (els.downloadBtn) {
+      els.downloadBtn.addEventListener("click", () => {
+        startDownloadEpisodes();
+      });
+    }
 
     els.themeSelect.addEventListener("change", () => {
       state.settings.theme = els.themeSelect.value;
@@ -208,7 +335,7 @@
     });
   }
 
-  /* ====== Manifest Loading ====== */
+  /* Manifest Loading */
   async function loadManifest() {
     try {
       const response = await fetch("./manifest.json", { cache: "no-store" });
@@ -220,6 +347,7 @@
       state.sources = Array.isArray(payload.sources) ? payload.sources : [];
       state.entries = Array.isArray(payload.entries) ? payload.entries : [];
 
+      await refreshCachedUrls();
       renderSourceFilter();
       renderChapterList();
 
@@ -263,6 +391,11 @@
     const bookmarkActive = state.settings.source === "__bookmarks__";
     const bmChip = buildFilterChip("★ Bookmarks", "__bookmarks__", bookmarkActive);
     els.sourceFilter.appendChild(bmChip);
+
+    /* Offline filter chip */
+    const offlineActive = state.settings.source === "__offline__";
+    const offlineChip = buildFilterChip("↓ Available Offline", "__offline__", offlineActive);
+    els.sourceFilter.appendChild(offlineChip);
   }
 
   function buildFilterChip(label, value, active) {
@@ -285,8 +418,13 @@
     const sourceFilter = state.settings.source;
 
     const filtered = state.entries.filter((entry) => {
+      const urlPath = new URL(toReaderPath(entry.path), window.location.href).pathname;
+      const isOffline = state.cachedUrls.has(urlPath);
+
       if (sourceFilter === "__bookmarks__") {
         if (!state.bookmarks.includes(entry.id)) return false;
+      } else if (sourceFilter === "__offline__") {
+        if (!isOffline) return false;
       } else if (sourceFilter !== "all" && entry.sourceLabel !== sourceFilter) {
         return false;
       }
@@ -303,9 +441,13 @@
     if (!filtered.length) {
       const empty = document.createElement("li");
       empty.className = "chapter-group";
-      empty.textContent = sourceFilter === "__bookmarks__"
-        ? "No bookmarked chapters yet."
-        : "No chapters match this filter.";
+      if (sourceFilter === "__bookmarks__") {
+        empty.textContent = "No bookmarked chapters yet.";
+      } else if (sourceFilter === "__offline__") {
+        empty.textContent = "No downloaded chapters found.";
+      } else {
+        empty.textContent = "No chapters match this filter.";
+      }
       els.chapterList.appendChild(empty);
       updateNavButtons();
       return;
@@ -344,6 +486,16 @@
         bmIcon.className = "bookmark-indicator";
         bmIcon.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>`;
         indicators.appendChild(bmIcon);
+      }
+
+      /* Offline indicator */
+      const urlPath = new URL(toReaderPath(entry.path), window.location.href).pathname;
+      if (state.cachedUrls.has(urlPath)) {
+        const offlineIcon = document.createElement("span");
+        offlineIcon.className = "offline-indicator";
+        offlineIcon.title = "Available Offline";
+        offlineIcon.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+        indicators.appendChild(offlineIcon);
       }
 
       /* Read status dot */
