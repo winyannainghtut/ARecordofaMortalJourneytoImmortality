@@ -113,7 +113,11 @@ From Episode 2205 onwards, source chapters align 1:1 with episode numbers.
 - [x] **Episode 2288** (Source: 2288) - **Done**
 - [x] **Episode 2289** (Source: 2289) - **Done**
 - [x] **Episode 2290** (Source: 2290) - **Done**
-- [ ] **Episode 2291** (Source: 2291)
+- [x] **Episode 2291** (Source: 2291) - **Done**
+- [x] **Episode 2292** (Source: 2292) - **Done**
+- [x] **Episode 2293** (Source: 2293) - **Done**
+- [x] **Episode 2294** (Source: 2294) - **Done**
+- [x] **Episode 2295** (Source: 2295) - **Done**
 - [ ] ...
 - [ ] **Episode 2300** (Source: 2300)
 
