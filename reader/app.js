@@ -23,6 +23,8 @@
     serif: "'Source Serif 4', Georgia, serif",
     friendly: "'Atkinson Hyperlegible', 'Segoe UI', sans-serif",
     classic: "'Alegreya', Georgia, serif",
+    myanmarSystem: "var(--reader-font-myanmar-system)",
+    myanmarText: "var(--reader-font-myanmar-text)",
     myanmarSerif: "var(--reader-font-myanmar-serif)",
     myanmarSans: "var(--reader-font-myanmar-sans)",
     myanmarPadauk: "'Padauk', var(--reader-font-myanmar-sans)"
@@ -286,6 +288,17 @@
       els.readerPanel.scrollTo({ top: 0, behavior: "smooth" });
     });
 
+    /* Immersive Mode Scroll Logic */
+    let lastScrollTop = 0;
+    const IMMERSIVE_THRESHOLD = 50;
+    let scrollDelta = 0;
+
+    /* Content click to toggle immersive mode */
+    els.content.addEventListener("click", () => {
+      if (!isMobile()) return;
+      document.body.classList.toggle("immersive-mode");
+    });
+
     /* Scroll – progress bar, back-to-top, read status */
     els.readerPanel.addEventListener("scroll", () => {
       if (!state.currentId) return;
@@ -293,6 +306,28 @@
       const scrollTop = Math.max(0, els.readerPanel.scrollTop);
       state.progress[state.currentId] = scrollTop;
       scheduleProgressSave();
+
+      /* Handle immersive mode thresholding for mobile */
+      if (isMobile()) {
+        const delta = scrollTop - lastScrollTop;
+        lastScrollTop = scrollTop;
+
+        if (delta > 0 && scrollTop > 100) {
+          // Scrolling down
+          scrollDelta += delta;
+          if (scrollDelta > IMMERSIVE_THRESHOLD) {
+            document.body.classList.add("immersive-mode");
+            scrollDelta = 0;
+          }
+        } else if (delta < 0) {
+          // Scrolling up
+          scrollDelta += delta;
+          if (scrollDelta < -IMMERSIVE_THRESHOLD || scrollTop <= 50) {
+            document.body.classList.remove("immersive-mode");
+            scrollDelta = 0;
+          }
+        }
+      }
 
       updateReadingProgressBar();
       updateBackToTopVisibility(scrollTop);

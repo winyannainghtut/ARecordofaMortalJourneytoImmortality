@@ -1,0 +1,16 @@
+{
+  "name": "Novel Reader",
+  "short_name": "Novels",
+  "description": "A modern, local markdown novel reader with offline capabilities.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "sizes": "192x192 48x48 32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

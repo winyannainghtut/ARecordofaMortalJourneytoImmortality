@@ -7,6 +7,7 @@ const ASSETS_TO_CACHE = [
     './styles.css',
     './app.js',
     './manifest.json',
+    './app-manifest.json',
     'https://cdn.jsdelivr.net/npm/marked/marked.min.js',
     'https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js',
     'https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&family=Noto+Serif+Myanmar:wght@400;500;700&family=Outfit:wght@400;500;600;700&family=Padauk:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap'
