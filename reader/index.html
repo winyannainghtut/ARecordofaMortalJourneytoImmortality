@@ -23,7 +23,44 @@
 
 <body>
   <div class="app-shell" id="appShell">
-    
+    <!-- iOS Bottom Tab Bar -->
+    <nav class="ios-tab-bar">
+      <div class="ios-tab-bar-blur"></div>
+      <div class="ios-tab-items">
+        <button class="tab-btn" id="tabLibraryBtn" aria-label="Library">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+          </svg>
+          <span>Library</span>
+        </button>
+        <button class="tab-btn active" id="tabReaderBtn" aria-label="Reader">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          <span>Reader</span>
+        </button>
+        <button class="tab-btn bookmark-btn" id="bookmarkBtn" aria-label="Bookmark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+          <span>Save</span>
+        </button>
+        <button class="tab-btn" id="tabSettingsBtn" aria-label="Settings">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+          <span>Settings</span>
+        </button>
+      </div>
+    </nav>
+
     <!-- Reader Main View -->
     <main class="reader-view" id="readerPanel">
       <!-- Fixed iOS-style Header -->
@@ -31,18 +68,20 @@
         <div class="ios-header-blur"></div>
         <div class="ios-header-content">
           <button class="ios-icon-btn" id="prevBtn" type="button" aria-label="Previous chapter">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </button>
-          
+
           <div class="header-titles">
             <h1 id="chapterTitle" class="truncate">Select a chapter</h1>
             <p id="chapterInfo" class="truncate meta-text">Library is loading...</p>
           </div>
 
           <button class="ios-icon-btn" id="nextBtn" type="button" aria-label="Next chapter">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </button>
@@ -53,7 +92,8 @@
       <article class="content" id="content">
         <div class="welcome-state">
           <div class="welcome-icon">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
               <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
             </svg>
@@ -62,7 +102,7 @@
           <p class="welcome-hint">Tap the Library tab below to begin reading.</p>
         </div>
       </article>
-      
+
       <!-- iOS Bottom Safe Area padding spacer -->
       <div class="bottom-spacer"></div>
     </main>
@@ -73,16 +113,21 @@
         <div class="ios-modal-header-blur"></div>
         <div class="ios-modal-header-content">
           <h1>Library</h1>
-          <button class="ios-text-btn cancel-btn" type="button" aria-label="Close library" data-close-modal="libraryModal">Done</button>
+          <button class="ios-text-btn cancel-btn" type="button" aria-label="Close library"
+            data-close-modal="libraryModal">Done</button>
         </div>
 
         <div class="ios-search-bar">
           <div class="search-input-wrap">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="search-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="search-icon" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
             <input id="searchInput" type="search" placeholder="Search Chapters...">
           </div>
         </div>
-        
+
         <!-- iOS Segmented Control -->
         <div class="segmented-control-wrapper">
           <div class="segmented-control" id="sourceFilter"></div>
@@ -100,13 +145,14 @@
         <div class="ios-modal-header-blur"></div>
         <div class="ios-modal-header-content">
           <h1>Settings</h1>
-          <button class="ios-text-btn cancel-btn" type="button" aria-label="Close settings" data-close-modal="settingsModal">Done</button>
+          <button class="ios-text-btn cancel-btn" type="button" aria-label="Close settings"
+            data-close-modal="settingsModal">Done</button>
         </div>
       </div>
 
       <div class="ios-modal-content bg-grouped">
         <div class="ios-form-group">
-          
+
           <div class="ios-form-row">
             <label for="themeSelect">Theme</label>
             <select id="themeSelect" class="ios-select">
@@ -145,75 +191,45 @@
 
           <div class="ios-form-row">
             <div class="slider-block">
-               <div class="slider-header">
-                  <label for="lineHeightRange">Line Height</label>
-                  <span id="lineHeightValue" class="value-badge"></span>
-               </div>
-               <input id="lineHeightRange" class="ios-slider" type="range" min="1.35" max="2.2" step="0.05">
+              <div class="slider-header">
+                <label for="lineHeightRange">Line Height</label>
+                <span id="lineHeightValue" class="value-badge"></span>
+              </div>
+              <input id="lineHeightRange" class="ios-slider" type="range" min="1.35" max="2.2" step="0.05">
             </div>
           </div>
 
           <div class="ios-form-row">
             <div class="slider-block">
-               <div class="slider-header">
-                  <label for="widthRange">Text Width</label>
-                  <span id="widthValue" class="value-badge"></span>
-               </div>
-               <input id="widthRange" class="ios-slider" type="range" min="560" max="1080" step="20">
+              <div class="slider-header">
+                <label for="widthRange">Text Width</label>
+                <span id="widthValue" class="value-badge"></span>
+              </div>
+              <input id="widthRange" class="ios-slider" type="range" min="560" max="1080" step="20">
             </div>
           </div>
 
         </div>
 
         <div class="ios-form-group margin-top-large">
-           <button class="ios-action-btn" id="downloadBtn" type="button">
-             <span class="icon-wrap">
-               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-               </svg>
-             </span>
-             Download Next 100 Episodes
-           </button>
-           <p class="form-hint">Downloads chapters ahead of your current position for offline reading.</p>
+          <button class="ios-action-btn" id="downloadBtn" type="button">
+            <span class="icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </span>
+            Download Next 100 Episodes
+          </button>
+          <p class="form-hint">Downloads chapters ahead of your current position for offline reading.</p>
         </div>
 
       </div>
     </aside>
 
-    <!-- iOS Bottom Tab Bar -->
-    <nav class="ios-tab-bar">
-      <div class="ios-tab-bar-blur"></div>
-      <div class="ios-tab-items">
-        <button class="tab-btn" id="tabLibraryBtn" aria-label="Library">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
-          </svg>
-          <span>Library</span>
-        </button>
-        <button class="tab-btn active" id="tabReaderBtn" aria-label="Reader">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-          </svg>
-          <span>Reader</span>
-        </button>
-        <button class="tab-btn bookmark-btn" id="bookmarkBtn" aria-label="Bookmark">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-          </svg>
-          <span>Save</span>
-        </button>
-        <button class="tab-btn" id="tabSettingsBtn" aria-label="Settings">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3" />
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-          </svg>
-          <span>Settings</span>
-        </button>
-      </div>
-    </nav>
+
 
     <!-- Toast container for notifications / downloads -->
     <div class="toast-container" id="toastContainer"></div>

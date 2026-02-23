@@ -785,16 +785,16 @@ body.immersive-mode .ios-tab-bar {
 /* ================== Tablet/Desktop Accomodations (Mac-like) ================== */
 @media (min-width: 981px) {
   .app-shell {
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 
   .ios-tab-bar {
-    position: static;
+    position: relative;
     flex-direction: column;
     width: 80px;
     height: 100%;
     border-top: none;
-    border-left: 0.5px solid var(--line);
+    border-right: 0.5px solid var(--line);
   }
 
   .ios-tab-items {
@@ -812,9 +812,9 @@ body.immersive-mode .ios-tab-bar {
   .ios-modal {
     width: 400px;
     left: auto;
-    right: 80px;
+    right: 0px;
     border-left: 0.5px solid var(--line);
-    transform: translateX(100%);
+    transform: translateX(120%);
     opacity: 0;
     pointer-events: none;
   }
