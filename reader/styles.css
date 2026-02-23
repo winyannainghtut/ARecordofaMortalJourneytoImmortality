@@ -242,32 +242,34 @@ body.immersive-mode .ios-tab-bar {
 /* ================== Bottom Tab Bar ================== */
 .ios-tab-bar {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: var(--tab-bar-height);
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 420px;
+  height: 72px;
   z-index: 20;
-  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  border-radius: 36px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 0 0.5px var(--line);
+  overflow: hidden;
+  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1), opacity 300ms;
 }
 
 .ios-tab-bar-blur {
   position: absolute;
   inset: 0;
   background: var(--surface);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-top: 0.5px solid var(--line);
+  backdrop-filter: saturate(200%) blur(30px);
+  -webkit-backdrop-filter: saturate(200%) blur(30px);
 }
 
 .ios-tab-items {
   position: absolute;
   inset: 0;
-  padding-bottom: var(--sab);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-left: max(16px, var(--sal));
-  padding-right: max(16px, var(--sar));
+  padding: 0 12px;
 }
 
 .tab-btn {
@@ -278,16 +280,22 @@ body.immersive-mode .ios-tab-bar {
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
-  font-size: 10px;
-  font-weight: 500;
-  padding: 4px;
-  min-width: 60px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px;
+  min-width: 64px;
   cursor: pointer;
-  transition: color 200ms ease;
+  transition: all 250ms cubic-bezier(0.32, 0.72, 0, 1);
+  border-radius: 16px;
 }
 
 .tab-btn svg {
-  margin-bottom: 3px;
+  margin-bottom: 4px;
+  transition: transform 250ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.tab-btn:active {
+  transform: scale(0.92);
 }
 
 .tab-btn:hover {
@@ -296,6 +304,10 @@ body.immersive-mode .ios-tab-bar {
 
 .tab-btn.active {
   color: var(--accent);
+}
+
+.tab-btn.active svg {
+  transform: scale(1.15) translateY(-2px);
 }
 
 /* Active Bookmarked State */
@@ -360,16 +372,19 @@ body.immersive-mode .ios-tab-bar {
 /* ================== Full-Screen Slide Modals ================== */
 .ios-modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  top: 16px;
+  left: 16px;
+  width: calc(100% - 32px);
+  height: calc(100vh - 32px - var(--sab, 0px));
   background: var(--modal-bg);
+  border-radius: 36px;
   z-index: 50;
   display: flex;
   flex-direction: column;
-  transform: translateY(100%);
-  transition: transform 400ms cubic-bezier(0.32, 0.72, 0, 1);
+  transform: translateY(120%);
+  transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4), 0 0 0 0.5px var(--line);
+  overflow: hidden;
 }
 
 .ios-modal.is-open {
@@ -379,7 +394,6 @@ body.immersive-mode .ios-tab-bar {
 .ios-modal-header {
   position: relative;
   flex-shrink: 0;
-  padding-top: var(--sat);
 }
 
 .ios-modal-header-blur {
@@ -623,42 +637,64 @@ body.immersive-mode .ios-tab-bar {
   padding: 0 16px;
 }
 
-/* List Cell */
-.ios-cell {
+/* ================== Inset Grouped Lists (iOS 26 Style) ================== */
+.ios-list-group {
   background: var(--bg-elevated);
-  padding: 12px 16px;
+  border-radius: 20px;
+  margin: 12px 16px 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.ios-cell {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 0.5px solid var(--line);
+  background: transparent;
   cursor: pointer;
-  position: relative;
+  transition: background-color 200ms ease, transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.ios-cell::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 16px;
-  right: 0;
-  height: 0.5px;
-  background: var(--line);
-}
-
-.ios-cell:last-child::after {
-  display: none;
+.ios-cell:last-child {
+  border-bottom: none;
 }
 
 .ios-cell:active {
-  background: var(--line);
+  background-color: var(--line);
+  transform: scale(0.98);
+}
+
+.ios-cell.active {
+  background-color: var(--accent-soft);
+}
+
+.ios-cell.active .cell-title {
+  color: var(--accent);
+}
+
+.list-group-title {
+  padding: 24px 24px 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
 }
 
 .cell-content {
   flex: 1;
   min-width: 0;
+  padding-right: 12px;
 }
 
 .cell-title {
   font-size: 17px;
-  letter-spacing: -0.2px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
 }
 
 .cell-subtitle {
@@ -672,7 +708,13 @@ body.immersive-mode .ios-tab-bar {
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
-  padding-left: 12px;
+}
+
+.cell-chevron {
+  color: var(--text-secondary);
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
 }
 
 .status-dot {
@@ -789,34 +831,42 @@ body.immersive-mode .ios-tab-bar {
   }
 
   .ios-tab-bar {
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 24px;
+    bottom: auto;
+    transform: translateY(-50%);
     flex-direction: column;
     width: 80px;
-    height: 100%;
-    border-top: none;
-    border-right: 0.5px solid var(--line);
+    height: auto;
+    max-height: 80vh;
+    border-radius: 40px;
   }
 
   .ios-tab-items {
-    padding-top: var(--sat);
-    display: flex;
+    position: relative;
+    padding: 32px 0;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 32px;
   }
 
   .tab-btn {
-    margin-top: 24px;
+    margin-top: 0;
   }
 
   .ios-modal {
-    width: 400px;
+    width: 440px;
     left: auto;
-    right: 0px;
-    border-left: 0.5px solid var(--line);
+    right: 24px;
+    top: 24px;
+    height: calc(100vh - 48px);
+    border-radius: 36px;
+    border: none;
     transform: translateX(120%);
     opacity: 0;
     pointer-events: none;
+    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1), opacity 300ms ease;
   }
 
   .ios-modal.is-open {

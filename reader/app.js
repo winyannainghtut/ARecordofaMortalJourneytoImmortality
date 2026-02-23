@@ -537,13 +537,19 @@
     }
 
     let lastGroupKey = "";
+    let currentGroupContainer = null;
     for (const entry of filtered) {
       const groupLabel = `${entry.sourceLabel} / ${entry.group || "root"}`;
       if (groupLabel !== lastGroupKey) {
-        const groupItem = document.createElement("div");
-        groupItem.className = "list-group-title";
-        groupItem.textContent = groupLabel;
-        els.chapterList.appendChild(groupItem);
+        const groupTitle = document.createElement("div");
+        groupTitle.className = "list-group-title";
+        groupTitle.textContent = groupLabel;
+        els.chapterList.appendChild(groupTitle);
+
+        currentGroupContainer = document.createElement("div");
+        currentGroupContainer.className = "ios-list-group";
+        els.chapterList.appendChild(currentGroupContainer);
+
         lastGroupKey = groupLabel;
       }
 
@@ -594,13 +600,20 @@
       statusDot.className = `status-dot ${statusClass}`;
       indicators.appendChild(statusDot);
 
+      /* Chevron (iOS 15+ style) */
+      const chevron = document.createElement("span");
+      chevron.className = "cell-chevron";
+      chevron.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+      indicators.appendChild(chevron);
+
       item.appendChild(info);
       item.appendChild(indicators);
       item.addEventListener("click", () => {
         openChapter(entry.id);
         closeModal('libraryModal');
       });
-      els.chapterList.appendChild(item);
+
+      currentGroupContainer.appendChild(item);
     }
 
     updateNavButtons();

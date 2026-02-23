@@ -61,7 +61,7 @@ jobs:
 
           copy_dir_case_insensitive("reader")
           copy_dir_case_insensitive("eng")
-          copy_dir_case_insensitive("episodes")
+          copy_dir_case_insensitive("burmese")
 
           # Make the Pages root URL open the reader directly.
           (site / "index.html").write_text(
