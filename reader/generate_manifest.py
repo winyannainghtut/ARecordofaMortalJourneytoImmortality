@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = Path(__file__).resolve().parent / "manifest.json"
 
-SOURCE_ORDER = ["Eng", "Episodes"]
+SOURCE_ORDER = ["Eng", "Burmese"]
 
 
 def main() -> None:

@@ -432,6 +432,77 @@ body.immersive-mode .ios-tab-bar {
   padding: 24px 16px;
 }
 
+/* ================== Segmented Control (Filter Chips) ================== */
+.segmented-control-wrapper {
+  padding: 8px 16px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 1;
+}
+
+.segmented-control {
+  display: inline-flex;
+  background: rgba(118, 118, 128, 0.12);
+  /* Standard iOS System Fill */
+  padding: 2px;
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.filter-chip {
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.filter-chip.active {
+  background: var(--bg-elevated);
+  color: var(--text);
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.04), 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Search Bar in Header */
+.ios-search-bar {
+  position: relative;
+  z-index: 1;
+  padding: 8px 16px;
+}
+
+.search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-secondary);
+}
+
+.search-input-wrap input {
+  width: 100%;
+  background: rgba(118, 118, 128, 0.12);
+  /* Standard iOS System Fill */
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px 8px 32px;
+  font-size: 17px;
+  color: var(--text);
+  outline: none;
+}
+
+.search-input-wrap input::placeholder {
+  color: var(--text-secondary);
+}
 
 /* ================== Native iOS Form Elements ================== */
 .ios-form-group {
@@ -550,57 +621,6 @@ body.immersive-mode .ios-tab-bar {
   text-align: center;
   margin-top: 8px;
   padding: 0 16px;
-}
-
-/* ================== Native iOS Lists (Library View) ================== */
-.ios-list {
-  padding-bottom: 60px;
-  /* Safe scroll padding */
-}
-
-.list-group-title {
-  padding: 12px 16px 4px;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  background: var(--modal-bg);
-  /* Prevents sticky blur overlay overlap issues */
-}
-
-/* Search Bar in Header */
-.ios-search-bar {
-  position: relative;
-  z-index: 1;
-  padding: 8px 16px;
-}
-
-.search-input-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search-icon {
-  position: absolute;
-  left: 10px;
-  color: var(--text-secondary);
-}
-
-.search-input-wrap input {
-  width: 100%;
-  background: rgba(118, 118, 128, 0.12);
-  /* Standard iOS System Fill */
-  border: none;
-  border-radius: 10px;
-  padding: 8px 12px 8px 32px;
-  font-size: 17px;
-  color: var(--text);
-  outline: none;
-}
-
-.search-input-wrap input::placeholder {
-  color: var(--text-secondary);
 }
 
 /* List Cell */
@@ -794,13 +814,15 @@ body.immersive-mode .ios-tab-bar {
     left: auto;
     right: 80px;
     border-left: 0.5px solid var(--line);
-    transform: translateX(-100%);
+    transform: translateX(100%);
     opacity: 0;
+    pointer-events: none;
   }
 
   .ios-modal.is-open {
     transform: translateX(0);
     opacity: 1;
+    pointer-events: auto;
   }
 
   .ios-header {
