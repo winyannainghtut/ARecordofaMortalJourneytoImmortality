@@ -10,29 +10,34 @@
   - Integrated PWA Manifest & Myanmar fonts (Pyidaungsu).
   - Modernized UI with glassmorphism and download progress toasts.
 
+## Current Progress Snapshot
+- **Current target**: 1901 - 2000
+- **Next episode to translate**: 1901
+- **Remaining**: 100 episodes
+
 ## Current Active Task: Retranslation of Episodes 1881 - 2000
 **Objective:** Continue retranslating episodes from 1881 up to 2000 to apply the updated strict terminology rules. Keep specific English terms (Qi, Nascent Soul, etc.) untranslated as per `instruction.md`.
 
-- [ ] **Episode 1881** (Source: Eng/1801-1900/1881_eng.md)
-- [ ] **Episode 1882** (Source: Eng/1801-1900/1882_eng.md)
-- [ ] **Episode 1883** (Source: Eng/1801-1900/1883_eng.md)
-- [ ] **Episode 1884** (Source: Eng/1801-1900/1884_eng.md)
-- [ ] **Episode 1885** (Source: Eng/1801-1900/1885_eng.md)
-- [ ] **Episode 1886** (Source: Eng/1801-1900/1886_eng.md)
-- [ ] **Episode 1887** (Source: Eng/1801-1900/1887_eng.md)
-- [ ] **Episode 1888** (Source: Eng/1801-1900/1888_eng.md)
-- [ ] **Episode 1889** (Source: Eng/1801-1900/1889_eng.md)
-- [ ] **Episode 1890** (Source: Eng/1801-1900/1890_eng.md)
-- [ ] **Episode 1891** (Source: Eng/1801-1900/1891_eng.md)
-- [ ] **Episode 1892** (Source: Eng/1801-1900/1892_eng.md)
-- [ ] **Episode 1893** (Source: Eng/1801-1900/1893_eng.md)
-- [ ] **Episode 1894** (Source: Eng/1801-1900/1894_eng.md)
-- [ ] **Episode 1895** (Source: Eng/1801-1900/1895_eng.md)
-- [ ] **Episode 1896** (Source: Eng/1801-1900/1896_eng.md)
-- [ ] **Episode 1897** (Source: Eng/1801-1900/1897_eng.md)
-- [ ] **Episode 1898** (Source: Eng/1801-1900/1898_eng.md)
-- [ ] **Episode 1899** (Source: Eng/1801-1900/1899_eng.md)
-- [ ] **Episode 1900** (Source: Eng/1801-1900/1900_eng.md)
+- [x] **Episode 1881** (Source: Eng/1801-1900/1881_eng.md)
+- [x] **Episode 1882** (Source: Eng/1801-1900/1882_eng.md)
+- [x] **Episode 1883** (Source: Eng/1801-1900/1883_eng.md)
+- [x] **Episode 1884** (Source: Eng/1801-1900/1884_eng.md)
+- [x] **Episode 1885** (Source: Eng/1801-1900/1885_eng.md)
+- [x] **Episode 1886** (Source: Eng/1801-1900/1886_eng.md)
+- [x] **Episode 1887** (Source: Eng/1801-1900/1887_eng.md)
+- [x] **Episode 1888** (Source: Eng/1801-1900/1888_eng.md)
+- [x] **Episode 1889** (Source: Eng/1801-1900/1889_eng.md)
+- [x] **Episode 1890** (Source: Eng/1801-1900/1890_eng.md)
+- [x] **Episode 1891** (Source: Eng/1801-1900/1891_eng.md)
+- [x] **Episode 1892** (Source: Eng/1801-1900/1892_eng.md)
+- [x] **Episode 1893** (Source: Eng/1801-1900/1893_eng.md)
+- [x] **Episode 1894** (Source: Eng/1801-1900/1894_eng.md)
+- [x] **Episode 1895** (Source: Eng/1801-1900/1895_eng.md)
+- [x] **Episode 1896** (Source: Eng/1801-1900/1896_eng.md)
+- [x] **Episode 1897** (Source: Eng/1801-1900/1897_eng.md)
+- [x] **Episode 1898** (Source: Eng/1801-1900/1898_eng.md)
+- [x] **Episode 1899** (Source: Eng/1801-1900/1899_eng.md)
+- [x] **Episode 1900** (Source: Eng/1801-1900/1900_eng.md)
 - [ ] **Episode 1901** (Source: Eng/1901-2000/1901_eng.md)
 - [ ] **Episode 1902** (Source: Eng/1901-2000/1902_eng.md)
 - [ ] **Episode 1903** (Source: Eng/1901-2000/1903_eng.md)
