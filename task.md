@@ -200,7 +200,7 @@ From Episode 2205 onwards, source chapters align 1:1 with episode numbers.
 - [x] **Episode 1875** (Source: Eng/1801-1900/1875_eng.md)
 - [x] **Episode 1876** (Source: Eng/1801-1900/1876_eng.md)
 - [x] **Episode 1877** (Source: Eng/1801-1900/1877_eng.md)
-- [ ] **Episode 1878** (Source: Eng/1801-1900/1878_eng.md)
+- [x] **Episode 1878** (Source: Eng/1801-1900/1878_eng.md)
 - [ ] **Episode 1879** (Source: Eng/1801-1900/1879_eng.md)
 - [ ] **Episode 1880** (Source: Eng/1801-1900/1880_eng.md)
 - [ ] **Episode 1881** (Source: Eng/1801-1900/1881_eng.md)
