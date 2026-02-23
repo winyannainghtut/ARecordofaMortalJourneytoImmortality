@@ -120,21 +120,25 @@
 
     try {
       const cache = await caches.open('novel-offline-cache-v1');
-      const fetchPromises = episodesToDownload.map(async (entry) => {
-        const url = toReaderPath(entry.path);
-        try {
-          const response = await fetch(url, { cache: "no-store", mode: "cors" });
-          if (response.ok) {
-            await cache.put(url, response.clone());
-            downloadedCount++;
-            updateToastProgress((downloadedCount / episodesToDownload.length) * 100);
+      // Throttle downloads to 5 concurrent requests at a time
+      for (let i = 0; i < episodesToDownload.length; i += 5) {
+        const chunk = episodesToDownload.slice(i, i + 5);
+        const fetchPromises = chunk.map(async (entry) => {
+          const url = toReaderPath(entry.path);
+          try {
+            const response = await fetch(url, { cache: "no-store", mode: "cors" });
+            if (response.ok) {
+              await cache.put(url, response.clone());
+              downloadedCount++;
+              updateToastProgress((downloadedCount / episodesToDownload.length) * 100);
+            }
+          } catch (err) {
+            console.warn(`Failed to fetch ${url}`, err);
           }
-        } catch (err) {
-          console.warn(`Failed to fetch ${url}`, err);
-        }
-      });
+        });
 
-      await Promise.all(fetchPromises);
+        await Promise.all(fetchPromises);
+      }
 
       setTimeout(async () => {
         showToast(`Downloaded ${downloadedCount} episodes successfully!`, false, 3000);
@@ -300,38 +304,44 @@
     });
 
     /* Scroll – progress bar, back-to-top, read status */
+    let isScrolling = false;
     els.readerPanel.addEventListener("scroll", () => {
       if (!state.currentId) return;
+      if (isScrolling) return;
 
-      const scrollTop = Math.max(0, els.readerPanel.scrollTop);
-      state.progress[state.currentId] = scrollTop;
-      scheduleProgressSave();
+      isScrolling = true;
+      requestAnimationFrame(() => {
+        isScrolling = false;
+        const scrollTop = Math.max(0, els.readerPanel.scrollTop);
+        state.progress[state.currentId] = scrollTop;
+        scheduleProgressSave();
 
-      /* Handle immersive mode thresholding for mobile */
-      if (isMobile()) {
-        const delta = scrollTop - lastScrollTop;
-        lastScrollTop = scrollTop;
+        /* Handle immersive mode thresholding for mobile */
+        if (isMobile()) {
+          const delta = scrollTop - lastScrollTop;
+          lastScrollTop = scrollTop;
 
-        if (delta > 0 && scrollTop > 100) {
-          // Scrolling down
-          scrollDelta += delta;
-          if (scrollDelta > IMMERSIVE_THRESHOLD) {
-            document.body.classList.add("immersive-mode");
-            scrollDelta = 0;
-          }
-        } else if (delta < 0) {
-          // Scrolling up
-          scrollDelta += delta;
-          if (scrollDelta < -IMMERSIVE_THRESHOLD || scrollTop <= 50) {
-            document.body.classList.remove("immersive-mode");
-            scrollDelta = 0;
+          if (delta > 0 && scrollTop > 100) {
+            // Scrolling down
+            scrollDelta += delta;
+            if (scrollDelta > IMMERSIVE_THRESHOLD) {
+              document.body.classList.add("immersive-mode");
+              scrollDelta = 0;
+            }
+          } else if (delta < 0) {
+            // Scrolling up
+            scrollDelta += delta;
+            if (scrollDelta < -IMMERSIVE_THRESHOLD || scrollTop <= 50) {
+              document.body.classList.remove("immersive-mode");
+              scrollDelta = 0;
+            }
           }
         }
-      }
 
-      updateReadingProgressBar();
-      updateBackToTopVisibility(scrollTop);
-      updateReadStatus();
+        updateReadingProgressBar();
+        updateBackToTopVisibility(scrollTop);
+        updateReadStatus();
+      });
     });
 
     window.addEventListener("beforeunload", () => {
@@ -574,9 +584,11 @@
       const markdown = await response.text();
       const rendered = marked.parse(markdown, {
         mangle: false,
-        headerIds: true
+        headerIds: true,
+        smartypants: true
       });
 
+      els.content.style.opacity = '0';
       els.content.innerHTML = DOMPurify.sanitize(rendered);
       setChapterMeta(entry);
 
@@ -585,6 +597,12 @@
         els.readerPanel.scrollTop = Number.isFinite(savedTop) ? savedTop : 0;
         updateReadingProgressBar();
         updateBackToTopVisibility(els.readerPanel.scrollTop);
+
+        // Fade in
+        requestAnimationFrame(() => {
+          els.content.style.transition = 'opacity 300ms ease';
+          els.content.style.opacity = '1';
+        });
       });
 
       if (closeSidebarOnMobile) {
