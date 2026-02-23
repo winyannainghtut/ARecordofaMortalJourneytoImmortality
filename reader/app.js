@@ -48,21 +48,23 @@
   /* ====== DOM References ====== */
   const els = {
     appShell: document.getElementById("appShell"),
-    sidebar: document.getElementById("sidebar"),
-    closeSidebarBtn: document.getElementById("closeSidebarBtn"),
-    openSidebarBtn: document.getElementById("openSidebarBtn"),
-    toggleSettingsBtn: document.getElementById("toggleSettingsBtn"),
+    readerPanel: document.getElementById("readerPanel"),
+    readerHeader: document.getElementById("readerHeader"),
+    chapterTitle: document.getElementById("chapterTitle"),
+    chapterInfo: document.getElementById("chapterInfo"),
+    content: document.getElementById("content"),
+    readingProgressBar: document.getElementById("readingProgressBar"),
+
+    /* Modals */
+    libraryModal: document.getElementById("libraryModal"),
+    settingsModal: document.getElementById("settingsModal"),
+
+    /* Library */
     chapterList: document.getElementById("chapterList"),
-    settingsPanel: document.getElementById("settingsPanel"),
     sourceFilter: document.getElementById("sourceFilter"),
     searchInput: document.getElementById("searchInput"),
-    prevBtn: document.getElementById("prevBtn"),
-    nextBtn: document.getElementById("nextBtn"),
-    downloadBtn: document.getElementById("downloadBtn"),
-    bookmarkBtn: document.getElementById("bookmarkBtn"),
-    backToTopBtn: document.getElementById("backToTopBtn"),
-    toastContainer: document.getElementById("toastContainer"),
-    readingProgressBar: document.getElementById("readingProgressBar"),
+
+    /* Settings */
     themeSelect: document.getElementById("themeSelect"),
     fontSelect: document.getElementById("fontSelect"),
     fontSizeRange: document.getElementById("fontSizeRange"),
@@ -71,10 +73,26 @@
     lineHeightValue: document.getElementById("lineHeightValue"),
     widthRange: document.getElementById("widthRange"),
     widthValue: document.getElementById("widthValue"),
-    chapterTitle: document.getElementById("chapterTitle"),
-    chapterInfo: document.getElementById("chapterInfo"),
-    content: document.getElementById("content"),
-    readerPanel: document.getElementById("readerPanel")
+
+    /* Controls */
+    prevBtn: document.getElementById("prevBtn"),
+    nextBtn: document.getElementById("nextBtn"),
+    downloadBtn: document.getElementById("downloadBtn"),
+    bookmarkBtn: document.getElementById("bookmarkBtn"),
+
+    /* Navigation Tabs */
+    tabLibraryBtn: document.getElementById("tabLibraryBtn"),
+    tabReaderBtn: document.getElementById("tabReaderBtn"),
+    tabSettingsBtn: document.getElementById("tabSettingsBtn"),
+
+    /* Feedback */
+    toastContainer: document.getElementById("toastContainer")
+  };
+
+  /* Modal state */
+  const modals = {
+    library: false,
+    settings: false
   };
 
   init();
@@ -83,7 +101,6 @@
   async function init() {
     document.body.classList.add("js-ready");
     bindEvents();
-    setSettingsPanelOpen(false);
     hydrateSettingsControls();
     applyVisualSettings();
     updateBookmarkButton();
@@ -214,6 +231,22 @@
 
   /* ====== Event Binding ====== */
   function bindEvents() {
+    /* Modal Dismissal */
+    document.querySelectorAll('[data-close-modal]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const targetId = e.currentTarget.getAttribute('data-close-modal');
+        closeModal(targetId);
+      });
+    });
+
+    /* Tab Bar Navigation */
+    els.tabLibraryBtn.addEventListener("click", () => openModal('libraryModal', els.tabLibraryBtn));
+    els.tabSettingsBtn.addEventListener("click", () => openModal('settingsModal', els.tabSettingsBtn));
+    els.tabReaderBtn.addEventListener("click", () => {
+      closeAllModals();
+      updateActiveTab(els.tabReaderBtn);
+    });
+
     els.searchInput.addEventListener("input", () => {
       renderChapterList();
     });
@@ -227,6 +260,7 @@
       });
     }
 
+    /* Settings Changes */
     els.themeSelect.addEventListener("change", () => {
       state.settings.theme = els.themeSelect.value;
       saveSettings();
@@ -257,39 +291,10 @@
       saveSettings();
     });
 
-    els.openSidebarBtn.addEventListener("click", () => {
-      if (isMobile()) {
-        document.body.classList.add("sidebar-open");
-      } else {
-        document.body.classList.remove("sidebar-hidden");
-      }
-      setSettingsPanelOpen(false);
-    });
-
-    els.closeSidebarBtn.addEventListener("click", () => {
-      if (isMobile()) {
-        document.body.classList.remove("sidebar-open");
-      } else {
-        document.body.classList.add("sidebar-hidden");
-      }
-    });
-
-    if (els.toggleSettingsBtn) {
-      els.toggleSettingsBtn.addEventListener("click", () => {
-        const isOpen = els.settingsPanel?.classList.contains("is-open");
-        setSettingsPanelOpen(!isOpen);
-      });
-    }
-
     /* Bookmark toggle */
     els.bookmarkBtn.addEventListener("click", () => {
       if (!state.currentId) return;
       toggleBookmark(state.currentId);
-    });
-
-    /* Back to top */
-    els.backToTopBtn.addEventListener("click", () => {
-      els.readerPanel.scrollTo({ top: 0, behavior: "smooth" });
     });
 
     /* Immersive Mode Scroll Logic */
@@ -299,11 +304,10 @@
 
     /* Content click to toggle immersive mode */
     els.content.addEventListener("click", () => {
-      if (!isMobile()) return;
       document.body.classList.toggle("immersive-mode");
     });
 
-    /* Scroll – progress bar, back-to-top, read status */
+    /* Scroll – progress bar, read status, immersive header */
     let isScrolling = false;
     els.readerPanel.addEventListener("scroll", () => {
       if (!state.currentId) return;
@@ -316,30 +320,27 @@
         state.progress[state.currentId] = scrollTop;
         scheduleProgressSave();
 
-        /* Handle immersive mode thresholding for mobile */
-        if (isMobile()) {
-          const delta = scrollTop - lastScrollTop;
-          lastScrollTop = scrollTop;
+        /* Handle immersive mode thresholding */
+        const delta = scrollTop - lastScrollTop;
+        lastScrollTop = scrollTop;
 
-          if (delta > 0 && scrollTop > 100) {
-            // Scrolling down
-            scrollDelta += delta;
-            if (scrollDelta > IMMERSIVE_THRESHOLD) {
-              document.body.classList.add("immersive-mode");
-              scrollDelta = 0;
-            }
-          } else if (delta < 0) {
-            // Scrolling up
-            scrollDelta += delta;
-            if (scrollDelta < -IMMERSIVE_THRESHOLD || scrollTop <= 50) {
-              document.body.classList.remove("immersive-mode");
-              scrollDelta = 0;
-            }
+        if (delta > 0 && scrollTop > 60) {
+          // Scrolling down
+          scrollDelta += delta;
+          if (scrollDelta > IMMERSIVE_THRESHOLD) {
+            document.body.classList.add("immersive-mode");
+            scrollDelta = 0;
+          }
+        } else if (delta < 0) {
+          // Scrolling up
+          scrollDelta += delta;
+          if (scrollDelta < -IMMERSIVE_THRESHOLD || scrollTop <= 40) {
+            document.body.classList.remove("immersive-mode");
+            scrollDelta = 0;
           }
         }
 
         updateReadingProgressBar();
-        updateBackToTopVisibility(scrollTop);
         updateReadStatus();
       });
     });
@@ -370,14 +371,51 @@
           break;
         case "Escape":
           e.preventDefault();
-          if (isMobile()) {
-            document.body.classList.toggle("sidebar-open");
-          } else {
-            document.body.classList.toggle("sidebar-hidden");
-          }
+          closeAllModals();
           break;
       }
     });
+  }
+
+  /* ====== Modal Management ====== */
+  function openModal(modalId, tabBtn) {
+    closeAllModals();
+    const modalEl = document.getElementById(modalId);
+    if (modalEl) {
+      modalEl.classList.add('is-open');
+      modalEl.setAttribute('aria-hidden', 'false');
+    }
+    if (tabBtn) updateActiveTab(tabBtn);
+  }
+
+  function closeModal(modalId) {
+    const modalEl = document.getElementById(modalId);
+    if (modalEl) {
+      modalEl.classList.remove('is-open');
+      modalEl.setAttribute('aria-hidden', 'true');
+    }
+    updateActiveTab(els.tabReaderBtn);
+  }
+
+  function closeAllModals() {
+    ['libraryModal', 'settingsModal'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('is-open');
+        el.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  function updateActiveTab(activeBtn) {
+    document.querySelectorAll('.ios-tab-bar .tab-btn').forEach(btn => {
+      if (btn.id !== 'bookmarkBtn') { // don't toggle bookmark active state based on view
+        btn.classList.remove('active');
+      }
+    });
+    if (activeBtn && activeBtn.id !== 'bookmarkBtn') {
+      activeBtn.classList.add('active');
+    }
   }
 
   /* Manifest Loading */
@@ -484,14 +522,14 @@
     els.chapterList.innerHTML = "";
 
     if (!filtered.length) {
-      const empty = document.createElement("li");
-      empty.className = "chapter-group";
+      const empty = document.createElement("div");
+      empty.className = "welcome-state";
       if (sourceFilter === "__bookmarks__") {
-        empty.textContent = "No bookmarked chapters yet.";
+        empty.innerHTML = `<p class="welcome-title">No Bookmarked Chapters</p>`;
       } else if (sourceFilter === "__offline__") {
-        empty.textContent = "No downloaded chapters found.";
+        empty.innerHTML = `<p class="welcome-title">No Downloaded Chapters</p>`;
       } else {
-        empty.textContent = "No chapters match this filter.";
+        empty.innerHTML = `<p class="welcome-title">No Chapters Found</p>`;
       }
       els.chapterList.appendChild(empty);
       updateNavButtons();
@@ -502,34 +540,38 @@
     for (const entry of filtered) {
       const groupLabel = `${entry.sourceLabel} / ${entry.group || "root"}`;
       if (groupLabel !== lastGroupKey) {
-        const groupItem = document.createElement("li");
-        groupItem.className = "chapter-group";
+        const groupItem = document.createElement("div");
+        groupItem.className = "list-group-title";
         groupItem.textContent = groupLabel;
         els.chapterList.appendChild(groupItem);
         lastGroupKey = groupLabel;
       }
 
-      const item = document.createElement("li");
-      item.className = `chapter-item${entry.id === state.currentId ? " active" : ""}`;
+      const item = document.createElement("div");
+      item.className = `ios-cell${entry.id === state.currentId ? " active" : ""}`;
       item.dataset.chapterId = entry.id;
 
       const info = document.createElement("div");
-      info.className = "chapter-item-info";
+      info.className = "cell-content";
 
       const title = document.createElement("div");
-      title.className = "chapter-title";
+      title.className = "cell-title truncate";
       title.textContent = entry.title;
-
       info.appendChild(title);
 
+      const subtitle = document.createElement("div");
+      subtitle.className = "cell-subtitle truncate";
+      subtitle.textContent = entry.path;
+      info.appendChild(subtitle);
+
       const indicators = document.createElement("div");
-      indicators.className = "chapter-indicators";
+      indicators.className = "cell-indicators";
 
       /* Bookmark indicator */
       if (state.bookmarks.includes(entry.id)) {
         const bmIcon = document.createElement("span");
-        bmIcon.className = "bookmark-indicator";
-        bmIcon.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>`;
+        bmIcon.className = "saved-icon";
+        bmIcon.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>`;
         indicators.appendChild(bmIcon);
       }
 
@@ -537,9 +579,9 @@
       const urlPath = new URL(toReaderPath(entry.path), window.location.href).pathname;
       if (state.cachedUrls.has(urlPath)) {
         const offlineIcon = document.createElement("span");
-        offlineIcon.className = "offline-indicator";
+        offlineIcon.className = "downloaded-icon";
         offlineIcon.title = "Available Offline";
-        offlineIcon.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+        offlineIcon.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
         indicators.appendChild(offlineIcon);
       }
 
@@ -554,7 +596,10 @@
 
       item.appendChild(info);
       item.appendChild(indicators);
-      item.addEventListener("click", () => openChapter(entry.id, true));
+      item.addEventListener("click", () => {
+        openChapter(entry.id);
+        closeModal('libraryModal');
+      });
       els.chapterList.appendChild(item);
     }
 
@@ -596,7 +641,6 @@
         const savedTop = Number(state.progress[chapterId] || 0);
         els.readerPanel.scrollTop = Number.isFinite(savedTop) ? savedTop : 0;
         updateReadingProgressBar();
-        updateBackToTopVisibility(els.readerPanel.scrollTop);
 
         // Fade in
         requestAnimationFrame(() => {
@@ -604,10 +648,6 @@
           els.content.style.opacity = '1';
         });
       });
-
-      if (closeSidebarOnMobile) {
-        document.body.classList.remove("sidebar-open");
-      }
     } catch (error) {
       setChapterMeta(entry, String(error.message || error));
       els.content.innerHTML = `<p class="empty-state">${escapeHtml(String(error.message || error))}</p>`;
@@ -659,8 +699,11 @@
 
   function updateBookmarkButton() {
     const isBookmarked = state.currentId && state.bookmarks.includes(state.currentId);
-    els.bookmarkBtn.setAttribute("aria-pressed", String(Boolean(isBookmarked)));
-    els.bookmarkBtn.disabled = !state.currentId;
+    if (isBookmarked) {
+      els.bookmarkBtn.classList.add('saved');
+    } else {
+      els.bookmarkBtn.classList.remove('saved');
+    }
   }
 
   function saveBookmarks() {
@@ -679,10 +722,7 @@
     els.readingProgressBar.style.width = `${percent}%`;
   }
 
-  /* ====== Back to Top ====== */
-  function updateBackToTopVisibility(scrollTop) {
-    els.backToTopBtn.classList.toggle("visible", scrollTop > 400);
-  }
+
 
   /* ====== Read Status Tracking ====== */
   function updateReadStatus() {
@@ -732,14 +772,7 @@
     applyTypography();
   }
 
-  function setSettingsPanelOpen(isOpen) {
-    if (els.settingsPanel) {
-      els.settingsPanel.classList.toggle("is-open", Boolean(isOpen));
-    }
-    if (!els.toggleSettingsBtn) return;
-    const expanded = Boolean(isOpen);
-    els.toggleSettingsBtn.setAttribute("aria-expanded", String(expanded));
-  }
+
 
   function applyTheme() {
     const theme = state.settings.theme;
