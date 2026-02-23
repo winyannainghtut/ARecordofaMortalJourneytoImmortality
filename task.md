@@ -148,7 +148,7 @@ From Episode 2205 onwards, source chapters align 1:1 with episode numbers.
 - [x] **Episode 1824** (Source: `Eng/1801-1900/1824_eng.md`)
 - [x] **Episode 1825** (Source: `Eng/1801-1900/1825_eng.md`)
 - [x] **Episode 1826** (Source: `Eng/1801-1900/1826_eng.md`)
-- [ ] **Episode 1827** (Source: `Eng/1801-1900/1827_eng.md`)
+- [x] **Episode 1827** (Source: `Eng/1801-1900/1827_eng.md`)
 - [x] **Episode 1828** (Source: `Eng/1801-1900/1828_eng.md`)
 - [x] **Episode 1829** (Source: `Eng/1801-1900/1829_eng.md`)
 - [x] **Episode 1830** (Source: `Eng/1801-1900/1830_eng.md`)
