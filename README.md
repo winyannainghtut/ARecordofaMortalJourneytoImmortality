@@ -97,3 +97,14 @@ Use this exact instruction for translation work:
 ```
 
 Source reference: `instruction.md`
+
+## Local Development
+
+If you are running the project locally, you must start your local HTTP server from the **root** folder of this repository, not the `reader` folder. This ensures the `app.js` can correctly resolve relative paths to `../Burmese` and `../Eng`.
+
+```bash
+# In the root ARecordofaMortalJourneytoImmortality directory
+python -m http.server 8000
+```
+
+Then navigate to: `http://localhost:8000/reader/`
