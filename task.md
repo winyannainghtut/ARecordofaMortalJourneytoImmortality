@@ -12,8 +12,8 @@
 
 ## Current Progress Snapshot
 - **Current target**: 1901 - 2000
-- **Next episode to translate**: 1901
-- **Remaining**: 100 episodes
+- **Next episode to translate**: 1921
+- **Remaining**: 80 episodes
 
 ## Current Active Task: Retranslation of Episodes 1881 - 2000
 **Objective:** Continue retranslating episodes from 1881 up to 2000 to apply the updated strict terminology rules. Keep specific English terms (Qi, Nascent Soul, etc.) untranslated as per `instruction.md`.
@@ -38,26 +38,26 @@
 - [x] **Episode 1898** (Source: Eng/1801-1900/1898_eng.md)
 - [x] **Episode 1899** (Source: Eng/1801-1900/1899_eng.md)
 - [x] **Episode 1900** (Source: Eng/1801-1900/1900_eng.md)
-- [ ] **Episode 1901** (Source: Eng/1901-2000/1901_eng.md)
-- [ ] **Episode 1902** (Source: Eng/1901-2000/1902_eng.md)
-- [ ] **Episode 1903** (Source: Eng/1901-2000/1903_eng.md)
-- [ ] **Episode 1904** (Source: Eng/1901-2000/1904_eng.md)
-- [ ] **Episode 1905** (Source: Eng/1901-2000/1905_eng.md)
-- [ ] **Episode 1906** (Source: Eng/1901-2000/1906_eng.md)
-- [ ] **Episode 1907** (Source: Eng/1901-2000/1907_eng.md)
-- [ ] **Episode 1908** (Source: Eng/1901-2000/1908_eng.md)
-- [ ] **Episode 1909** (Source: Eng/1901-2000/1909_eng.md)
-- [ ] **Episode 1910** (Source: Eng/1901-2000/1910_eng.md)
-- [ ] **Episode 1911** (Source: Eng/1901-2000/1911_eng.md)
-- [ ] **Episode 1912** (Source: Eng/1901-2000/1912_eng.md)
-- [ ] **Episode 1913** (Source: Eng/1901-2000/1913_eng.md)
-- [ ] **Episode 1914** (Source: Eng/1901-2000/1914_eng.md)
-- [ ] **Episode 1915** (Source: Eng/1901-2000/1915_eng.md)
-- [ ] **Episode 1916** (Source: Eng/1901-2000/1916_eng.md)
-- [ ] **Episode 1917** (Source: Eng/1901-2000/1917_eng.md)
-- [ ] **Episode 1918** (Source: Eng/1901-2000/1918_eng.md)
-- [ ] **Episode 1919** (Source: Eng/1901-2000/1919_eng.md)
-- [ ] **Episode 1920** (Source: Eng/1901-2000/1920_eng.md)
+- [x] **Episode 1901** (Source: Eng/1901-2000/1901_eng.md)
+- [x] **Episode 1902** (Source: Eng/1901-2000/1902_eng.md)
+- [x] **Episode 1903** (Source: Eng/1901-2000/1903_eng.md)
+- [x] **Episode 1904** (Source: Eng/1901-2000/1904_eng.md)
+- [x] **Episode 1905** (Source: Eng/1901-2000/1905_eng.md)
+- [x] **Episode 1906** (Source: Eng/1901-2000/1906_eng.md)
+- [x] **Episode 1907** (Source: Eng/1901-2000/1907_eng.md)
+- [x] **Episode 1908** (Source: Eng/1901-2000/1908_eng.md)
+- [x] **Episode 1909** (Source: Eng/1901-2000/1909_eng.md)
+- [x] **Episode 1910** (Source: Eng/1901-2000/1910_eng.md)
+- [x] **Episode 1911** (Source: Eng/1901-2000/1911_eng.md)
+- [x] **Episode 1912** (Source: Eng/1901-2000/1912_eng.md)
+- [x] **Episode 1913** (Source: Eng/1901-2000/1913_eng.md)
+- [x] **Episode 1914** (Source: Eng/1901-2000/1914_eng.md)
+- [x] **Episode 1915** (Source: Eng/1901-2000/1915_eng.md)
+- [x] **Episode 1916** (Source: Eng/1901-2000/1916_eng.md)
+- [x] **Episode 1917** (Source: Eng/1901-2000/1917_eng.md)
+- [x] **Episode 1918** (Source: Eng/1901-2000/1918_eng.md)
+- [x] **Episode 1919** (Source: Eng/1901-2000/1919_eng.md)
+- [x] **Episode 1920** (Source: Eng/1901-2000/1920_eng.md)
 - [ ] **Episode 1921** (Source: Eng/1901-2000/1921_eng.md)
 - [ ] **Episode 1922** (Source: Eng/1901-2000/1922_eng.md)
 - [ ] **Episode 1923** (Source: Eng/1901-2000/1923_eng.md)
