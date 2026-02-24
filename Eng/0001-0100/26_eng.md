@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 26
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 26
 
 Just as Han Li became convinced that the rain would be endless, the sun finally rose into the sky and cleared away the clouds.
 

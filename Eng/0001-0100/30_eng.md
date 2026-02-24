@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 30
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 30
 
 “How old do you think I am?” The muscles in his cheek suddenly throbbed as he bluntly asked this question.
 

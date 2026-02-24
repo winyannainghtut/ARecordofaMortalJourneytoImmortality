@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 24
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 24
 
 The rabbits continued to ominously expand.
 

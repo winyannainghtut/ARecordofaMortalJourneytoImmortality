@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 28
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 28
 
 Originally, Han Li hadn’t planned on relying on medicine to cultivate, but after thinking about it, he decided that, no matter what, he was still a martial artist! Who knew if one day he would be struck by a natural disaster or caught in the rampage of a martial artist and killed? It would be for the best to prepare in advance some medicines for wounds and poisons, because if he were to be injured or poisoned without having any medicine nearby, that would be too unjust!
 

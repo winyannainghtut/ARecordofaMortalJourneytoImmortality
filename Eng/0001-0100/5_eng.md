@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 5
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 5
 
 After a while, Han Li suddenly felt his waist tighten and his body grow light. His whole body began to rise.
 

@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 3
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 3
 
 Inside the cart there was a strange smell, but this was to be expected as this was a ten person cart yet there were thirty children inside the cart. Even though a child’s body is small compared to an adult, the carriage was horribly overpacked. The Sect had picked up many children in the cart.
 

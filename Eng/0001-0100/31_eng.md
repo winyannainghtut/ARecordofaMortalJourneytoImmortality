@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 31
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 31
 
 Han Li’s thoughts were in chaos, jumbled with fear, regret, and confusion. Even though he had unexpectedly uncovered many secrets, he had no idea what he could do and panicked.
 

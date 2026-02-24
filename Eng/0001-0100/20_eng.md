@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 20
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 20
 
 As Han Li walked farther away, the sounds of the dispute between Wang Dapang and Zhang Changgui were getting less noisy. He didn’t care anymore for the two.
 

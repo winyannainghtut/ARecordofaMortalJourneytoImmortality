@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 42
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 42
 
 “You have gotten too cocky. This child is extremely shrewd and clever, not as easy to deal with as you might think. You don’t even see success yet, but you’re already celebrating. In the end, you are playing in the hands of this child.” Suddenly, the voice of a man echoed in Doctor Mo’s head.
 

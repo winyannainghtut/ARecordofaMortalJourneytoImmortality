@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 11
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 11
 
 Han Li didn’t meet many people on the way back, save for a few Senior Disciples who were curious at how Han Li was limping his way back. But because he didn’t say anything, they didn’t pay much attention to him.
 

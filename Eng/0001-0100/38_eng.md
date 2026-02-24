@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 38
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 38
 
 Walking in this pitch black forest, Han Li was extremely vigilant and pushed his senses to the limit. For others, this road would be fuzzy and hard to see, but for him, it was as bright as day.
 

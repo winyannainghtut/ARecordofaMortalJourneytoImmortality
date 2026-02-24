@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 39
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 39
 
 Han Li wasn’t familiar with the voice of the other spy, so he was confident that they had never met. But it sounded like they were around 20 years old.
 

@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 18
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 18
 
 “This Senior Disciple Li is so famous! Where did he come from?” Han Li wondered in amazement.
 

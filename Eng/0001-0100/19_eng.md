@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 19
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 19
 
 “Senior Disciple Han, you really don’t use your ears, do you? How could you not know about such a huge matter? Even if you were secluded, you master should have told you,” Xiao Suanpan said suspiciously.
 

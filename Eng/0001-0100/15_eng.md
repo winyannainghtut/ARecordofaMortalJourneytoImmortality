@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 15
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 15
 
 Doctor Mo had noticed that Han Li diligently practiced the chant and was satisfied.
 

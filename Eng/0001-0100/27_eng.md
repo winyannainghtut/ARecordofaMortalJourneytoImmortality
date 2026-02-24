@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 27
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 27
 
 At least until Doctor Mo returned, Han Li knew that using this bottle within the Valley of the God’s Hand would be quite safe. He was the only person in the entire valley, and no intruder would rashly enter. Since he was all but guaranteed to be safe for this period of time, he used the bottle as brazenly as he wanted.
 

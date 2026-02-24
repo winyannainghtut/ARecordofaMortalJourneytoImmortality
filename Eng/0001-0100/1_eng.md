@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 1
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 1
 
 Er Leng Zi opened his two eyes wide, and looked straight at the sogon grass and mud roof over his head. Over his body was an old dark yellow quilt. The original color of the quilt was no longer discernable, but it emitted a faint moldy smell.
 

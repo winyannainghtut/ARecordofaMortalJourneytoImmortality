@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 10
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 10
 
 Han Li slowly moved away from the Valley of the God’s Hand, and followed the mountain road. After coming out, he habitually looked toward the Crimson Water Peak and started to walk over.
 

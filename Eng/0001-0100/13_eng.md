@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 13
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 13
 
 Knowing that Han Li’s foot was injured, Zhang Tie brought food into his room and began to prepare a meal for the both of them.
 

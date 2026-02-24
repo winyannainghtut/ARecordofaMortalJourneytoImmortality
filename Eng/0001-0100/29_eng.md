@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 29
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 29
 
 Doctor Mo, with an expressionless look on his face, slowly closed his eyelids halfway as he put his hand firmly on Han Li’s wrist.
 

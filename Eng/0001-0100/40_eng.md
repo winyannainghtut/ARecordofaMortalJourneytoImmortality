@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 40
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 40
 
 The critics of the Blinking Sword Still didn’t know that the sword skill of the founding elder was actually very profound. However, when he was in his prime, he was gravely injured in a close quarters fight and could no longer train True Qi.
 

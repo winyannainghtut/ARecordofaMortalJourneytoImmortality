@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 8
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 8
 
 After a half of a year of extreme cultivation, Han Li at last received Doctor Mo’s test.
 

@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 7
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 7
 
 Han Li slowly transferred energy from his meridians back to his dantian. This would be the 7th Da Zhou Tian cycle of the day, and Han Li knew that his body had already reached the peak of what it could handle. If he were to try to do another cycle, then his meridians would all completely rupture, causing him to feel pain extreme enough that it would cause him to wish for death. The moment he thought about the pain, despite how courageous he was, he couldn’t help but break out in cold sweat.
 

@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 4
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 4
 
 Lord Yue faced everyone and announced, “Everyone listen up. Move forward into the bamboo forest and the path will take you to the Seven Mysteries Sect’s Bone Refining Cliff. The first section of the road is the bamboo forest, a wall cliff comes after that, and then you will arrive at the Bone Refining Cliff. Whoever can reach the peak of the cliff will be able to join the Seven Mysteries Sect. If you are not able to by the afternoon, you can still become an unofficial secret disciple as long as you display a remarkable amount of prowess.
 

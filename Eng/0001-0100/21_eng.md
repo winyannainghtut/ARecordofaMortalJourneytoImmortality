@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 21
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 21
 
 Senior Disciple Li’s eyelids twitched and his mind flew into chaos as he tried to make a decision.
 

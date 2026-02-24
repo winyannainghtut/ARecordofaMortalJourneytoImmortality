@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 25
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 25
 
 Once the night passed and it was morning, Han Li went out straight to the medicinal fields to observe the plants and see if there was any change.
 

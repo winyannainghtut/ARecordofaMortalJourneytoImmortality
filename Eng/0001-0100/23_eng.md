@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 23
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 23
 
 Almost like a flash of divine inspiration, a bright light flashed through Han Li’s heart.
 

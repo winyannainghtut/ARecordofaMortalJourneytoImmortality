@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 2
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 2
 
 Green Ox Fort was a small town and a garrison for soldiers, though the locals insisted on calling it “Green Ox City”. They have been using this name for over ten years, and so often that people just kept the name as it was.
 

@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 16
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 16
 
 Down below, two barehanded youths were locked in close quarters combat. One was fat but held a steady composure and possessed herculean strength. This was Han Li’s good friend Wang Dapang. Wang Dapang’s plump body boasted fists of mighty strength and a loud yell to accompany every punch. With every punch, a gust of wind followed. The other fighter was like a rat. He did not bother to block any of the punches thrown at him, and instead evaded them. It appeared that he wanted fight a war of attrition, exhausting Wang Dapang before finishing him off.
 

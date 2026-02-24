@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 32
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 32
 
 Han Li turned and walked to the door, but when he reached it, he suddenly turned around and asked one question.
 

@@ -1,6 +1,4 @@
-# A Record of a Mortal’s Journey to Immortality -  Chapter 41
-
-Your browser does not support JavaScript!
+﻿# A Record of a Mortal’s Journey to Immortality -  Chapter 41
 
 Han Li had never once experienced as long and bitter of a hardship as he did now, but now there were at most four to five months left to decide everything. Doctor Mo had laid all of his cards on the table and Han Li had to acquire a way to protect himself.
 
