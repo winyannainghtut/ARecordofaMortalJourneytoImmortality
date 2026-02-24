@@ -1,5 +1,5 @@
 /* ========================================
-   Novel Reader – iOS App Styles
+   Novel Reader – iOS App Styles (Enhanced)
    ======================================== */
 
 :root {
@@ -14,16 +14,12 @@
 
   /* System Colors - Light Mode / Default */
   --bg: #F2F2F7;
-  /* Grouped background */
   --bg-elevated: #FFFFFF;
   --surface: rgba(255, 255, 255, 0.85);
-  /* Glassmorphism */
   --text: #000000;
   --text-secondary: #8E8E93;
   --line: rgba(60, 60, 67, 0.18);
-  /* iOS Separator */
   --accent: #007AFF;
-  /* iOS Blue */
   --accent-soft: rgba(0, 122, 255, 0.12);
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   --modal-bg: #F2F2F7;
@@ -39,12 +35,11 @@
   --reader-font: var(--font-system);
 }
 
-/* ================== THemes ================== */
+/* ================== Themes ================== */
 
 html[data-theme="dark"] {
   --bg: #000000;
   --bg-elevated: #1C1C1E;
-  /* Elevated card background */
   --surface: rgba(28, 28, 30, 0.85);
   --text: #FFFFFF;
   --text-secondary: #98989D;
@@ -94,6 +89,19 @@ html[data-theme="burmese-art"] {
   --modal-bg: #EAE0C8;
 }
 
+html[data-theme="night-blue"] {
+  --bg: #0D1117;
+  --bg-elevated: #161B22;
+  --surface: rgba(22, 27, 34, 0.88);
+  --text: #E6EDF3;
+  --text-secondary: #7D8590;
+  --line: rgba(48, 54, 61, 0.6);
+  --accent: #58A6FF;
+  --accent-soft: rgba(88, 166, 255, 0.15);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --modal-bg: #0D1117;
+}
+
 
 /* ================== Reset & Base ================== */
 * {
@@ -108,7 +116,6 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  /* Prevent elastic bouncing on the entire page */
 }
 
 body {
@@ -116,7 +123,6 @@ body {
   color: var(--text);
   font-family: var(--font-system);
   font-size: 17px;
-  /* iOS standard body size */
   transition: background-color 300ms ease, color 300ms ease;
 }
 
@@ -139,6 +145,7 @@ a {
   text-overflow: ellipsis;
 }
 
+
 /* ================== App Shell Layout ================== */
 .app-shell {
   height: 100vh;
@@ -156,7 +163,6 @@ a {
   overflow-x: hidden;
   position: relative;
   -webkit-overflow-scrolling: touch;
-  /* Momentum scrolling */
 }
 
 /* Spacers to prevent content hiding behind glassy navs */
@@ -164,6 +170,7 @@ a {
   height: var(--tab-bar-height);
   width: 100%;
 }
+
 
 /* ================== Glassmorphic Header ================== */
 .ios-header {
@@ -173,7 +180,7 @@ a {
   width: 100%;
   height: var(--header-height);
   z-index: 10;
-  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform 380ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ios-header-blur {
@@ -196,7 +203,8 @@ a {
   padding-right: max(12px, var(--sar));
 }
 
-.header-left, .header-right {
+.header-left,
+.header-right {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -210,10 +218,10 @@ a {
 }
 
 .header-titles h1 {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.3px;
 }
 
 .meta-text {
@@ -237,17 +245,19 @@ body.immersive-mode .ios-tab-bar {
   position: absolute;
   bottom: -0.5px;
   left: 0;
-  height: 2px;
+  height: 2.5px;
   width: 0%;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 70%, #fff 30%));
   z-index: 11;
-  border-radius: 0 2px 2px 0;
-  transition: width 100ms linear;
+  border-radius: 0 3px 3px 0;
+  transition: width 120ms linear;
+  box-shadow: 0 0 6px 0 var(--accent-soft);
 }
+
 
 /* ================== Bottom Tab Bar ================== */
 .ios-tab-bar {
-  display: none; /* Hidden on mobile by default */
+  display: none;
 }
 
 /* ================== Scroll to Top FAB ================== */
@@ -263,23 +273,38 @@ body.immersive-mode .ios-tab-bar {
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   color: var(--accent);
   border: 0.5px solid var(--line);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 15;
-  transition: opacity 300ms ease, transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  transition: opacity 300ms ease,
+    transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 200ms ease;
 }
 
 .fab-scroll-top[hidden] {
   opacity: 0;
   pointer-events: none;
-  transform: translateY(20px) scale(0.9);
+  transform: translateY(20px) scale(0.8);
+  display: flex;
+  /* keep flex even when "hidden" to allow transition */
+}
+
+.fab-scroll-top:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.fab-scroll-top:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .fab-scroll-top:active {
-  transform: scale(0.92);
+  transform: scale(0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .ios-tab-bar-blur {
@@ -312,17 +337,18 @@ body.immersive-mode .ios-tab-bar {
   padding: 6px;
   min-width: 64px;
   cursor: pointer;
-  transition: all 250ms cubic-bezier(0.32, 0.72, 0, 1);
+  position: relative;
+  transition: color 250ms cubic-bezier(0.32, 0.72, 0, 1);
   border-radius: 16px;
 }
 
 .tab-btn svg {
   margin-bottom: 4px;
-  transition: transform 250ms cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .tab-btn:active {
-  transform: scale(0.92);
+  transform: scale(0.90);
 }
 
 .tab-btn:hover {
@@ -351,8 +377,7 @@ body.immersive-mode .ios-tab-bar {
 .content {
   width: min(var(--reader-width), calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px 0 60px;
-  /* Safe padding for bottom scrolling */
+  padding: 28px 0 72px;
   font-family: var(--reader-font);
   font-size: var(--reader-font-size);
   line-height: var(--reader-line-height);
@@ -360,22 +385,55 @@ body.immersive-mode .ios-tab-bar {
 }
 
 .content p {
-  margin-bottom: 1.25em;
+  margin-bottom: 1.3em;
   text-wrap: pretty;
+}
+
+/* Drop cap on the first paragraph */
+.content>p:first-of-type::first-letter {
+  font-size: 3.4em;
+  line-height: 0.8;
+  float: left;
+  margin: 0.06em 0.08em 0 0;
+  font-weight: 700;
+  color: var(--accent);
 }
 
 .content h1,
 .content h2,
 .content h3 {
-  font-weight: 600;
-  margin-top: 1.8em;
-  margin-bottom: 0.6em;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 0.65em;
+  letter-spacing: -0.4px;
+}
+
+.content h1 {
+  font-size: 1.6em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.4em;
+}
+
+.content h2 {
+  font-size: 1.25em;
 }
 
 .content hr {
   border: none;
-  border-top: 1px solid var(--line);
-  margin: 2em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5em 0;
+  gap: 10px;
+  color: var(--text-secondary);
+}
+
+.content hr::before {
+  content: "✦ ✦ ✦";
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: var(--text-secondary);
+  opacity: 0.5;
 }
 
 /* Empty Welcome State */
@@ -387,14 +445,51 @@ body.immersive-mode .ios-tab-bar {
   height: 60vh;
   text-align: center;
   color: var(--text-secondary);
+  padding: 0 24px;
+}
+
+.welcome-icon {
+  width: 88px;
+  height: 88px;
+  background: var(--accent-soft);
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: 20px;
+  animation: welcome-pulse 3s ease-in-out infinite;
+}
+
+@keyframes welcome-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 var(--accent-soft);
+  }
+
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 12px transparent;
+  }
 }
 
 .welcome-title {
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
-  margin: 16px 0 8px;
+  margin: 0 0 8px;
+  letter-spacing: -0.4px;
 }
+
+.welcome-hint {
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 260px;
+  color: var(--text-secondary);
+}
+
 
 /* ================== Full-Screen Slide Modals ================== */
 .ios-modal {
@@ -409,7 +504,7 @@ body.immersive-mode .ios-tab-bar {
   display: flex;
   flex-direction: column;
   transform: translateY(120%);
-  transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform 480ms cubic-bezier(0.32, 0.72, 0, 1);
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4), 0 0 0 0.5px var(--line);
   overflow: hidden;
 }
@@ -435,7 +530,7 @@ body.immersive-mode .ios-tab-bar {
 .ios-modal-header-content {
   position: relative;
   z-index: 1;
-  height: 44px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -444,19 +539,26 @@ body.immersive-mode .ios-tab-bar {
 
 .ios-modal-header-content h1 {
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
 .cancel-btn {
-  position: fixed;
+  position: absolute;
   right: 16px;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   color: var(--accent);
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 200ms ease;
+}
+
+.cancel-btn:hover {
+  background: var(--accent-soft);
 }
 
 .ios-modal-content {
@@ -465,13 +567,13 @@ body.immersive-mode .ios-tab-bar {
   -webkit-overflow-scrolling: touch;
   position: relative;
   z-index: 0;
-  /* Flows under header blur */
 }
 
 /* Grouped List Background padding */
 .bg-grouped {
   padding: 24px 16px;
 }
+
 
 /* ================== Segmented Control (Filter Chips) ================== */
 .segmented-control-wrapper {
@@ -482,32 +584,36 @@ body.immersive-mode .ios-tab-bar {
   z-index: 1;
 }
 
+.segmented-control-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .segmented-control {
   display: inline-flex;
   background: rgba(118, 118, 128, 0.12);
-  /* Standard iOS System Fill */
   padding: 2px;
-  border-radius: 8px;
+  border-radius: 10px;
   gap: 2px;
 }
 
 .filter-chip {
   background: transparent;
   border: none;
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 13px;
   font-weight: 500;
   color: var(--text-secondary);
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s;
+  transition: all 0.22s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .filter-chip.active {
   background: var(--bg-elevated);
   color: var(--text);
-  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.04), 0 3px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
 }
 
 /* Search Bar in Header */
@@ -532,23 +638,28 @@ body.immersive-mode .ios-tab-bar {
 .search-input-wrap input {
   width: 100%;
   background: rgba(118, 118, 128, 0.12);
-  /* Standard iOS System Fill */
   border: none;
   border-radius: 10px;
-  padding: 8px 12px 8px 32px;
-  font-size: 17px;
+  padding: 9px 12px 9px 34px;
+  font-size: 16px;
   color: var(--text);
   outline: none;
+  transition: background 200ms ease;
+}
+
+.search-input-wrap input:focus {
+  background: rgba(118, 118, 128, 0.18);
 }
 
 .search-input-wrap input::placeholder {
   color: var(--text-secondary);
 }
 
+
 /* ================== Native iOS Form Elements ================== */
 .ios-form-group {
   background: var(--bg-elevated);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -556,7 +667,7 @@ body.immersive-mode .ios-tab-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 13px 16px;
   min-height: 44px;
   border-bottom: 0.5px solid var(--line);
 }
@@ -566,7 +677,8 @@ body.immersive-mode .ios-tab-bar {
 }
 
 .ios-form-row label {
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* Select Inputs */
@@ -575,11 +687,10 @@ body.immersive-mode .ios-tab-bar {
   -webkit-appearance: none;
   background: none;
   border: none;
-  font-size: 17px;
+  font-size: 16px;
   color: var(--text-secondary);
   text-align: right;
   direction: rtl;
-  /* Aligns dropdown arrow nicely if shown */
   padding-right: 20px;
   cursor: pointer;
   outline: none;
@@ -600,12 +711,20 @@ body.immersive-mode .ios-tab-bar {
 .slider-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
-  font-size: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .value-badge {
-  color: var(--text-secondary);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  min-width: 38px;
+  text-align: center;
 }
 
 .ios-slider {
@@ -613,24 +732,44 @@ body.immersive-mode .ios-tab-bar {
   -webkit-appearance: none;
   width: 100%;
   height: 4px;
-  background: var(--line);
-  border-radius: 2px;
+  background: linear-gradient(to right,
+      var(--accent) 0%,
+      var(--accent) var(--slider-fill, 50%),
+      var(--line) var(--slider-fill, 50%),
+      var(--line) 100%);
+  border-radius: 4px;
   outline: none;
+  transition: background 50ms linear;
 }
 
 .ios-slider::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   background: #FFF;
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ios-slider::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+
+.ios-slider::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  background: #FFF;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
 .margin-top-large {
-  margin-top: 32px;
+  margin-top: 28px;
 }
 
 /* Buttons inside Modals */
@@ -642,9 +781,12 @@ body.immersive-mode .ios-tab-bar {
   background: none;
   border: none;
   padding: 14px;
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 500;
   color: var(--accent);
   cursor: pointer;
+  transition: opacity 150ms ease;
+  border-radius: 0;
 }
 
 .ios-action-btn:active {
@@ -662,15 +804,59 @@ body.immersive-mode .ios-tab-bar {
   text-align: center;
   margin-top: 8px;
   padding: 0 16px;
+  line-height: 1.5;
 }
 
-/* ================== Inset Grouped Lists (iOS 26 Style) ================== */
+/* Reading Stats Section */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+.stat-card {
+  background: var(--bg-elevated);
+  border-radius: 12px;
+  padding: 12px 8px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card .stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-card .stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.settings-section-title {
+  padding: 20px 20px 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+
+/* ================== Inset Grouped Lists (iOS Style) ================== */
 .ios-list-group {
   background: var(--bg-elevated);
-  border-radius: 20px;
-  margin: 12px 16px 24px;
+  border-radius: 16px;
+  margin: 8px 16px 20px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
 .ios-cell {
@@ -678,11 +864,12 @@ body.immersive-mode .ios-tab-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 14px 16px;
   border-bottom: 0.5px solid var(--line);
   background: transparent;
   cursor: pointer;
-  transition: background-color 200ms ease, transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
+  transition: background-color 180ms ease, transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
+  overflow: hidden;
 }
 
 .ios-cell:last-child {
@@ -691,7 +878,7 @@ body.immersive-mode .ios-tab-bar {
 
 .ios-cell:active {
   background-color: var(--line);
-  transform: scale(0.98);
+  transform: scale(0.99);
 }
 
 .ios-cell.active {
@@ -702,13 +889,46 @@ body.immersive-mode .ios-tab-bar {
   color: var(--accent);
 }
 
+/* Per-cell reading progress mini-bar */
+.cell-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.6;
+  border-radius: 0 2px 2px 0;
+  transition: width 400ms ease;
+}
+
+.cell-progress-bar.completed {
+  background: #34C759;
+  opacity: 0.8;
+}
+
+.cell-progress-bar.in-progress {
+  background: #FF9500;
+  opacity: 0.7;
+}
+
 .list-group-title {
-  padding: 24px 24px 8px;
-  font-size: 13px;
+  padding: 20px 20px 8px;
+  font-size: 12px;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--text-secondary);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.list-group-title::after {
+  content: "";
+  flex: 1;
+  height: 0.5px;
+  background: var(--line);
+  border-radius: 1px;
 }
 
 .cell-content {
@@ -718,22 +938,22 @@ body.immersive-mode .ios-tab-bar {
 }
 
 .cell-title {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
-  letter-spacing: -0.3px;
+  margin-bottom: 3px;
+  letter-spacing: -0.2px;
 }
 
 .cell-subtitle {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-secondary);
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .cell-indicators {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
@@ -748,6 +968,7 @@ body.immersive-mode .ios-tab-bar {
   width: 8px;
   height: 8px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .status-dot.unread {
@@ -756,10 +977,12 @@ body.immersive-mode .ios-tab-bar {
 
 .status-dot.in-progress {
   background: #FF9500;
+  box-shadow: 0 0 0 2px rgba(255, 149, 0, 0.2);
 }
 
 .status-dot.completed {
   background: #34C759;
+  box-shadow: 0 0 0 2px rgba(52, 199, 89, 0.2);
 }
 
 .downloaded-icon {
@@ -770,6 +993,7 @@ body.immersive-mode .ios-tab-bar {
   color: var(--accent);
 }
 
+
 /* ================== Base Buttons ================== */
 .ios-icon-btn {
   background: none;
@@ -779,41 +1003,53 @@ body.immersive-mode .ios-tab-bar {
   cursor: pointer;
   display: flex;
   align-items: center;
+  border-radius: 10px;
+  transition: background 200ms ease;
+}
+
+.ios-icon-btn:hover {
+  background: var(--accent-soft);
 }
 
 .ios-icon-btn:disabled {
   color: var(--text-secondary);
-  opacity: 0.5;
+  opacity: 0.4;
+  pointer-events: none;
 }
+
 
 /* ================== Toasts ================== */
 .toast-container {
   position: fixed;
-  top: 50px;
+  top: calc(var(--header-height) + 8px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
   pointer-events: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
+  width: max-content;
+  max-width: calc(100vw - 48px);
 }
 
 .toast {
-  background: var(--surface);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--bg-elevated);
   color: var(--text);
-  padding: 12px 20px;
-  border-radius: 99px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 15px;
+  padding: 11px 18px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12), 0 0 0 0.5px var(--line);
+  font-size: 14px;
   font-weight: 500;
-  animation: slide-down 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-left: 3px solid var(--accent);
+  animation: slide-down 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 200px;
+  max-width: 340px;
 }
 
 .toast.hiding {
-  animation: fade-out 0.3s forwards;
+  animation: fade-out 0.28s forwards;
 }
 
 .toast-progress {
@@ -821,7 +1057,7 @@ body.immersive-mode .ios-tab-bar {
   height: 3px;
   background: var(--line);
   margin-top: 8px;
-  border-radius: 2px;
+  border-radius: 3px;
   overflow: hidden;
 }
 
@@ -830,16 +1066,17 @@ body.immersive-mode .ios-tab-bar {
   background: var(--accent);
   width: 0%;
   transition: width 0.2s ease;
+  border-radius: 3px;
 }
 
 @keyframes slide-down {
   from {
-    transform: translateY(-20px);
+    transform: translateY(-16px) scale(0.95);
     opacity: 0;
   }
 
   to {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
 }
@@ -847,11 +1084,12 @@ body.immersive-mode .ios-tab-bar {
 @keyframes fade-out {
   to {
     opacity: 0;
-    transform: scale(0.9);
+    transform: translateY(-8px) scale(0.95);
   }
 }
 
-/* ================== Tablet/Desktop Accomodations (Mac-like) ================== */
+
+/* ================== Tablet/Desktop Accommodations ================== */
 @media (min-width: 981px) {
   .app-shell {
     flex-direction: row;
@@ -859,7 +1097,7 @@ body.immersive-mode .ios-tab-bar {
 
   /* Show tab bar on desktop/tablet */
   .ios-tab-bar {
-    display: flex; /* Override display: none from mobile */
+    display: flex;
     position: fixed;
     top: 50%;
     left: 24px;
@@ -870,26 +1108,52 @@ body.immersive-mode .ios-tab-bar {
     height: auto;
     max-height: 80vh;
     border-radius: 40px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 0 0.5px var(--line);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 0.5px var(--line);
     overflow: hidden;
-    transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1), opacity 300ms;
+    transition: transform 380ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms;
     z-index: 20;
+  }
+
+  body.immersive-mode .ios-tab-bar {
+    transform: translateY(-50%) translateX(-120px);
+    opacity: 0;
   }
 
   .ios-tab-items {
     position: relative;
-    padding: 32px 0;
+    padding: 28px 0;
     flex-direction: column;
     justify-content: center;
-    gap: 32px;
+    gap: 8px;
   }
 
   .tab-btn {
     margin-top: 0;
+    position: relative;
+    width: 60px;
+    padding: 8px 6px;
   }
-  
+
+  /* Active pill behind icon on desktop */
+  .tab-btn::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background: var(--accent-soft);
+    border-radius: 14px;
+    opacity: 0;
+    transition: opacity 250ms ease, transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(0.8);
+  }
+
+  .tab-btn.active::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   /* Hide the redundant header buttons on Desktop */
-  #headerLibraryBtn, #headerSettingsBtn {
+  #headerLibraryBtn,
+  #headerSettingsBtn {
     display: none;
   }
 
@@ -904,7 +1168,7 @@ body.immersive-mode .ios-tab-bar {
     transform: translateX(120%);
     opacity: 0;
     pointer-events: none;
-    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1), opacity 300ms ease;
+    transition: transform 480ms cubic-bezier(0.32, 0.72, 0, 1), opacity 280ms ease;
   }
 
   .ios-modal.is-open {
@@ -915,6 +1179,10 @@ body.immersive-mode .ios-tab-bar {
 
   .ios-header {
     border-bottom: none;
-    /* Let the content flow smoothly */
+  }
+
+  .toast-container {
+    top: calc(var(--header-height) + 12px);
+    left: calc(50% + 80px);
   }
 }

@@ -89,7 +89,12 @@
 
     /* Feedback & FAB */
     toastContainer: document.getElementById("toastContainer"),
-    scrollTopBtn: document.getElementById("scrollTopBtn")
+    scrollTopBtn: document.getElementById("scrollTopBtn"),
+
+    /* Stats */
+    statCompleted: document.getElementById("statCompleted"),
+    statInProgress: document.getElementById("statInProgress"),
+    statTotal: document.getElementById("statTotal")
   };
 
   /* Modal state */
@@ -244,7 +249,10 @@
 
     /* Tab Bar Navigation */
     els.tabLibraryBtn?.addEventListener("click", () => openModal('libraryModal', els.tabLibraryBtn));
-    els.tabSettingsBtn?.addEventListener("click", () => openModal('settingsModal', els.tabSettingsBtn));
+    els.tabSettingsBtn?.addEventListener("click", () => {
+      openModal('settingsModal', els.tabSettingsBtn);
+      renderReadingStats();
+    });
     els.tabReaderBtn?.addEventListener("click", () => {
       closeAllModals();
       updateActiveTab(els.tabReaderBtn);
@@ -252,7 +260,10 @@
 
     /* Header Nav Buttons (Mobile Equivalent) */
     els.headerLibraryBtn?.addEventListener("click", () => openModal('libraryModal'));
-    els.headerSettingsBtn?.addEventListener("click", () => openModal('settingsModal'));
+    els.headerSettingsBtn?.addEventListener("click", () => {
+      openModal('settingsModal');
+      renderReadingStats();
+    });
 
     els.searchInput.addEventListener("input", () => {
       renderChapterList();
@@ -627,6 +638,15 @@
 
       item.appendChild(info);
       item.appendChild(indicators);
+
+      /* Per-cell reading progress bar */
+      if (readRatio > 0.02) {
+        const progressBar = document.createElement("div");
+        progressBar.className = `cell-progress-bar ${statusClass}`;
+        progressBar.style.width = `${(readRatio * 100).toFixed(1)}%`;
+        item.appendChild(progressBar);
+      }
+
       item.addEventListener("click", () => {
         openChapter(entry.id);
         closeModal('libraryModal');
@@ -831,6 +851,34 @@
     els.fontSizeValue.textContent = `${fontSize}px`;
     els.lineHeightValue.textContent = lineHeight.toFixed(2);
     els.widthValue.textContent = `${width}px`;
+
+    /* Update slider fill positions */
+    updateSliderFill(els.fontSizeRange, 14, 32);
+    updateSliderFill(els.lineHeightRange, 1.35, 2.2);
+    updateSliderFill(els.widthRange, 560, 1080);
+  }
+
+  function updateSliderFill(slider, min, max) {
+    if (!slider) return;
+    const val = clamp(Number(slider.value), min, max);
+    const pct = ((val - min) / (max - min)) * 100;
+    slider.style.setProperty("--slider-fill", `${pct.toFixed(1)}%`);
+  }
+
+  /* ====== Reading Stats ====== */
+  function renderReadingStats() {
+    if (!els.statCompleted || !els.statInProgress || !els.statTotal) return;
+    const total = state.entries.length;
+    let completed = 0;
+    let inProgress = 0;
+    for (const entry of state.entries) {
+      const ratio = state.readStatus[entry.id] || 0;
+      if (ratio >= 0.9) completed++;
+      else if (ratio > 0.05) inProgress++;
+    }
+    els.statCompleted.textContent = completed;
+    els.statInProgress.textContent = inProgress;
+    els.statTotal.textContent = total;
   }
 
   function saveSettings() {
