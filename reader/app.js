@@ -679,11 +679,7 @@
       }
 
       const markdown = await response.text();
-      const rendered = marked.parse(markdown, {
-        mangle: false,
-        headerIds: true,
-        smartypants: true
-      });
+      const rendered = marked.parse(markdown);
 
       els.content.style.opacity = '0';
       els.content.innerHTML = DOMPurify.sanitize(rendered);
@@ -706,9 +702,9 @@
     }
   }
 
-  function setChapterMeta(entry) {
+  function setChapterMeta(entry, subtitle = "") {
     els.chapterTitle.textContent = entry ? entry.title : "Select a chapter";
-    els.chapterInfo.textContent = "";
+    els.chapterInfo.textContent = subtitle;
   }
 
   /* ====== Navigation ====== */
@@ -835,6 +831,21 @@
       resolved = theme;
     }
     document.documentElement.setAttribute("data-theme", resolved);
+
+    /* Dynamically update browser chrome theme-color */
+    const themeColors = {
+      light: "#F2F2F7", dark: "#000000", amoled: "#000000",
+      sepia: "#F4ECD8", "burmese-art": "#EAE0C8", "night-blue": "#0D1117"
+    };
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
+    if (metaThemeColor) {
+      metaThemeColor.content = themeColors[resolved] || "#F2F2F7";
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "theme-color";
+      meta.content = themeColors[resolved] || "#F2F2F7";
+      document.head.appendChild(meta);
+    }
   }
 
   function applyTypography() {
@@ -964,7 +975,5 @@
     return tag === "input" || tag === "textarea" || tag === "select" || active.isContentEditable;
   }
 
-  function isMobile() {
-    return window.innerWidth <= 980;
-  }
+
 })();
