@@ -12,8 +12,8 @@
 
 ## Current Progress Snapshot
 - **Current target**: 1901 - 2000
-- **Next episode to translate**: 1965
-- **Remaining**: 36 episodes
+- **Next episode to translate**: 1971
+- **Remaining**: 30 episodes
 
 ## Current Active Task: Retranslation of Episodes 1881 - 2000
 **Objective:** Continue retranslating episodes from 1881 up to 2000 to apply the updated strict terminology rules. Keep specific English terms (Qi, Nascent Soul, etc.) untranslated as per `instruction.md`.
@@ -102,12 +102,12 @@
 - [x] **Episode 1962** (Source: Eng/1901-2000/1962_eng.md)
 - [x] **Episode 1963** (Source: Eng/1901-2000/1963_eng.md)
 - [x] **Episode 1964** (Source: Eng/1901-2000/1964_eng.md)
-- [ ] **Episode 1965** (Source: Eng/1901-2000/1965_eng.md)
-- [ ] **Episode 1966** (Source: Eng/1901-2000/1966_eng.md)
-- [ ] **Episode 1967** (Source: Eng/1901-2000/1967_eng.md)
-- [ ] **Episode 1968** (Source: Eng/1901-2000/1968_eng.md)
-- [ ] **Episode 1969** (Source: Eng/1901-2000/1969_eng.md)
-- [ ] **Episode 1970** (Source: Eng/1901-2000/1970_eng.md)
+- [x] **Episode 1965** (Source: Eng/1901-2000/1965_eng.md)
+- [x] **Episode 1966** (Source: Eng/1901-2000/1966_eng.md)
+- [x] **Episode 1967** (Source: Eng/1901-2000/1967_eng.md)
+- [x] **Episode 1968** (Source: Eng/1901-2000/1968_eng.md)
+- [x] **Episode 1969** (Source: Eng/1901-2000/1969_eng.md)
+- [x] **Episode 1970** (Source: Eng/1901-2000/1970_eng.md)
 - [ ] **Episode 1971** (Source: Eng/1901-2000/1971_eng.md)
 - [ ] **Episode 1972** (Source: Eng/1901-2000/1972_eng.md)
 - [ ] **Episode 1973** (Source: Eng/1901-2000/1973_eng.md)
