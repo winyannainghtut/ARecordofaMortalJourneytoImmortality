@@ -80,13 +80,16 @@
     downloadBtn: document.getElementById("downloadBtn"),
     bookmarkBtn: document.getElementById("bookmarkBtn"),
 
-    /* Navigation Tabs */
+    /* Navigation Tabs & Header Buttons */
     tabLibraryBtn: document.getElementById("tabLibraryBtn"),
     tabReaderBtn: document.getElementById("tabReaderBtn"),
     tabSettingsBtn: document.getElementById("tabSettingsBtn"),
+    headerLibraryBtn: document.getElementById("headerLibraryBtn"),
+    headerSettingsBtn: document.getElementById("headerSettingsBtn"),
 
-    /* Feedback */
-    toastContainer: document.getElementById("toastContainer")
+    /* Feedback & FAB */
+    toastContainer: document.getElementById("toastContainer"),
+    scrollTopBtn: document.getElementById("scrollTopBtn")
   };
 
   /* Modal state */
@@ -240,12 +243,16 @@
     });
 
     /* Tab Bar Navigation */
-    els.tabLibraryBtn.addEventListener("click", () => openModal('libraryModal', els.tabLibraryBtn));
-    els.tabSettingsBtn.addEventListener("click", () => openModal('settingsModal', els.tabSettingsBtn));
-    els.tabReaderBtn.addEventListener("click", () => {
+    els.tabLibraryBtn?.addEventListener("click", () => openModal('libraryModal', els.tabLibraryBtn));
+    els.tabSettingsBtn?.addEventListener("click", () => openModal('settingsModal', els.tabSettingsBtn));
+    els.tabReaderBtn?.addEventListener("click", () => {
       closeAllModals();
       updateActiveTab(els.tabReaderBtn);
     });
+
+    /* Header Nav Buttons (Mobile Equivalent) */
+    els.headerLibraryBtn?.addEventListener("click", () => openModal('libraryModal'));
+    els.headerSettingsBtn?.addEventListener("click", () => openModal('settingsModal'));
 
     els.searchInput.addEventListener("input", () => {
       renderChapterList();
@@ -340,6 +347,13 @@
           }
         }
 
+        /* FAB Scroll To Top Toggle */
+        if (scrollTop > 800) {
+          els.scrollTopBtn.removeAttribute('hidden');
+        } else {
+          els.scrollTopBtn.setAttribute('hidden', 'true');
+        }
+
         updateReadingProgressBar();
         updateReadStatus();
       });
@@ -374,6 +388,11 @@
           closeAllModals();
           break;
       }
+    });
+
+    /* Scroll to Top FAB click */
+    els.scrollTopBtn?.addEventListener("click", () => {
+      els.readerPanel.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 

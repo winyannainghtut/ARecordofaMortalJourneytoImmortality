@@ -196,6 +196,12 @@ a {
   padding-right: max(12px, var(--sar));
 }
 
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .header-titles {
   flex: 1;
   text-align: center;
@@ -241,18 +247,39 @@ body.immersive-mode .ios-tab-bar {
 
 /* ================== Bottom Tab Bar ================== */
 .ios-tab-bar {
+  display: none; /* Hidden on mobile by default */
+}
+
+/* ================== Scroll to Top FAB ================== */
+.fab-scroll-top {
   position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 420px;
-  height: 72px;
-  z-index: 20;
-  border-radius: 36px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 0 0.5px var(--line);
-  overflow: hidden;
-  transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1), opacity 300ms;
+  bottom: calc(24px + var(--sab));
+  right: max(24px, var(--sar));
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background: var(--surface);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  color: var(--accent);
+  border: 0.5px solid var(--line);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 15;
+  transition: opacity 300ms ease, transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.fab-scroll-top[hidden] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.9);
+}
+
+.fab-scroll-top:active {
+  transform: scale(0.92);
 }
 
 .ios-tab-bar-blur {
@@ -830,7 +857,9 @@ body.immersive-mode .ios-tab-bar {
     flex-direction: row;
   }
 
+  /* Show tab bar on desktop/tablet */
   .ios-tab-bar {
+    display: flex; /* Override display: none from mobile */
     position: fixed;
     top: 50%;
     left: 24px;
@@ -841,6 +870,10 @@ body.immersive-mode .ios-tab-bar {
     height: auto;
     max-height: 80vh;
     border-radius: 40px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 0 0.5px var(--line);
+    overflow: hidden;
+    transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1), opacity 300ms;
+    z-index: 20;
   }
 
   .ios-tab-items {
@@ -853,6 +886,11 @@ body.immersive-mode .ios-tab-bar {
 
   .tab-btn {
     margin-top: 0;
+  }
+  
+  /* Hide the redundant header buttons on Desktop */
+  #headerLibraryBtn, #headerSettingsBtn {
+    display: none;
   }
 
   .ios-modal {
