@@ -42,7 +42,9 @@ jobs:
 
           root = Path(".")
           site = root / "site"
-          site.mkdir(exist_ok=True)
+          if site.exists():
+              shutil.rmtree(site)
+          site.mkdir(parents=True, exist_ok=True)
 
           def copy_dir_case_insensitive(name: str) -> None:
               match = next(

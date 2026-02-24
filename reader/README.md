@@ -3,11 +3,11 @@
 Simple local website for reading markdown chapters from:
 
 - `Eng`
-- `episodes` (or `Episodes`)
+- `Burmese`
 
 ## Run
 
-From `d:\translate`:
+From the repository root:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\reader\run_reader.ps1

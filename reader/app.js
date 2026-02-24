@@ -7,6 +7,7 @@
   const PROGRESS_KEY = "novel_reader_scroll_progress_v1";
   const BOOKMARKS_KEY = "novel_reader_bookmarks_v1";
   const READ_STATUS_KEY = "novel_reader_read_status_v1";
+  const OFFLINE_CACHE_NAME = "novel-offline-cache-v2";
 
   const SYSTEM_THEME_QUERY = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -42,7 +43,8 @@
     bookmarks: readJSONArray(BOOKMARKS_KEY),
     readStatus: readJSON(READ_STATUS_KEY, {}),
     saveTimer: null,
-    statusTimer: null
+    statusTimer: null,
+    chapterRequestToken: 0
   };
 
   /* ====== DOM References ====== */
@@ -144,7 +146,7 @@
     let downloadedCount = 0;
 
     try {
-      const cache = await caches.open('novel-offline-cache-v1');
+      const cache = await caches.open(OFFLINE_CACHE_NAME);
       // Throttle downloads to 5 concurrent requests at a time
       for (let i = 0; i < episodesToDownload.length; i += 5) {
         const chunk = episodesToDownload.slice(i, i + 5);
@@ -177,7 +179,7 @@
 
   async function refreshCachedUrls() {
     try {
-      const cache = await caches.open('novel-offline-cache-v1');
+      const cache = await caches.open(OFFLINE_CACHE_NAME);
       const keys = await cache.keys();
       state.cachedUrls.clear();
       keys.forEach((request) => {
@@ -660,6 +662,7 @@
 
   /* ====== Open Chapter ====== */
   async function openChapter(chapterId, closeSidebarOnMobile) {
+    const requestToken = ++state.chapterRequestToken;
     const entry = state.entries.find((item) => item.id === chapterId);
     if (!entry) return;
 
@@ -673,12 +676,14 @@
     setChapterMeta(entry, "Loading...");
 
     try {
-      const response = await fetch(toReaderPath(entry.path));
+      const response = await fetch(toReaderPath(entry.path), { cache: "no-store" });
+      if (requestToken !== state.chapterRequestToken || chapterId !== state.currentId) return;
       if (!response.ok) {
         throw new Error(`Could not open ${entry.path} (${response.status})`);
       }
 
       const markdown = await response.text();
+      if (requestToken !== state.chapterRequestToken || chapterId !== state.currentId) return;
       const rendered = marked.parse(markdown);
 
       els.content.style.opacity = '0';
@@ -697,6 +702,7 @@
         });
       });
     } catch (error) {
+      if (requestToken !== state.chapterRequestToken || chapterId !== state.currentId) return;
       setChapterMeta(entry, String(error.message || error));
       els.content.innerHTML = `<p class="empty-state">${escapeHtml(String(error.message || error))}</p>`;
     }

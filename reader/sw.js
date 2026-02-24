@@ -8,6 +8,7 @@ const ASSETS_TO_CACHE = [
     './app.js',
     './manifest.json',
     './app-manifest.json',
+    './icon.svg',
     'https://cdn.jsdelivr.net/npm/marked/marked.min.js',
     'https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js',
     'https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&family=Noto+Serif+Myanmar:wght@400;500;700&family=Outfit:wght@400;500;600;700&family=Padauk:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap'
@@ -36,32 +37,44 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    // Try network first, then cache (for both html, asset and markdown)
-    // We want user to get the latest markdown if possible
-    // If no network, fallback to cache
+    if (event.request.method !== 'GET') {
+        return;
+    }
 
-    const isMDFile = event.request.url.endsWith('.md');
-
-    event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            const fetchPromise = fetch(event.request).then((networkResponse) => {
-                // Cache the dynamically fetched items to ensure we have the latest version next time
-                if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
-                    const responseToCache = networkResponse.clone();
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseToCache);
-                    });
-                }
-                return networkResponse;
-            }).catch((e) => {
-                // Fallback happens here
-                if (cachedResponse) {
-                    return cachedResponse;
-                }
-                throw e;
-            });
-
-            return cachedResponse || fetchPromise;
-        })
-    );
+    event.respondWith(handleRequest(event.request));
 });
+
+async function handleRequest(request) {
+    const cacheName = isMarkdownRequest(request) ? DATA_CACHE_NAME : CACHE_NAME;
+    const cache = await caches.open(cacheName);
+
+    try {
+        const networkResponse = await fetch(request);
+        if (networkResponse && networkResponse.ok) {
+            await cache.put(request, networkResponse.clone());
+        }
+        return networkResponse;
+    } catch (error) {
+        const cachedResponse = await cache.match(request);
+        if (cachedResponse) {
+            return cachedResponse;
+        }
+
+        if (cacheName !== CACHE_NAME) {
+            const fallback = await caches.match(request);
+            if (fallback) {
+                return fallback;
+            }
+        }
+
+        throw error;
+    }
+}
+
+function isMarkdownRequest(request) {
+    try {
+        return new URL(request.url).pathname.toLowerCase().endsWith('.md');
+    } catch (_error) {
+        return false;
+    }
+}
