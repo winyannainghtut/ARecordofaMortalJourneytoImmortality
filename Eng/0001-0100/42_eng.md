@@ -71,6 +71,3 @@ At this time, Elder Mo was in a stone room and was using the bones of a wild bea
 —–
 
 [1] Presumably to not mess with Mo.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-42
-> Pulled as original English (novelsonline).

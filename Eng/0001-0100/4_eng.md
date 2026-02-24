@@ -65,6 +65,3 @@ He drove himself past his limit to climb up the first knot, and then he sat back
 Han Li could only force himself to laugh as he realized he had gravely underestimated this test. Luckily, he at least wasn’t in the last place. He turned his head to look behind him and was startled when he saw the senior disciple coldly glaring at him. Han Li hesitated for a moment and then decided to start climbing up once again. He only moved up a little bit, as, although there was still time left before noonday, he understood that there was no way he would be able to finish. But how could he stay motionless? Wasn’t that too unsightly!
 
 Han Li let out a little laugh and then stretched out his stiff arms. This movement caused them to regain some feeling. He then started to climb up again, but at this point his arms no longer listened to him. He could only lightly grasp at the rope but never hold it firmly. Nothing he did was effective.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-4
-> Pulled as original English (novelsonline).

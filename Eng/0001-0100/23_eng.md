@@ -57,6 +57,3 @@ The rabbits only maintained this fleshy state for a short time, then they starte
 Seeing the rabbits’ bodies grow into such a strange sight and hearing their painful wails, Han Li was shocked.
 
 The rabbits had undergone an immediate and unexpected change right before his eyes. He had expected that this liquid would be some kind of immortal’s elixir that would vastly improve his power. He absolutely didn’t expect this, and seeing the scene before him made his scalp grow numb. What was happening to the rabbits was unimaginably terrible.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-23
-> Pulled as original English (novelsonline).

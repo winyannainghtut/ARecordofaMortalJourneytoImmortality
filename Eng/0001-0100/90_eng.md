@@ -67,6 +67,3 @@ If one were to say that the morale of Jia Tianlong’s men was greatly increased
 Han Li realized that this Saint of Golden Light’s flying sword technique was exactly the same as the Telekinesis Technique that he himself had learned. Although he did not know if the ray of grey light was indeed a sword, he knew that Telekinesis Technique could only control tangible objects; this fact was undeniable.
 
 Currently, Han Li’s heart surged with the intent to fight. It seemed that his interest towards this fellow Immortal cultivator was growing increasingly high.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-90
-> Pulled as original English (novelsonline).

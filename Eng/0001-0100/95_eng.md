@@ -71,6 +71,3 @@ During the following days, Han Li began using the dwarf’s sword talisman to pr
 Because he knew that he didn’t have much time left, he would practice his Telekinesis Technique even before the sun rose. Every day, he made the glowing talismans soar through the valley and fly unhindered in a dance until his energy was depleted. Afterward, he would close his eyes to replenish his energy before resuming his practice.
 
 In this manner, Han Li repeatedly persisted his dry and dull training that lasted for three days until he had fully mastered the initial stage of the Telekinesis Technique.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-95
-> Pulled as original English (novelsonline).

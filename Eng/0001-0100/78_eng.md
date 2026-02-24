@@ -87,6 +87,3 @@ But even before he recovered, that huge giant behind Han Li moved with the speed
 Mournful cries of shock rang out in the forest, turning into a cacophony of miserable shrieks before they slowly faded away. Before long, there was only silence.
 
 Li Feiyu blankly stared in the direction of the forest with a face full of disbelief.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-78
-> Pulled as original English (novelsonline).

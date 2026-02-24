@@ -85,6 +85,3 @@ After hearing these words, Lady Li and the others revealed a smile one by one,th
 “Elder Li’s body is currently very weak and it is best that avoid too many people or loud noises to expedite the expulsion of the poison. Sect Leader Ma and Elder Qian have expended a great deal of Spiritual Qi, and are currently re-adjusting their breathing. I think that the less people enter, the better. The best case scenario would be if Lady Li were the only one who could enter,” Han Li told Lady Li solemnly.
 
 After hearing these news, Lady Li could not possibly have any other thought. She swiftly nodded her head and could not help but express her thanks to Han Li. She soon rushed into the room by herself in order to see her husband with her own eyes.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-72
-> Pulled as original English (novelsonline).

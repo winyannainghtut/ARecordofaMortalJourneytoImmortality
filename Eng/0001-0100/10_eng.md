@@ -71,6 +71,3 @@ Oh! How could he forget? Just by touching it with his foot, it had caused him al
 With this kind of injury, it looked like he wouldn’t be able to visit Zhang Tie, and had to first go home instead and apply medicine. And then maybe he would think a bit more about how he chanced upon this little bottle.
 
 So thinking of this, Han Li put the bottle against his chest to prevent other from seeing the suspicious bottle. He then turned around and limped back.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-10
-> Pulled as original English (novelsonline).

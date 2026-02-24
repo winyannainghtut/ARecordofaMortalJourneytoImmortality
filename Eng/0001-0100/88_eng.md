@@ -69,6 +69,3 @@ He saw that beneath the golden aura, there was a flickering white light on the d
 This dwarf was actually an Immortal cultivator whose magic power was much lower than Han Li’s. This caused Han Li to be delighted and anguished at the same time.
 
 He was delighted because, as a beginner, his magic power was thicker when compared to the dwarf’s, which signified that the dwarf had merely dabbled in Immortal cultivation. Han Li also felt anguished because he did not know whether or not the dwarf knew any other spells of which he was not aware. As such, he was not sure if he would be able to handle the dwarf.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-88
-> Pulled as original English (novelsonline).

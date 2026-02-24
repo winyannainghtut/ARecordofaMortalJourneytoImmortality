@@ -53,6 +53,3 @@ Han Li resolutely reached up, grabbed the bag, tore it off of his neck, and cast
 “Damn! Wrong! My heart and mind are still in turmoil, and my Qi and blood roil even more violently.”
 
 Han Li, with difficulty, tried to force down the raging energy within him. With bloodshot eyes, he stared at the small leather bag and desperately wished to find the source of this terrible pain.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-22
-> Pulled as original English (novelsonline).

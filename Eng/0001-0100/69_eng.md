@@ -65,6 +65,3 @@ Towards Han Li, Elder Zhao was neither cold nor warm. He made an “en” sound 
 Since Elder Zhao didn’t seem to have a favorable attitude towards him, Han Li would naturally not take the initiative to fawn over Elder Zhao. Following Elder Zhao’s example, Han Li used a flat tone to give his respects, then tried his best to avoid the other person. (TL: The original raw Chinese was “attach himself onto the other person’s hot buttock”
 
 (A message from the author of “A Record of a Mortal’s Journey to Immortality”) Tomorrow I will bring myself together and amend all the unreasonable areas the readers have brought to my attention, so I can only release one chapter today. I hope that the readers will forgive me! I will strive to make this book even more amazing than it currently is. Thank you all for your patience!
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-69
-> Pulled as original English (novelsonline).

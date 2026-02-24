@@ -73,6 +73,3 @@ Wang Juechu stared expressionlessly at Jia Tianlong without saying anything. The
 “Sect Leader Wang came to this place alone, could it be that you intend to surrender?” Smiling, Jia Tianlong asked this question with a hint of ridicule
 
 “You are correct. I wanted to discuss with you matters regarding a surrender,” the Seven Mysteries Sect’s Sect Leader, Wang Juechu, replied icily, similar to an sculpture made of frigid snow.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-82
-> Pulled as original English (novelsonline).

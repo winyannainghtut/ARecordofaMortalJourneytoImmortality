@@ -79,6 +79,3 @@ Anxiously, Han Li’s Third Uncle swiftly pulled out a sack from his robes and i
 Wang HuFa received and weighed the bag in his hand. His expression softened somewhat.
 
 “Fatty Han, you are a man of integrity! Rest assured, I will take care of your nephew and he will not face danger in my hands. But we must quickly set out.”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-2
-> Pulled as original English (novelsonline).

@@ -41,6 +41,3 @@ For the next couple of months, Han Li used the little bottle’s green liquid an
 Yellow Dragon Pellet, Pure Spirit Powder, Gold Essence Pill, and Rising Vitality Pill were all rarely seen medicines, yet they were by the dozen stacked up in front of Han Li in bottles. Han Li looked at these bottles and his face was ecstatic, as he had all of these miracle elixirs. He now had all the aid he needed to break through into the fourth layer, fifth layer, and even possibly the sixth layer! He could do all of that with this kind of medicinal power.
 
 These pills had great effects. Yellow Dragon Pellet and Gold Essence Pill both had the effect of raising the body’s power, helping those training in martial skills. It also sheds one’s mortal body for that of an immortal’s as the body becomes born anew. Pure Spirit Powder had a rare detoxification effect, and could guard one from over hundreds to thousands of poisonous effects. Finally was the Rising Vitality Pill, which was a legendary internal wound medicine. No matter what type of injury one received, as long as one had this medicine and wasn’t dead, they would recover to the point of being even stronger than before, truly a life saving medicine.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-27
-> Pulled as original English (novelsonline).

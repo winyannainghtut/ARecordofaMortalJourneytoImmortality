@@ -45,6 +45,3 @@ What puzzled Han Li the most was that after Elder Mo had taught the two that cha
 Everyday, Elder Mo would bring a book with 3 words written in black on the cover to study, staring at it if it had a beautiful woman in it and if the book was made of pure gold. From then, Han Li and Zhang Tie no longer considered Elder Mo as an elder that would teach and heal them, and was instead a person who was bitterly studying to pass the imperial exam and had no time to deal with them. Soon after the two children learned to read, they recognized that the 3 words on that book had said, “Scripture of Longevity”. It was a book about how to cultivate oneself to the point of extending one’s life.
 
 At that moment, the two children suddenly realized that Elder Mo wasn’t trying to pass the imperial exam, he was trying to live thousands of years like the river tortoise.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-7
-> Pulled as original English (novelsonline).

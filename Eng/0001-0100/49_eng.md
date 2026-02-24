@@ -55,6 +55,3 @@ Doctor Mo turned gloomy, his eyes filled with fury. He kept having narrow encoun
 He looked down and saw an immobile blade. He lightly lifted it up to get a closer look. Suddenly, he realised that this blade was hollow; the space within the blade was similar to the shape of the sharp awl. This blade was merely a cover used to conceal the awl from his vision.
 
 Because of this discovery, the rage that filled him was suddenly extinguished thoroughly.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-49
-> Pulled as original English (novelsonline).

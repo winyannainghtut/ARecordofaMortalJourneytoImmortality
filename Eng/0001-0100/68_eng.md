@@ -63,6 +63,3 @@ In the depths of his heart, Han Li had always held a form of respect towards Doc
 But sadly, things were not meant to be. The heavens dictated that the two would be unable to live in the same world, forcing them fight an intensive battle in which Doctor Mo died accidentally by Han Li’s own hands.
 
 Thinking about his past memories, Han Li couldn’t help but sigh. Afterwards, Ma Rong brought him to Elder Li’s place.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-68
-> Pulled as original English (novelsonline).

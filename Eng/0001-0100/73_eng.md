@@ -81,6 +81,3 @@ But Han Li was stubborn as a mule and asked, “Are you really giving up on Zhan
 Li Feiyu’s giddy appearance immediately turned extremely cold. Filled with killing intent, he declared, “I will chop off the hand of anyone who dares to touch Zhang Xiuer!”
 
 “I don’t care about the things that happen after I die, but as long as I’m alive, Lady Zhang Xiuer belongs to me.” The tone of his words could turn anyone into solid ice.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-73
-> Pulled as original English (novelsonline).

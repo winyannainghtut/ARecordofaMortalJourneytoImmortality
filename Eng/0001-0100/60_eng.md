@@ -69,6 +69,3 @@ Han Li only obtained this double-edged dagger by paying larges amounts of money 
 Previously, Han Li had kept this weapon hidden on his body and almost didn’t have an opportunity to use it. His face darkened and his original smile disappeared by half the thought of almost not being able to use the dagger that he paid a large amount of money to obtain.
 
 He looked at the trembling ball of light with apathy and, without saying word, took a flying step forward as he savagely hacked at the green globe as if he were chopping a block of wood.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-60
-> Pulled as original English (novelsonline).

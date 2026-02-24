@@ -49,6 +49,3 @@ Along the way, they met many different people. Some wore green satin, some were 
 Han Li was eventually brought up to the peak of the mountain where a small dirt house stood; this would be where Han Li would rest for the night. As Han Li slept that night, he had a dream that he was wearing embroidered clothing with a metal sword in his hand and knew martial arts to an exceptional degree. He had also dreamt that he beaten the son of the blacksmith soundly. This dream had been so impressive that even as he woke up the next day, he was still vividly imagining it.
 
 When the morning came, Wang Hufa had brought no breakfast the children to eat breakfast and instead immediately brought them down the mountain to a bamboo infested slope. It was at this place where Lord Yue as well as a few other figures awaited them.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-3
-> Pulled as original English (novelsonline).

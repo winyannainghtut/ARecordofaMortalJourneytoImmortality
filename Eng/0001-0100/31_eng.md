@@ -59,6 +59,3 @@ The Eternal Spring Art cleansed one’s mind and opened them up to enlightenment
 ——
 
 [1] For clarification, when Doctor Mo talks about Han Li trying to fool him, he’s most likely referring to slacking off in his training and never reaching the fourth layer. Han Li probably actually succeeded in making him think that he wasn’t at the fourth layer yet.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-31
-> Pulled as original English (novelsonline).

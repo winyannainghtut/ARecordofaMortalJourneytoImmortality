@@ -73,6 +73,3 @@ Forget about practicing them; just studying such a large number of mechanics wou
 These oppressive conditions drove the final nail in this style’s coffin. The number of practitioners who had to give up and in their hearts curse at the monk who founded this skill cannot even be counted.
 
 After a long time, the Seven Mysteries Sect gradually lost interest in this sword art. They believed it would be impossible for anyone to learn this martial art. They figured that the elder who compiled the style as his dying wish had just been playing a prank. If not, why else would there be such ridiculous conditions to practice it? This clearly made things difficult for many of the disciples, and as a result these rare books were bundled up and shelved away where they were no longer paid attention to.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-39
-> Pulled as original English (novelsonline).

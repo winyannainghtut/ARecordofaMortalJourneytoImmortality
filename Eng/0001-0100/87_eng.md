@@ -71,6 +71,3 @@ He then used his finger to point at the two disciples whose skills were the weak
 The commotion within the Seven Mysteries Sect was naturally witnessed by Jia Tianlong, and even though he felt that the adding of two experts was a bit unexpected, he did not put it within his heart. After all, he believed that the fleshy body of mortals would be unable to stop the Saint of Golden Light’s flying sword technique.
 
 Therefore, both sides finished signing their respective death contracts and exchanging them, thus signaling the start of the deathmatch. Only one side would be able to leave alive.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-87
-> Pulled as original English (novelsonline).

@@ -65,6 +65,3 @@ The command medallion was a black, triangular shape object. On one side, there w
 And as for that book, Han Li knew that this had to be some extraordinary object, given the fact that it wasn’t burned into a crisp after he unleashed his Fireball Technique. But after flipping through a few pages, he realised that this book was actually a genealogical record of some sort, a record of those that were surnamed Qin. Han Li did not know what this had to do with the Saint of Golden Light, nor why it was so important that the dwarf carried it in his possession.
 
 “This dwarf said that he was a disciple from the Ye Clan, but he brought along a genealogical record of those who were surnamed Qin. Could he be a bastard child of the Ye Clan?” Greatly disappointed, Han Li made a few malicious guesses.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-93
-> Pulled as original English (novelsonline).

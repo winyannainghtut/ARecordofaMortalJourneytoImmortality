@@ -61,6 +61,3 @@ After thoroughly understanding the Fireball Technique’s immense power, Han Li 
 Now that Han Li thought about it, a mediocre cultivator who knew a Celestial Art similar to the Fireball Technique could easily kill experts in Jiang Hu. If it was a slightly stronger cultivator, then he could easily sweep across Jiang Hu, unrivaled under the heavens.
 
 The difference in power was simply too immense. It was no wonder that Yu Zhitong looked at normal mortals as if they were insects he could crush underfoot.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-67
-> Pulled as original English (novelsonline).

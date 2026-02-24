@@ -65,6 +65,3 @@ Han Li’s face turned pale. After half a day of silence, he reached out both ha
 “Brother Zhang, is that really you?” His words sounded downcast making him appear to be tranquil.
 
 The face he had pieced together was remarkably similar to that of his good friend, “Zhang Tie.” Thinking back to Doctor Mo’s last few ineffable words, Han Li was completely sure that the giant man and Zhang Tie were somehow closely related. Was it really as it was described in the letter? If the giant man was made from Zhang Tie’s empty body, then his soul was already long gone. But how did his body become so huge and frightening?
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-63
-> Pulled as original English (novelsonline).

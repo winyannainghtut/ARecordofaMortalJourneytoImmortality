@@ -85,6 +85,3 @@ He tilted his head downwards to think, before replying.
 “But what?” Han Li asked. Desperate to learn martial arts, he was unwilling to give up any possible leads.
 
 “But within the hundred years that these techniques have existed in the Seven Void Hall, no one has ever successfully cultivated with any of them. Even the elders who were renowned for their skill with the sword died before they could figure them out. Even the names of these sword techniques are strange, like one of them being the Blinking Sword Art. You tell me, is this name not strange?” Li Feiyu spoke up, repeatedly expressing his doubt.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-33
-> Pulled as original English (novelsonline).

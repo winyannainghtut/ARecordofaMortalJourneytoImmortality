@@ -71,6 +71,3 @@ Seeing as Han Li had suddenly visited, Zhang Tie was surprised. But before Zhang
 Han Li was secretly disappointed. He didn’t want to sit around and chat with Zhang Tie at the moment, and after briefly asking about his cultivation speed, he immediately left the room and returned back to his own place to think of a way to resolve this matter with the bottle.
 
 Returning back to his room, Han Li put the bottle on the table and stared intensely at it. At the same time, his mind was shuffling through plans.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-11
-> Pulled as original English (novelsonline).

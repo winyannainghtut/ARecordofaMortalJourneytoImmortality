@@ -65,6 +65,3 @@ After an afternoon of cultivating, Han Li was dismayed to discover he had made n
 Without the help from any external medicines, he might as well die at that very spot. He would certainly be stuck at this third level forever, incapable of advancing even one more step.
 
 Han Li, in his heart, hoped for Doctor Mo to return. He hoped that he would be lucky enough to be given some good medicine to help him with his plight.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-24
-> Pulled as original English (novelsonline).

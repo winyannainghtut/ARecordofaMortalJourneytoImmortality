@@ -65,6 +65,3 @@ This black-clothed person felt unresigned. He had obviously escaped the furthest
 With great effort, he turned his head to the side. Facing death’s door, he saw in his final moments an intermittent shadow that had appeared behind the second furthermost distant black-clothed man. With a slash as light as a feather, the shadow flashed and faded away. After that, another fellow sect disciple appeared, and a similar white light flashed. The sword pierced the throat of a fellow sect disciple yet again. Like him, their bodies fell onto the meadow with blood leaking from their throats.
 
 After witnessing the shadow’s assassinations, this black-clothed man smiled and accepted his death because he knew he would not be the only one to die. Many would soon accompany him. That shadow was like a demon, and it was unlikely that a single one of the black-clothed disciples could slip away from this demon’s grasp.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-80
-> Pulled as original English (novelsonline).

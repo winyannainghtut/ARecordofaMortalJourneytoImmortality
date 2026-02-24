@@ -61,6 +61,3 @@ There was the low wall made of mud, the rows of rice paddies, and that bumpy roa
 Han Li suppressed the excitement in his heart. He allowed the driver to stop the carriage far outside the village, while Crooked Soul remained in the carriage. Then, Han Li walked towards the direction of the village. The closer he got, the faster his heart thumped.
 
 Han Li had not felt such an irresistible emotion in a long time!
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-98
-> Pulled as original English (novelsonline).

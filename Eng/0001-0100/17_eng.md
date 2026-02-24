@@ -57,6 +57,3 @@ At this moment, a grim figure came up to Wang Dapang’s side. The youth was hol
 “Senior Disciple Li! Senior Disciple Li! Senior Disciple Li!”
 
 Seeing this youth come up to the ring, everyone grew excited as they all began to call out his name. With each shout, they grew ever louder until they eventually began to shake the entire ring with their voices. At this moment, there wasn’t one single person that was cheering for a specific side; there was only one unanimous cry for this youth.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-17
-> Pulled as original English (novelsonline).

@@ -55,6 +55,3 @@ Seeing Han Li move in the way that gods appeared and demons vanished, the Saint 
 Hearing these words, Han Li was secretly delighted. He knew the opponent had mistaken him as a representative of some Immortal cultivation clan. His confidence suddenly rose a bit. He deliberately gave a faint smile, and soon after, he feigned a mysterious identity and softly asked, “I don’t know who Your Excellency is. Why have you taken the initiative to participate in mortal affairs and disturb the local order of the secular realm? This puts my clan in a difficult position!”
 
 Hearing the opponent’s mind town and thinking that Han Li lacked the intention to dispose of him, the dwarf immediately roused his spirit. His two small eyeballs spun around in several circles and he hastily said in an evasive manner, “I am a disciple of Qin Yeling from the Ye Clan. I was simply passing by. Because I was an old friend of the Feral Wolf Gang’s Commander, I couldn’t resist their plea and decided to help them out. By no means did I have any intention of deliberately offending your clan. Brother, I hope you’ll forgive me. What is the name of your noble clan? In the future, this humble man will certainly visit your clan to apologize for this offense.”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-92
-> Pulled as original English (novelsonline).

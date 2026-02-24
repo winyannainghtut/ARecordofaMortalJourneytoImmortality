@@ -57,6 +57,3 @@ The mysterious man finally replied angrily, “Well, what else do you want me to
 Hearing this, Han Li couldn’t help but feel his heart jump a beat as he realized that the mysterious man was so perverse and demented that he would swear on so many of his family members just to gain Doctor Mo’s trust. At first he felt a sense of connection as they both seemed to be in dire straits but that feeling quickly disappeared from Han Li’s mind.
 
 “You’re right. You can’t do anything to me right now since your body has been destroyed, leaving behind your soul. You can’t even see the light of day, and what little strength you have left is useless against me” Doctor Mo said in a slow and deliberate manner in order to maintain his facade.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-55
-> Pulled as original English (novelsonline).

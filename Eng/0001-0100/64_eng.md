@@ -65,6 +65,3 @@ Abandoning all of his worries, he came crashing down on his bed, covered his hea
 He was very tired! He could not bare the mental and physical exhaustion.
 
 “But, being able to live is truly wonderfully!” He couldn’t help thinking this, and as he entered into sleep, the corner of his lips lifted up in a slight smile.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-64
-> Pulled as original English (novelsonline).

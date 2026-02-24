@@ -67,6 +67,3 @@ Doctor Mo recalled this fact. Back when he had originally obtained this recipe, 
 Humph! Doctor Mo did not take notice of Han Li; his brain was hard at work remembering the effects of the Aromatic Coiling Silk.
 
 Aromatic Coiling Silk. This name did not sound dreadful in the slightest. In passing thoughts, people even found that it sounded elegant and romantic. However, its poisonous strength was like the yearning of an infatuated woman: unbearable and bone-deep.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-50
-> Pulled as original English (novelsonline).

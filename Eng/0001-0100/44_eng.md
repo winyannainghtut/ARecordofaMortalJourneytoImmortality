@@ -75,6 +75,3 @@ Naturally, the changes had not escaped from Doctor Mo’s notice. He waited for 
 “Now, will you allow this old man to take your pulse?”。
 
 Doctor Mo’s words caused Han Li’s expression to grow unsightly. To think that Doctor Mo would still request examine his cultivation. Who knew whether Doctor Mo would decide to grab this opportunity to further control and harm him?
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-44
-> Pulled as original English (novelsonline).

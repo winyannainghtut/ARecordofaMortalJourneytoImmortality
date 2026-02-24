@@ -59,6 +59,3 @@ He knew that the fact that he was not touched by Han Li up until now was a meani
 Han Li did not let Commander Jia Tianlong wait any longer. After he got rid of the Commander’s last subordinate, Han Li did not hesitate and immediately flashed behind Jia Tianlong. Han Li gave Jia Tianlong preferential treatment by sending him off with a complete fireball.
 
 After the great Jia Tianlong was delivered to the next world, Han Li clapped his hands and softly said to himself, “It seems that killing this many people is not too difficult of a matter. I told you earlier to settle it yourselves. That would have been much better! There would have been less suffering as well, but you made me settle this personally. The feeling of being on fire must have certainly been unpleasant!”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-94
-> Pulled as original English (novelsonline).

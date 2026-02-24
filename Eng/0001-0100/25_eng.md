@@ -71,6 +71,3 @@ Seeing the rain, Han Li became gloomier and his urgency to experiment increased.
 He turned around to look inside of his room and saw the two happy rabbits frisking about. Though the matter of the bottle depressed him, the rabbits were a different matter. Not only did they survive thus far, their vitality seemed to have increased significantly. Even after ten days of scrutiny, they still showed no signs of illness or poisoning. After eating the Bone and Muscle Enhancing Pill, they had become yet more robust.
 
 This result was not only good, but it made Han Li extremely happy. However, he still worried about his losses, and he couldn’t calm down. He wasn’t sure if the bottle was useless from this point on. All of his plans rested on the single hope that this bottle would be able to work again, but they had been suddenly thwarted by the unpredictable weather. Ah, this truly made Han Li miserable!
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-25
-> Pulled as original English (novelsonline).

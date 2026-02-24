@@ -61,6 +61,3 @@ This was truly inconceivable. This man’s skill was a great and profound myster
 He recalled that there still existed two more similar experts in addition to the bearded man. For the first time since he had rashly agreed to the opponent’s deathmatch, Jia Tianlong felt slightly regretful. He now understood why the opposition had requested a deathmatch with complete confidence. Wang Juechu actually had these three freakish experts to rely on. If Jia Tianlong were in his shoes, he would have also requested a bloody battle.
 
 Thinking of this, Jia Tian Long looked at the disadvantaged dwarf. He already considered whether or not he should send assistance to this self-proclaimed Immortal master to avoid having this expert die such a muddle-headed death without even using his flying swords technique.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-89
-> Pulled as original English (novelsonline).

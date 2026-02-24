@@ -67,6 +67,3 @@ Those who opposed the peace talks and those who supported the talks voiced their
 Even though this kind of filthy decision was unable to satisfy either party, it was the only compromise available. The Seven Mysteries Sect was forced to proceed in this manner.
 
 (TL: The original Chinese said “mixed in mud”)
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-75
-> Pulled as original English (novelsonline).

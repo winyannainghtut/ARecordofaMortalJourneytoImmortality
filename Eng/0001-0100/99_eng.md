@@ -93,6 +93,3 @@ Han Li knew that if he were to walk across the village entrance once more, he wo
 He clearly knew that ever since he had gained insights in the Eternal Spring Arts and learned about the existence of Immortal cultivation, he had walked on a path completely different from that of ordinary mortals.
 
 Regardless of whether there would be misfortune or happiness, prosperity or hardship, he would never regret his choice!
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-99
-> Pulled as original English (novelsonline).

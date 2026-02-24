@@ -61,6 +61,3 @@ Although situation was rapidly taking a turn for the worst, Han Li showed no sig
 Seeing such a vanishing body movement technique, Doctor Mo felt shock in his heart. However, he continued his attack, positioning both his hands in front of him like a screen to contain and block the smoke. He had no intention of letting Han Li escape.
 
 The smoke was truly abnormal; it hesitated for a moment before darting slightly in all four directions as if it were contemplating which direction to escape to. It moved in a strange angle and evaded the screen. In the blink of an eye, the smoke sped towards the leftmost corner of Doctor Mo’s residence before stopping and transforming back into Han Li.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-47
-> Pulled as original English (novelsonline).

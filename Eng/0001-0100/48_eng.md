@@ -61,6 +61,3 @@ Hurriedly, Doctor Mo once again joined his separated palms together, intending t
 Doctor Mo loudly snorted. In his heart, his evaluation of Han Li dropped by a few degrees. In front of an expert such as him, Han Li actually chose to use such an ordinary technique? Wasn’t that equivalent to seeking death? Doctor Mo could tell with a single glance where the body of the true dagger was.
 
 As such, he squinted his eyes, targeting the position of the true blade. He increased his attack speed with the intention to crush the real dagger into pieces, causing Han Li to lose a weapon.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-48
-> Pulled as original English (novelsonline).

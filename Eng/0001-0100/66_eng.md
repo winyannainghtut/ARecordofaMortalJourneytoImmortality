@@ -69,6 +69,3 @@ Unfortunately, Han Li thought that living there was a bit weird. After all, he w
 However, whenever he thought of Doctor Mo, Han Li would naturally be unable to forget the sad fact that he was still under the control of a dead person.
 
 In the period of time after Doctor Mo’s death, he carefully examined his own body, both internally and externally, countless times. He was still unable to refine that thread of cold Yin Qi hidden within his Dantian, Han Li tried to used Pure Spirit Powder and other famous poison-dispelling methods, but sadly none of them were effective. It seemed like the long journey he would have to take in one year’s time was unavoidable.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-66
-> Pulled as original English (novelsonline).

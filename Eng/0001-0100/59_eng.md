@@ -71,6 +71,3 @@ Once finished, his tone suddenly turned prideful “Ha! That Mo Juren was only a
 “Moreover he dared use such despicable means as to get rid of my cultivating body and still wanted to step onto the path of cultivation! He was simply daydreaming!” The hatred Yu Zhitong had kept bottled in his heart for a long time finally revealed itself.
 
 “But you are different, you were born with spiritual roots and intelligence above the norm. Staying in the secular world would be too much of a pity! If you are willing to help me find a new and suitable body, I am willing to act as your guide, introduce you to the elders of my clan, and accept you as my disciple. What do you think?”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-59
-> Pulled as original English (novelsonline).

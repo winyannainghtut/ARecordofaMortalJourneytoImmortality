@@ -79,6 +79,3 @@ Hearing this, Li Feiyu was a bit embarrassed. Not long ago, he had just threaten
 “My name is Han Li and I am Doctor Mo’s only personal disciple. Call me Junior Han.”
 
 Han Li, hearing “little brother”, felt uncomfortable, almost disgusted. He responded by giving his own name to avoid that sickening title.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-21
-> Pulled as original English (novelsonline).

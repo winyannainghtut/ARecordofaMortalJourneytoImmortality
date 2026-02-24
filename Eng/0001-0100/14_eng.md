@@ -87,6 +87,3 @@ In a flash, four years had gone by, and Han Li was 14 years old now.
 He had grown to be even more tanned and looked like a usually silent village boy. Based on his appearances alone, he looked no different than any other farmer boy his age. His looks did not warrant any attention; he was not extraordinarily handsome, and neither did he have that regal air around him like nobles did.
 
 The was the result of living at the stone cultivation house everyday. He would travel back and from from there to his home while occasionally going to Elder Mo’s residence to learn about medicine and read all sorts of different books. The entire valley was his world to live in, and even his chant had successfully reached the 3rd layer.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-14
-> Pulled as original English (novelsonline).

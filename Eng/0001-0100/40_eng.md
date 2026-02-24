@@ -61,6 +61,3 @@ Han Li sighed and started to get up. He rolled his neck and shook out his limbs,
 After the entire night of studying, Han Li already knew how this martial art style linked together and had mastered it. He didn’t need eight or even ten years. Other people wouldn’t even be able to believe it, even if they themselves were geniuses and had heaven given talent. For them, two to three years would already be considered an extraordinary pace.
 
 But time waits for no man!
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-40
-> Pulled as original English (novelsonline).

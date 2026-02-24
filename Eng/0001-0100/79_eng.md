@@ -69,6 +69,3 @@ In the living room of one of the residences, two people were in the middle of a 
 “Passive? So be it. The things that happen out there have nothing to do with me, and to me, safety is most important. This is the best place to be in this situation. Don’t tell me you are going to defy my orders?” The fatty blinked his small eyes and suddenly took out a golden yellow tablet from his robes, shaking the command medallion in front of Ma Rong as a look of insufferable arrogance appeared on his face.
 
 Ma Rong glanced at the fatty before looking at the command medallion. Sighing, he cupped his hands and replied, “The little me does not dare. I shall follow your esteemed orders.”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-79
-> Pulled as original English (novelsonline).

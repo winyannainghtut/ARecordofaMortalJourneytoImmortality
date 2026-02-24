@@ -71,6 +71,3 @@ When Doctor Mo took out one of the silver blades, Han Li saw that, oddly enough,
 Doctor Mo lifted this sinister blade and glanced knowingly at Han Li out of the corner of his eye.
 
 This action left Han Li absolutely horrified. His inauspicious thought seemed to be true: Doctor Mo wanted to use the sinister blade to cut him.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-51
-> Pulled as original English (novelsonline).

@@ -71,6 +71,3 @@ Only to see that everyone beside him had panicked and uncertain looks on their f
 Looking back, Jia Tianlong understood that he would be unable to accomplish his goal of completely annihilating Seven Mysterious Sect within a single night. It seemed that he needed to retreat first and consider the matter carefully once more before making a decision.
 
 “Whatever conditions you have, you can state them, but you should be well aware of the situation. Even though it’s like this, we are both tied, so don’t go overboard!” he exclaimed, not willing to accept the current outcome. As he turned his head around, there was a slight hint of extreme fury within his words.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-84
-> Pulled as original English (novelsonline).

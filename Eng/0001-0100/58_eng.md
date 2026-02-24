@@ -67,6 +67,3 @@ As the blood curse splattered on Doctor Mo face, he was terrified, but after he 
 Based on his rudimentary knowledge of medicinal pills, he searched Yu Zhitong’s corpse and immediately consumed any pills he could find. As expected, pills from a immortal practitioner were unusually effective. After he consumed the pills, Doctor Mo’s Internal Qi was restored.
 
 Doctor Mo laughed crazily, and took Yu Zhitong’s belongings, including the Eternal Spring Arts, which he could not understand. Before he left, Doctor Mo decided to make a comeback and gain revenge on all his enemies after his injuries recovered.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-58
-> Pulled as original English (novelsonline).

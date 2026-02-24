@@ -61,6 +61,3 @@ A gloomy expression appeared on his face. Any one that was familiar with Command
 Commander Jia Tianlong would have been extremely angry, but instead, he turned around and respectfully said, ”Master Zhang, I feel that there is something fishy about this breach. I’m afraid there might be a trap located inside. It’s better to be a bit more cautious!”
 
 “What are you afraid of? With me by your side, how can these ordinary people even be able to hurt you? Let’s go, let’s go! I’ve been here for close to an entire night, I’m extremely tired. The faster we dispose of these Seven Mysteries Sect bastards, the faster I can rest my old bones.” This voice did not sound old at all, but he let out an overflowing archaic tone that was very irritating to the ear.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-81
-> Pulled as original English (novelsonline).

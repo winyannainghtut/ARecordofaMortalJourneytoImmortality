@@ -79,6 +79,3 @@ Han Li strongly resisted his urge to smile. Soon after, he closely followed Seni
 Upon seeing the facial features of the person on the bed, the normally bold Han Li couldn’t help but suck in a cold breath. Now he finally understood why the other doctors were not willing to prescribe medicine.
 
 Right now, the originally benign-faced Senior Elder Li remained unconscious, but there were spots of poison, the size of copper coins, extending from his face to his neck region and from his hands to his legs. Each spot of poison appeared to be different from the others because they varied in a plethora of abnormally bright colors. Everyone who saw them became visibly apprehensive. What was even more problematic for Han Li was that Elder Li’s lips were greenish black and his facial features were enshrouded in a layer of dark air. This meant that the poison was in its late stages, thus making the complex task of saving Elder Li’s small life more difficult.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-70
-> Pulled as original English (novelsonline).

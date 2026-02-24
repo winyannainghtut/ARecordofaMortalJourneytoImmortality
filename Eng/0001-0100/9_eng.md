@@ -55,6 +55,3 @@ Although Elder Mo had explained the benefits and detriments in its entirety to Z
 In order to break through the first layer of the “Way of the Armored Elephant”, Elder Mo had suggested that every afternoon he should go to the Crimson Water Peak’s waterfall and cultivate under the surging waters.
 
 To Zhang Tie, this method would surely have a godly effect. The difference between the peak of the first layer to second layer was only paper thin, and as long as he worked hard, he would surely reach a breakthrough.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-9
-> Pulled as original English (novelsonline).

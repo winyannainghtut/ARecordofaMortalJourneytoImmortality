@@ -57,6 +57,3 @@ After watching for a while, Han Li began to feel some doubt.
 “There’s something strange about this. Why isn’t there any older Senior Disciples around here? Of all the people that came to see this event, there’s not even a single elder that can be seen here. The only people here are those within our age group, so what’s going on here?” Han Li spoke out without any restraint.
 
 The moment Han Li had asked this question, Xiao Suanpan’s face had an extremely strange look to it. This had greatly confused Han Li. Could it be he had asked about some sort of taboo?
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-18
-> Pulled as original English (novelsonline).

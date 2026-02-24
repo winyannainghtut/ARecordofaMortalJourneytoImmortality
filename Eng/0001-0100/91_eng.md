@@ -67,6 +67,3 @@ The grey light that was originally flying toward the grey-clothed man turned in 
 Wherever the gray light went, people lost their heads in fear and were dodging it all over the place. Only a common-looking youth of only seventeen to eighteen years stood unmoving from his original spot. This youth smiled toward the Saint of Golden Light for a moment, exposing his pure white teeth that contrasted against his tan skin. He then pointed to the grey light, which obediently fell into his hand.
 
 “An Immortal cultivator!” The dwarf’s heart trembled and his complexion fell, becoming pale beyond comparison.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-91
-> Pulled as original English (novelsonline).

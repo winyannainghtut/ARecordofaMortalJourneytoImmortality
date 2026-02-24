@@ -57,6 +57,3 @@ Han Li coldly glanced at Sect Leader Wang. This glance made all the hairs on Wan
 Seeing Wang Juechu look frightened, Han Li could not help but be secretly pleased with himself. He looked at Wang Juechu after executing the Heaven’s Eye Technique, giving himself some particular effects. A few days ago, his research discovered a new use for the Heaven’s Eye Technique: he could use the Heaven’s Eye to cause the spirits of ordinary mortals to be in awe.
 
 “There is no reason. I simply felt that if I were to come earlier, everyone’s minds might be a bit more clear-headed. That way, they wouldn’t force any unpleasant affairs upon the other party.” The slightest expression could not be discerned from Han Li’s face, although his tone seemed somewhat ill-intentioned.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-96
-> Pulled as original English (novelsonline).

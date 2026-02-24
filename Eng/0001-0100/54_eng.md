@@ -69,6 +69,3 @@ This type of feeling was totally different from that of his acupoints being seal
 Waves of terror assaulted Han Li. He did not know how Doctor Mo was going to control his body and steal his identity. Was this considered a successful attempt?
 
 “Don’t rush, your body should still be able to sustain this state for a little while longer.“ Doctor Mo muttered, although Han Li was unsure about whether he was talking to Han Li or to himself.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-54
-> Pulled as original English (novelsonline).

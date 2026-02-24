@@ -61,6 +61,3 @@ Thinking about that, he could only shake his head helplessly. As he swallowed a 
 But he understood that these thoughts were pointless, so Han Li leapt to his feet and landed gently on the ground without a sound. Immediately, he took a few strides out of the house.
 
 Tomorrow was the day he would meet with Elder Mo. Before that, he would need to make sure he could exploit his talents to the utmost degree. The plan within his head would need to be polished down to every single minute detail, in each step, and account for every case of danger with an appropriate response.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-43
-> Pulled as original English (novelsonline).

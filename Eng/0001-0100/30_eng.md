@@ -55,6 +55,3 @@ When Han Li heard this, his face was the same as ever, revealing none of his emo
 The inside of his heart was like the roaring sea. He could not have possibly imagined that the truth would be like this. How could he be calm?
 
 Although Han Li had long since expected Doctor Mo to make a move, he had no idea that there was such a grand, sinister plot at work here. Doctor Mo’s motivations and the truth behind Han Li’s cultivation with the chant both vastly exceeded his expectations.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-30
-> Pulled as original English (novelsonline).

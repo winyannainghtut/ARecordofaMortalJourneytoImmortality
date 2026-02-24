@@ -63,6 +63,3 @@ The great Sect Leader Wang proclaimed on the spot that they did not need to wait
 When those who were present heard these words, they all widely opened their eyes and looked at each other in shock. The entire meeting room was absolutely silent. “He isn’t here anymore? Then haven’t our plans turned to bullshit? Why, why did he leave?!” These people had helpless thoughts circulating in their heads.
 
 (TLN: 鸟尽弓藏 – “the birds are over, the bow is put away”: to get rid of someone once he has served his purpose. 过河拆桥- “to destroy the bridge after crossing the river”: to abandon one’s benefactor upon achieving one’s goal. 忘恩负义- “to forget favors and violate justice”: to kick a benefactor in the teeth. 六亲不认- “not recognizing one’s family”: to be self-centered and not make any allowances for the needs of a relative.)
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-97
-> Pulled as original English (novelsonline).

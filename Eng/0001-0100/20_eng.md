@@ -79,6 +79,3 @@ Senior Disciple Li didn’t wish to see Han Li’s gaze any longer so he closed 
 “You have already taken this medicine for several years. If you stop eating it now, I can try to find Doctor Mo to help you and he will have medicine to help you. Although you won’t be able to get all of your life expectancy back, you can live for another twenty to thirty years. This will be at the cost of your body functions, your martial arts. If you instead continue to take this pill, you will continue to suffer flare ups. You will at most live for five to six more years, though your martial arts will continue to develop at a monstrous pace. Since you decided to eat this pill in the first place, you must be a resolute person.
 
 “Make a decision.”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-20
-> Pulled as original English (novelsonline).

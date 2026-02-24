@@ -67,6 +67,3 @@ After Han Li made up his mind, he went outside to take a walk. He stepped out th
 He faced forward into the fierce morning wind, gazing at the half risen sun, and defiantly declared:
 
 “I will control my fate through my own hands! Never will I allow myself to be subjugated by another!”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-32
-> Pulled as original English (novelsonline).

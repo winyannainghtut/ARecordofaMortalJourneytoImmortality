@@ -51,6 +51,3 @@ He took a deep breath, his expression finally becoming serene, and said in a dry
 After saying this sentence, Doctor Mo slowly raised both hands to his eye level and gazed tenderly at his hands without saying a single word. His gaze was similar to passionately looking at a lover, forgetting completely about Han Li.
 
 Han Li raised both his eyebrows and sneered. He grasped his short sword tightly in one hand and slowly approached Doctor Mo in small, measured steps.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-46
-> Pulled as original English (novelsonline).

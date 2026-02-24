@@ -67,6 +67,3 @@ He turned his head and couldn’t help but force a smile. He was nothing like th
 “Once you get sick or injured, come find me and I will treat you.” Han Li clapped Xiao Suanpan’s shoulder, glanced at the crowd a moment, then headed into the forest.
 
 This left Jin Dongbao confused and he looked quite foolish. A bit later he when he left his stupor, he was completely unaware of what was just said.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-19
-> Pulled as original English (novelsonline).

@@ -69,6 +69,3 @@ Even so, ignore the poison within his body, saying the Han Li’s heart was not 
 But the risk he faced was no small matter. If he was not careful, he might end up having to pay with his life.Mo Juren’s enemies are not simple characters!
 
 Mo Juren had carefully constructed a watertight plan to take care of any unsettled business, using the chance to start a new life filled with beautiful women and immense wealth as a collective incentive in order to tie Han Li to Mo Juren’s family, effectively mixing safety and danger together and forcing Han Li to swallow this honey-wrapped poison pill. (TL: “Honey-wrapped poison pill” means a situation that looks appealing but contains many hidden dangers)
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-62
-> Pulled as original English (novelsonline).

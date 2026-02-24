@@ -77,6 +77,3 @@ Originally the light was very bright and illuminated the area, but after he put 
 For a little while, Han Li felt relieved.
 
 But as expected, once he took it out, the light began to gather again. However, this time the light came from all directions, quickly condensing into the bottle and forming one massive ball of light.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-13
-> Pulled as original English (novelsonline).

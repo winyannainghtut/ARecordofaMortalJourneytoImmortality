@@ -81,6 +81,3 @@ Upon hearing this Zhang Tie was interested and immediately agreed on the spot.
 “ Good. Very good. The two of you go back for today. Tomorrow I will teach you a new technique.” Considering that Doctor Mo’s mood right now was pretty good, he couldn’t help but repeat “Good. Very good.”
 
 Han Li and Zhang Tie took a quick glance at each other and thought about how today’s test was full of unexpected developments. The two of them talked to each other afterwards and both of them felt extremely grateful for what had happened.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-8
-> Pulled as original English (novelsonline).

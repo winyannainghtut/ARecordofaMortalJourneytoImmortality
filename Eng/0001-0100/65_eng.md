@@ -55,6 +55,3 @@ This time, the person who wanted to meet him was unexpectedly someone he had met
 This Sect Leader Ma had clearly long forgotten Han Li, a nondescript Unofficial Disciple. Thus, when he met Han Li, he clearly expressed his wish to allow Han Li to take over Doctor Mo’s job. Furthermore, Han Li could enjoy all of Doctor Mo’s benefits. Of course, Doctor Mo’s venerated position could not be given to him yet because Han Li was still too young. At 17 years old, Han Li could not cause others to worship him. But then again, his official monthly salary depended on his position.
 
 In the end, Sect Leader Ma even expressed how if there are anything Han Li was dissatisfied with, he could bring it up and they would take care of it accordingly.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-65
-> Pulled as original English (novelsonline).

@@ -77,6 +77,3 @@ Against others, perhaps these martial arts would not be bad, but trying to use t
 Han Li realized something which worried him. Although this Eternal Spring Art was truly useful, it had no effect in real close combat.
 
 Right now, his only hope was the Blinking Sword Art, as he wished for it to bring him a pleasant surprise.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-34
-> Pulled as original English (novelsonline).

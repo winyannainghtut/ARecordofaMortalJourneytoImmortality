@@ -69,6 +69,3 @@ Here on the left side of the valley was a large and fragrant smelling medicine f
 After that, Doctor Mo didn’t pay attention to the two children any longer and began to walk into the larger house that was far more imposing than the house assigned to Han Li and Zhang Tie.
 
 Han Li was exhausted and didn’t care for Zhang Tie. Staggering to his own bed to rest, he collapsed into a deep sleep. At this moment, he didn’t care that he had already become half of a Seven Dao Sect disciple.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-5
-> Pulled as original English (novelsonline).

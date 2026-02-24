@@ -73,6 +73,3 @@ He knew that, Han Li had recently escaped from a life threatening situation and 
 Caught, Yu Zhitong’s best option for him was to comply with all of Han Li’s demands without testing his patiences with riddles or trickery. The last thing he wanted was to anger Han Li and suffer from his rash actions.
 
 “I want you to honestly tell me everything concerning what you are and exactly how you came to know Doctor Mo. Right now, the only resource I have in my disposal is time, so I will listen to all you have to say.” As he spoke, Han Li seemed to be wearing a mark, his face hiding all emotional fluctuations from Yu Zhitong’s wary perception.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-57
-> Pulled as original English (novelsonline).

@@ -77,6 +77,3 @@ Han Li walked on this strange, almost monster-like road, and hurried back to the
 Because he had left quite late, by the time he had gone halfway back, the sky was pitch black.
 
 If not for his Eternal Spring Art improving his vision, there would have been no way for him to be able to see anything in this dark environment. It must also be noted this was not some kind of path one could travel at reckless speed, for it was filled with twists and turns like a stronghold. If he wasn’t careful, an accident could occur and he could lose his measly life.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-36
-> Pulled as original English (novelsonline).

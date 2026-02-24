@@ -65,6 +65,3 @@ From Zhang Chang Gui’s side came two people who took the fainted disciple away
 Then, from each side came one person. One was carrying a dagger while the other carried a sword.
 
 Each of them had a fiery look on their faces, but they didn’t say a word. Holding their weapons up, they began to clash with the sound of ringing metal.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-16
-> Pulled as original English (novelsonline).

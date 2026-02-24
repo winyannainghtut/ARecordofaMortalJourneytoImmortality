@@ -73,6 +73,3 @@ Once Li Feiyu heard those words, his vision finally returned. He blankly gazed a
 “Xiuer…. Xiuer, she is also there. She also wants to participates in the death contract battle!”
 
 Upon uttering these words, Li Feiyu face instantly became extremely unsightly.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-86
-> Pulled as original English (novelsonline).

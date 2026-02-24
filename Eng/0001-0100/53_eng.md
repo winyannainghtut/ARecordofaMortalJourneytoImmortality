@@ -65,6 +65,3 @@ Looking at the narcissism that clouded Doctor Mo’s features, Han Li felt like 
 “Old man Mo, looks like you have fully regained your vitality, hehe let me congratulate you first. It seems that you no longer require disciple’s help, so could you possibly let disciple off the hook? No matter what issues you have in the future, your disciple would help you without question.”
 
 Han Li was running out of patience. Up to now, he was still unsure of what methods Doctor Mo was going to utilise to deal with him. Han Li pretended to be ignorant and questioned Doctor Mo, hoping to know his fate before making any decisions.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-53
-> Pulled as original English (novelsonline).

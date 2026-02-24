@@ -83,6 +83,3 @@ Han Li’s face revealed a smile smile. What a coincidence!
 In the middle of the circle he recognized a few familiar old faces.
 
 Han Li sat in a branch and looked at the kids and slowly called them out one by one, “Wan Jinbao, Zhang Dalu, Ma Yun, Sun Lisong… Wah! Wang Dapang used to be fat, and now he’s even fatter! Even without the good food from home!” He clicked his tongue in amazement. “Liu Tietou used to be a shady dark haired kid, but look at him now! He has such an unexpectedly handsome face.”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-15
-> Pulled as original English (novelsonline).

@@ -65,6 +65,3 @@ Suddenly, he had an idea.
 He quickly glanced outside and saw that the Iron Slave was still pacing back and forth with no signs of tiredness or an intent to go near the stone room.
 
 Seeing this, Han Li calmed down a bit as he quickly walked up to Mo Juren’s body and shamelessly stretched out both of Doctor Mo’s arms to begin carefully examining every inch of his dead corpse.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-61
-> Pulled as original English (novelsonline).

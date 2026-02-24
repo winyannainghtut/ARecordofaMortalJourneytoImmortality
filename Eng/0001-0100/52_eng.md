@@ -67,6 +67,3 @@ Just as the black fog was at its most saturated point, Doctor Mo suddenly opened
 “Seven Ghost Devouring the Soul!”
 
 Doctor Mo roared out the name of the secret art that he is planning to use on Han Li.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-52
-> Pulled as original English (novelsonline).

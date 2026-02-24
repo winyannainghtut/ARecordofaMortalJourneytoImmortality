@@ -67,6 +67,3 @@ After using Imperial Flight Technique, Han Li felt his body become as light as a
 Of course, this acceleration was different from acceleration achieved by using the technique “Shifting Smoke Steps”. Shifting Smoke Steps was the sect’s secret technique that made the impossible possible by using a copious amount of power to increase speed within a short distance. This kind of movement technique could only reveal its greatest potential in narrow spaces.
 
 In contrast, Imperial Flight Technique gradually used Spiritual Qi in small amounts throughout its execution, minimizing the burden on the body. Han Li was capable of running wildly at will without developing any of the symptoms that were normally exhibited when the body was undergoing extreme stress. Moreover, this technique would continue until he ran out of Spiritual Qi or until he willingly stopped supplying Spiritual Qi. As a result, Imperial Flight Technique was an essential Celestial Art commonly used by low level cultivators while travelling across the land.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-74
-> Pulled as original English (novelsonline).

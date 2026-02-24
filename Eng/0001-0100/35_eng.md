@@ -95,6 +95,3 @@ After hearing Li Feiyu’s words, Han Li cleared his mind.
 “I don’t know if my vision is blurry or if you’ve gone insane! You actually stole half of the Seven Supreme Division’s secret manuals?! If you’re discovered, both of us will suffer a fate worse than death!” As he hollered at Li Feiyu, Han Li pointed his finger at the pile of secret manuals in front of him.
 
 On the top left hand corner of the manuals were several characters written in gold: “Seven Supreme Division, Secret Library”
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-35
-> Pulled as original English (novelsonline).

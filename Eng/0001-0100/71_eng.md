@@ -89,6 +89,3 @@ Seeing these positive developments, Han Li had some concerns, and there were two
 The first reason was that he had just said that the process of counteracting the poison would contain some risks, but the poison ended up easily dispelled. The others might think that he had intentionally tricked them. Wouldn’t that be the same as slapping himself on the face?
 
 Secondly, if the Pure Spirit Powder was so effective in dispelling poison, how come it couldn’t treat the poison within his own body? This made him feel even more anger and concern regarding the poison within his body.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-71
-> Pulled as original English (novelsonline).

@@ -73,6 +73,3 @@ Seeing his mother and father fade away in the distance, Han Li couldn’t help b
 Although for his age he was very mature, he was still just a child in the end. This was the first time he had left home and as such he was sad and hesitant. But in his heart he was resolute; once he could make a lot of money and come back, he would never part with his parents ever again.
 
 Han Li was unaware that, soon in the future, money would lose its meaning to him, and that he was embarking on a different path. An immortal’s path. This trip was the first step he would take on an immortal’s long road.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-1
-> Pulled as original English (novelsonline).

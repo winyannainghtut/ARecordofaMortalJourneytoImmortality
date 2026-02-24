@@ -75,6 +75,3 @@ Back then, the person who sold rabbits to him gave a decent but sort of cheap im
 But thinking back to it, this actually wasn’t very surprising. After all, his position was the only one which allowed one to go up and down the mountain without attracting suspicion.
 
 [1] https://en.wikipedia.org/wiki/Civet
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-38
-> Pulled as original English (novelsonline).

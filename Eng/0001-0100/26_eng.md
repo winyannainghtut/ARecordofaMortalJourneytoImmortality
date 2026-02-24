@@ -47,6 +47,3 @@ Han Li had seen time and time again in the books of Elder Mo’s library about p
 “I cannot tell anyone of this bottle, and I must be careful of how I use it. The way how this bottle collected light was far too noticeable and could easily be discovered by anyone watching,” Han Li thought to himself. He had to keep his mouth shut about this in order to ensure no one would be able to find out his secret.
 
 “However, I am in a position where I need to use herbs to cultivate. If I don’t use this bottle, it would be a terrible waste. I must find a way to get the best of both worlds.” He thought about his cultivation needs for a moment with some sadness. It went without saying that his cultivation was the top priority. Even Doctor Mo was aware that Han Li had barely made any progress in the past few years.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-26
-> Pulled as original English (novelsonline).

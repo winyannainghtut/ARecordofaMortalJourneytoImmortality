@@ -69,6 +69,3 @@ After the small bird ate the food, it cooed and then flew around the room. Once 
 “Four months? I shall await your return on that day! The plan is almost complete! Anyone who stands in front of me that day to block me I will kill! If a god were to try to block me, I would kill them! If Buddha himself were to block me, then the world will have one less Buddha!”
 
 “Haha! Haha!” Doctor Mo abruptly began to laugh wildly and a fanatical look appeared in his eyes.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-41
-> Pulled as original English (novelsonline).

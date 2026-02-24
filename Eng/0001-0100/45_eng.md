@@ -67,6 +67,3 @@ It seemed like what Doctor Mo had said earlier was all a bunch of nonsense, not 
 For the sake of his family as well as his own safety, Han Li drew the short sword, which had been hidden near his waist. This short sword was only a foot long, yet incomparably sharp. Its blade gleamed with a green light. This was a first-rate short sword indeed!
 
 “Today, either you or me will perish. Only one of us can walk out of this place alive,” Han Li coldly stated, baring his teeth in anger was he glared at Doctor Mo.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-45
-> Pulled as original English (novelsonline).

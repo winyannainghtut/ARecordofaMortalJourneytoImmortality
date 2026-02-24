@@ -49,6 +49,3 @@ Han Li long since expected that this question would come and had prepared an ans
 Han Li carefully paid attention to Elder Mo’s expression. His heart shook for a moment before becoming calm once more.
 
 He wasn’t afraid of having his pulse taken to measure the inner Qi in his body. This was because, after reaching the fourth layer, Han Li had discovered that he could freely manipulate the inner workings of his body, such as the intensity of his inner Qi. He could easily control his inner Qi so that it would resemble that of the third layer. With this underhanded trick, he had no fear of Elder Mo’s inspection.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-28
-> Pulled as original English (novelsonline).

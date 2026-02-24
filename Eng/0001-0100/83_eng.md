@@ -61,6 +61,3 @@ The Feral Wolf Gang members were all restless. None of them took notice of two p
 A young man was talking to a taciturn youth in the midst of the crowd, discussing the offensive. It seemed that they had great doubts regarding Wang Juechu’s explanation.
 
 These two people were not bystanders, but were in fact Han Li and Li Feiyu, who had rushed to Elder Li’s residence in disguise.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-83
-> Pulled as original English (novelsonline).

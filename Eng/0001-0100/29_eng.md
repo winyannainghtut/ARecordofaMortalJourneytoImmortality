@@ -85,6 +85,3 @@ Suddenly, it seemed as though time had come to a stop in that room. There was pu
 “Very good, this much is acceptable. Whatever questions you have, you should ask rather than keeping them bottled up.” A sinister smile was plastered onto Doctor Mo’s face and the sinister Qi began to grow, giving him a fearsome look.
 
 “I knew you had not once trusted me as your master, always on guard against me. However, that matters little. I never really considered you my disciple either,” Doctor Mo snorted.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-29
-> Pulled as original English (novelsonline).

@@ -65,6 +65,3 @@ After putting it on, he checked all around him to make sure nobody was near. He 
 Now, he felt fearless and was not afraid of any mishaps. It was inconceivable that the owner would ever be able to find it again.
 
 Han Li quietly returned the hammer and pretended as if nothing had happened. He slowly strolled around inside of the Valley of the God’s Hand until it was nighttime and the sky was dark. And then he limped, wounded foot and all, back to his house.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-12
-> Pulled as original English (novelsonline).

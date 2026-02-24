@@ -77,6 +77,3 @@ Moreover, as long as he was able to kill Jia Tianlong, it would be worth it no m
 As he thought of this, Sect Leader Wang nodded his head, agreeing to his opponent’s request.
 
 “Men, go prepare the arena and the death contract!” Wang Juechu commanded in a stern voice to the people standing behind him.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-85
-> Pulled as original English (novelsonline).

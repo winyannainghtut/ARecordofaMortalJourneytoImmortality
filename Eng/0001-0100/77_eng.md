@@ -71,6 +71,3 @@ Hearing this, Han Li could only remain speechless.
 The other was constantly muttering “Xiuer”, sounding extremely sappy and making Han Li feel a bit of despise mixed with jealousy.
 
 Han Li no longer continued to pay attention to the love-stricken Li Feiyu. He minded his own business and proceeded to enter his own house, starting to swiftly collect all sorts of different yet essential items.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-77
-> Pulled as original English (novelsonline).

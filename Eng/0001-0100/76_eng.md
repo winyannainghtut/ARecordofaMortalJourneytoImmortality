@@ -69,6 +69,3 @@ His visage became very unsightly and gloomy. Not far within his vision, the moun
 Hearing the wind moving behind his back, he asked without turning his head: “Li Feiyu, is it the Feral Wolf Gang?”
 
 “Yes. Who would have thought that they had planned so meticulously? After practically annihilating the negotiation team, they immediately moved up the mountain to slaughter the remaining survivors.” The dusty informant with long and unruly hair was precisely Li Feiyu, who had left four days prior. His current voice was dripping with pent up rage, unwilling to accept the Feral Wolf Gang’s actions.
-
-> Source: https://novelsonline.org/a-record-of-a-mortals-journey-to-immortality/chapter-76
-> Pulled as original English (novelsonline).
