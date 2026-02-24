@@ -12,8 +12,8 @@
 
 ## Current Progress Snapshot
 - **Current target**: 1901 - 2000
-- **Next episode to translate**: 1931
-- **Remaining**: 70 episodes
+- **Next episode to translate**: 1950
+- **Remaining**: 51 episodes
 
 ## Current Active Task: Retranslation of Episodes 1881 - 2000
 **Objective:** Continue retranslating episodes from 1881 up to 2000 to apply the updated strict terminology rules. Keep specific English terms (Qi, Nascent Soul, etc.) untranslated as per `instruction.md`.
@@ -82,11 +82,11 @@
 - [x] **Episode 1942** (Source: Eng/1901-2000/1942_eng.md)
 - [x] **Episode 1943** (Source: Eng/1901-2000/1943_eng.md)
 - [x] **Episode 1944** (Source: Eng/1901-2000/1944_eng.md)
-- [ ] **Episode 1945** (Source: Eng/1901-2000/1945_eng.md)
-- [ ] **Episode 1946** (Source: Eng/1901-2000/1946_eng.md)
-- [ ] **Episode 1947** (Source: Eng/1901-2000/1947_eng.md)
-- [ ] **Episode 1948** (Source: Eng/1901-2000/1948_eng.md)
-- [ ] **Episode 1949** (Source: Eng/1901-2000/1949_eng.md)
+- [x] **Episode 1945** (Source: Eng/1901-2000/1945_eng.md)
+- [x] **Episode 1946** (Source: Eng/1901-2000/1946_eng.md)
+- [x] **Episode 1947** (Source: Eng/1901-2000/1947_eng.md)
+- [x] **Episode 1948** (Source: Eng/1901-2000/1948_eng.md)
+- [x] **Episode 1949** (Source: Eng/1901-2000/1949_eng.md)
 - [ ] **Episode 1950** (Source: Eng/1901-2000/1950_eng.md)
 - [ ] **Episode 1951** (Source: Eng/1901-2000/1951_eng.md)
 - [ ] **Episode 1952** (Source: Eng/1901-2000/1952_eng.md)
