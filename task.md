@@ -12,8 +12,8 @@
 
 ## Current Progress Snapshot
 - **Current target**: 1901 - 2000
-- **Next episode to translate**: 1921
-- **Remaining**: 80 episodes
+- **Next episode to translate**: 1926
+- **Remaining**: 75 episodes
 
 ## Current Active Task: Retranslation of Episodes 1881 - 2000
 **Objective:** Continue retranslating episodes from 1881 up to 2000 to apply the updated strict terminology rules. Keep specific English terms (Qi, Nascent Soul, etc.) untranslated as per `instruction.md`.
@@ -58,11 +58,11 @@
 - [x] **Episode 1918** (Source: Eng/1901-2000/1918_eng.md)
 - [x] **Episode 1919** (Source: Eng/1901-2000/1919_eng.md)
 - [x] **Episode 1920** (Source: Eng/1901-2000/1920_eng.md)
-- [ ] **Episode 1921** (Source: Eng/1901-2000/1921_eng.md)
-- [ ] **Episode 1922** (Source: Eng/1901-2000/1922_eng.md)
-- [ ] **Episode 1923** (Source: Eng/1901-2000/1923_eng.md)
-- [ ] **Episode 1924** (Source: Eng/1901-2000/1924_eng.md)
-- [ ] **Episode 1925** (Source: Eng/1901-2000/1925_eng.md)
+- [x] **Episode 1921** (Source: Eng/1901-2000/1921_eng.md)
+- [x] **Episode 1922** (Source: Eng/1901-2000/1922_eng.md)
+- [x] **Episode 1923** (Source: Eng/1901-2000/1923_eng.md)
+- [x] **Episode 1924** (Source: Eng/1901-2000/1924_eng.md)
+- [x] **Episode 1925** (Source: Eng/1901-2000/1925_eng.md)
 - [ ] **Episode 1926** (Source: Eng/1901-2000/1926_eng.md)
 - [ ] **Episode 1927** (Source: Eng/1901-2000/1927_eng.md)
 - [ ] **Episode 1928** (Source: Eng/1901-2000/1928_eng.md)
