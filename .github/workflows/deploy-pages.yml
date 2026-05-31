@@ -16,8 +16,13 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
+    outputs:
+      artifact_id: ${{ steps.upload_artifact.outputs.artifact_id }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,9 +36,6 @@ jobs:
       - name: Generate manifest
         run: python reader/generate_manifest.py
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
       - name: Prepare site artifact
         run: |
           python - <<'PY'
@@ -42,17 +44,20 @@ jobs:
 
           root = Path(".")
           site = root / "site"
-          if site.exists():
-              shutil.rmtree(site)
-          site.mkdir(parents=True, exist_ok=True)
+          site.mkdir(exist_ok=True)
 
-          def copy_dir_case_insensitive(name: str) -> None:
+          copied_content_dirs = []
+
+
+          def copy_dir_case_insensitive(name: str, *, required: bool = False) -> None:
               match = next(
                   (p for p in root.iterdir() if p.is_dir() and p.name.lower() == name.lower()),
                   None,
               )
               if not match:
-                  print(f"Skipping missing directory: {name}")
+                  if required:
+                      raise SystemExit(f"Missing required directory: {name}")
+                  print(f"Skipping optional directory: {name}")
                   return
 
               destination = site / match.name
@@ -60,10 +65,14 @@ jobs:
                   shutil.rmtree(destination)
               shutil.copytree(match, destination)
               print(f"Copied: {match} -> {destination}")
+              if match.name.lower() in {"eng-episodes", "burmese-episodes"}:
+                  copied_content_dirs.append(match.name)
 
-          copy_dir_case_insensitive("reader")
-          copy_dir_case_insensitive("eng")
-          copy_dir_case_insensitive("burmese")
+          copy_dir_case_insensitive("reader", required=True)
+          copy_dir_case_insensitive("eng-episodes")
+          copy_dir_case_insensitive("burmese-episodes")
+          if not copied_content_dirs:
+              raise SystemExit("No content directories were copied into the Pages artifact.")
 
           # Make the Pages root URL open the reader directly.
           (site / "index.html").write_text(
@@ -89,6 +98,7 @@ jobs:
           du -sh site
 
       - name: Upload Pages artifact
+        id: upload_artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
@@ -100,6 +110,163 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (API)
         id: deployment
-        uses: actions/deploy-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.build.outputs.artifact_id }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import sys
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+
+          API_VERSION = "2022-11-28"
+          POLL_INTERVAL_SECONDS = 5
+          MAX_WAIT_SECONDS = 600
+
+          FINAL_FAILURE_STATES = {
+              "deployment_failed",
+              "deployment_content_failed",
+              "deployment_cancelled",
+              "deployment_lost",
+          }
+
+          TRANSIENT_STATES = {
+              "queued",
+              "pending",
+              "building",
+              "deployment_attempt_error",
+              "unknown_status",
+              "not_found",
+          }
+
+
+          def fail(message):
+              print(f"::error::{message}")
+              sys.exit(1)
+
+
+          def request_json(url, method="GET", token=None, data=None, extra_headers=None):
+              headers = {
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": API_VERSION,
+              }
+              if token:
+                  headers["Authorization"] = f"Bearer {token}"
+              if extra_headers:
+                  headers.update(extra_headers)
+
+              body = None
+              if data is not None:
+                  body = json.dumps(data).encode("utf-8")
+                  headers["Content-Type"] = "application/json"
+
+              req = urllib.request.Request(url, data=body, headers=headers, method=method)
+              try:
+                  with urllib.request.urlopen(req) as resp:
+                      raw = resp.read().decode("utf-8")
+                      return json.loads(raw) if raw else {}
+              except urllib.error.HTTPError as exc:
+                  detail = exc.read().decode("utf-8", errors="replace")
+                  fail(f"{method} {url} failed ({exc.code}): {detail}")
+              except urllib.error.URLError as exc:
+                  fail(f"{method} {url} failed: {exc}")
+
+
+          repo_full = os.environ.get("GITHUB_REPOSITORY", "")
+          if "/" not in repo_full:
+              fail("GITHUB_REPOSITORY is missing or invalid.")
+          owner, repo = repo_full.split("/", 1)
+
+          github_server_url = os.environ.get("GITHUB_SERVER_URL", "https://github.com").rstrip("/")
+          api_url = os.environ.get("GITHUB_API_URL", "https://api.github.com").rstrip("/")
+          github_token = os.environ.get("GITHUB_TOKEN")
+          artifact_id_raw = os.environ.get("ARTIFACT_ID")
+          build_sha = os.environ.get("GITHUB_SHA")
+          output_path = os.environ.get("GITHUB_OUTPUT")
+
+          if not github_token:
+              fail("GITHUB_TOKEN is missing.")
+          if not artifact_id_raw:
+              fail("ARTIFACT_ID is missing from build job output.")
+          if not build_sha:
+              fail("GITHUB_SHA is missing.")
+          if not output_path:
+              fail("GITHUB_OUTPUT is missing.")
+
+          try:
+              artifact_id = int(artifact_id_raw)
+          except ValueError:
+              fail(f"ARTIFACT_ID is not an integer: {artifact_id_raw!r}")
+
+          oidc_req_url = os.environ.get("ACTIONS_ID_TOKEN_REQUEST_URL")
+          oidc_req_token = os.environ.get("ACTIONS_ID_TOKEN_REQUEST_TOKEN")
+          if not oidc_req_url or not oidc_req_token:
+              fail("OIDC request environment is missing. Ensure `id-token: write` permission is set.")
+
+          # GitHub Pages expects the owner URL as audience (for this repo: https://github.com/<owner>)
+          oidc_audience = f"{github_server_url}/{owner}"
+          encoded_audience = urllib.parse.quote(oidc_audience, safe="")
+          sep = "&" if "?" in oidc_req_url else "?"
+          oidc_url = f"{oidc_req_url}{sep}audience={encoded_audience}"
+          oidc_payload = request_json(
+              oidc_url,
+              method="GET",
+              token=oidc_req_token,
+              extra_headers={"Accept": "application/json"},
+          )
+          oidc_token = oidc_payload.get("value")
+          if not oidc_token:
+              fail("OIDC token retrieval returned no token value.")
+
+          deploy_payload = {
+              "artifact_id": artifact_id,
+              "pages_build_version": build_sha,
+              "oidc_token": oidc_token,
+          }
+          deployment = request_json(
+              f"{api_url}/repos/{owner}/{repo}/pages/deployments",
+              method="POST",
+              token=github_token,
+              data=deploy_payload,
+          )
+
+          deployment_id = deployment.get("id") or build_sha
+          page_url = deployment.get("page_url", "")
+          if page_url:
+              with open(output_path, "a", encoding="utf-8") as fh:
+                  fh.write(f"page_url={page_url}\n")
+
+          print(f"Created deployment id: {deployment_id}")
+          print("Polling deployment status...")
+          start = time.time()
+
+          while True:
+              status_data = request_json(
+                  f"{api_url}/repos/{owner}/{repo}/pages/deployments/{deployment_id}",
+                  method="GET",
+                  token=github_token,
+              )
+              status = status_data.get("status", "")
+              print(f"Current status: {status}")
+
+              if status == "succeed":
+                  print("Deployment succeeded.")
+                  break
+
+              if status in FINAL_FAILURE_STATES:
+                  fail(f"Deployment failed with terminal status: {status}")
+
+              if time.time() - start >= MAX_WAIT_SECONDS:
+                  fail("Timed out while waiting for Pages deployment to complete.")
+
+              if status not in TRANSIENT_STATES:
+                  print(f"Status {status!r} is not terminal; continuing to poll.")
+
+              time.sleep(POLL_INTERVAL_SECONDS)
+          PY
