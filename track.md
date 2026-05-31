@@ -8,7 +8,7 @@ This document tracks all remaining untranslated episodes of **A Record of a Mort
 
 - [x] **Batch 1.1:** 193 - 200 (8 episodes)
 - [x] **Batch 1.2:** 201 - 250 (50 episodes)
-- [ ] **Batch 1.3:** 251 - 300 (50 episodes)
+- [x] **Batch 1.3:** 251 - 300 (50 episodes)
 - [ ] **Batch 1.4:** 301 - 350 (50 episodes)
 - [ ] **Batch 1.5:** 351 - 400 (50 episodes)
 - [ ] **Batch 1.6:** 401 - 450 (50 episodes)
