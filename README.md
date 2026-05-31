@@ -100,7 +100,7 @@ Source reference: `instruction.md`
 
 ## Local Development
 
-If you are running the project locally, you must start your local HTTP server from the **root** folder of this repository, not the `reader` folder. This ensures the `app.js` can correctly resolve relative paths to `../Burmese` and `../Eng`.
+If you are running the project locally, you must start your local HTTP server from the **root** folder of this repository, not the `reader` folder. This ensures the `app.js` can correctly resolve relative paths to `../burmese-episodes` and `../eng-episodes`.
 
 ```bash
 # In the root ARecordofaMortalJourneytoImmortality directory

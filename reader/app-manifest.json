@@ -1,17 +1,29 @@
 {
-  "name": "Novel Reader",
-  "short_name": "Novels",
-  "description": "A modern, local markdown novel reader with offline capabilities.",
-  "start_url": "./index.html",
+  "name": "A Record of a Mortal's Journey to Immortality Reader",
+  "short_name": "RMJI Reader",
+  "description": "Offline-capable chapter reader for A Record of a Mortal's Journey to Immortality",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#09090b",
-  "theme_color": "#09090b",
+  "background_color": "#f4f4ef",
+  "theme_color": "#f4f4ef",
   "icons": [
     {
-      "src": "./icon.svg",
+      "src": "./icons/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "categories": [
+    "books",
+    "entertainment"
+  ],
+  "prefer_related_applications": false
 }

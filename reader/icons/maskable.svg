@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Pursuit of the Truth Reader">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8a6842"/>
+      <stop offset="100%" stop-color="#5e4527"/>
+    </linearGradient>
+    <linearGradient id="page" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf6e3"/>
+      <stop offset="100%" stop-color="#ebdfc2"/>
+    </linearGradient>
+  </defs>
+  <!-- Full-bleed for maskable: safe zone is center 80% -->
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <!-- Scaled down to stay inside 40% safe radius -->
+  <g transform="translate(128 160)">
+    <path d="M0 24 Q128 0 128 40 L128 208 Q128 168 0 192 Z" fill="url(#page)" stroke="#4a3720" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M256 24 Q128 0 128 40 L128 208 Q128 168 256 192 Z" fill="url(#page)" stroke="#4a3720" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M128 40 L128 208" stroke="#4a3720" stroke-width="5" stroke-linecap="round"/>
+    <g stroke="#8a6842" stroke-width="5" stroke-linecap="round" opacity="0.55">
+      <path d="M22 66 L106 56"/>
+      <path d="M22 94 L106 84"/>
+      <path d="M22 122 L90 114"/>
+      <path d="M150 56 L234 66"/>
+      <path d="M150 84 L234 94"/>
+      <path d="M150 114 L218 122"/>
+    </g>
+  </g>
+</svg>

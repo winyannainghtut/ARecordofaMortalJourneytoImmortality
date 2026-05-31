@@ -2,8 +2,8 @@
 
 Simple local website for reading markdown chapters from:
 
-- `Eng`
-- `Burmese`
+- `eng-episodes`
+- `burmese-episodes`
 
 ## Run
 
