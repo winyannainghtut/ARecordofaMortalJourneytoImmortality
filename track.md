@@ -1,29 +1,33 @@
-# Translation Progress
+# Leftover Translation Progress Tracker
 
-## Episodes 2001-2100 Phase
-- 2001-2010: Completed
-- 2011-2020: Completed
-- 2021-2024: Completed
+This document tracks all remaining untranslated episodes of **A Record of a Mortal's Journey to Immortality**. Mark each batch as `[x]` once completed.
 
-## Episodes 2301-2400 Phase
-- 2306-2315: Completed
-- 2316-2325: Completed
-- 2326-2335: Completed
-- 2336-2345: Completed
-- 2346-2355: Completed
-- 2356-2365: Completed
-- 2366-2375: Completed
-- 2376-2385: Completed
-- 2386-2395: Completed
-- 2396-2400: Completed
+---
 
-## Episodes 0401-0500 Phase
-- 461: Completed
+## 🛑 Phase 1: Episodes 193 - 460 (268 Leftover Episodes)
 
-## Episodes 2401-2500 Phase
-- Batch 11 (2401-2410): Completed
-- Batch 12 (2411-2420): Completed
-- Batch 13 (2421-2430): Completed
-- Batch 14 (2431-2440): Completed
-- Batch 15 (2441-2450): Completed
-- Batch 16 (2451-2456): Completed
+- [ ] **Batch 1.1:** 193 - 200 (8 episodes)
+- [ ] **Batch 1.2:** 201 - 250 (50 episodes)
+- [ ] **Batch 1.3:** 251 - 300 (50 episodes)
+- [ ] **Batch 1.4:** 301 - 350 (50 episodes)
+- [ ] **Batch 1.5:** 351 - 400 (50 episodes)
+- [ ] **Batch 1.6:** 401 - 450 (50 episodes)
+- [ ] **Batch 1.7:** 452 - 460 (9 episodes)  *(Note: Episode 461 is already translated)*
+
+---
+
+## 🛑 Phase 2: Episodes 462 - 1629 (1,168 Leftover Episodes)
+
+- [ ] **Batch 2.1:** 462 - 500 (39 episodes)
+- [ ] **Batch 2.2:** 501 - 600 (100 episodes)
+- [ ] **Batch 2.3:** 601 - 700 (100 episodes)
+- [ ] **Batch 2.4:** 701 - 800 (100 episodes)
+- [ ] **Batch 2.5:** 801 - 900 (100 episodes)
+- [ ] **Batch 2.6:** 901 - 1000 (100 episodes)
+- [ ] **Batch 2.7:** 1001 - 1100 (100 episodes)
+- [ ] **Batch 2.8:** 1101 - 1200 (100 episodes)
+- [ ] **Batch 2.9:** 1201 - 1300 (100 episodes)
+- [ ] **Batch 2.10:** 1301 - 1400 (100 episodes)
+- [ ] **Batch 2.11:** 1401 - 1500 (100 episodes)
+- [ ] **Batch 2.12:** 1501 - 1600 (100 episodes)
+- [ ] **Batch 2.13:** 1601 - 1629 (29 episodes)
